@@ -498,7 +498,7 @@ nav ul li a:hover
 }
 
 /* PRODUCT CARDS */
-.product-card, .product-card1, .product-card2 {
+.product-card, .product-card1 {
     width: 200px;
     text-align: center;
     background: rgba(0, 0, 0, 0.8);
@@ -514,7 +514,7 @@ nav ul li a:hover
     min-height: 350px;
 }
 
-.product-card h3, .product-card1 h3, .product-card2 h3 {
+.product-card h3, .product-card1 h3 {
     margin-top: 0;
     margin-bottom: 15px;
     transition: font-size 0.3s ease;
@@ -532,7 +532,7 @@ nav ul li a:hover
     padding: 0 5px;
 }
 
-.product-card .P1, .product-card1 .P1, .product-card2 .P1 {
+.product-card .P1, .product-card1 .P1{
     width: 100%;
     height: 180px;
     object-fit: cover;
@@ -542,7 +542,7 @@ nav ul li a:hover
     transition: all 0.3s ease;
 }
 
-.product-card h5, .product-card1 h5, .product-card2 h5 {
+.product-card h5, .product-card1 h5 {
     margin: 10px 0;
     height: 1.2em;
     display: flex;
@@ -550,7 +550,7 @@ nav ul li a:hover
     justify-content: center;
 }
 
-.product-card p, .product-card1 p, .product-card2 p {
+.product-card p, .product-card1 p {
     margin: 10px 0;
     height: 1.5em;
     display: flex;
@@ -558,7 +558,7 @@ nav ul li a:hover
     justify-content: center;
 }
 
-.product-card button, .product-card1 button, .product-card2 button {
+.product-card button, .product-card1 button {
     background-color: #00ff00;
     border: none;
     color: #0a0a0a;
@@ -572,7 +572,7 @@ nav ul li a:hover
     border-radius: 3px;
 }
 
-.product-card button:hover, .product-card1 button:hover, .product-card2 button:hover {
+.product-card button:hover, .product-card1 button:hover {
     background-color: #009900;
 }
 
@@ -584,7 +584,7 @@ nav ul li a:hover
     transition: all 0.3s ease;
 }
 
-.product-container, .product-container1, .product-container2 {
+.product-container, .product-container1{
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
@@ -2738,7 +2738,7 @@ margin-top: 6px;
     rgba(255, 255, 255, 0.33) 31%,
     rgba(0, 0, 0, 0.33) 52%
   );
-  background: url(../imgs/try6.png);
+  background: url(../imgs/fuji.png);
 }
 
 .border:hover:after {

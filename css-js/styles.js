@@ -298,7 +298,7 @@ document.addEventListener("DOMContentLoaded", function () {
             'cyber-dreams': {
                 name: 'Hip Hop',
                 songTitle: 'FLO NAZER',
-                albumCover: 'imgs/ALBUMS/phoneoe copy.gif',
+                albumCover: 'imgs/ALBUMS/SKATE.png',
                 url: 'music/hip-hop.mp3',
                 description: 'This is Hip Hop radio - FLO NAZER. All songs produced & composed by The Prophitt.'
             },

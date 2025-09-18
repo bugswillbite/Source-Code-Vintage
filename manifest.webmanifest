@@ -1,0 +1,20 @@
+ {
+  "name": "Source Code Vintage",
+  "short_name": "SCV",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#000000",
+  "theme_color": "#ffffff",
+  "icons": [
+    {
+      "src": "imgs/splash.png",
+      "sizes": "180x180",
+      "type": "image/png"
+    },
+    {
+      "src": "imgs/favicon-96x96.png",
+      "sizes": "96x96",
+      "type": "image/png"
+    }
+  ]
+}

@@ -7,27 +7,27 @@
   "theme_color": "#ffffff",
   "icons": [
     {
-      "src": "imgs/splash.png",
+      "src": "splash.png",
       "sizes": "180x180",
       "type": "image/png"
     },
     {
-      "src": "imgs/favicon-16x16.png",
+      "src": "splash16.png",
       "sizes": "16x16",
       "type": "image/png"
     },
     {
-      "src": "imgs/favicon-32x32.png",
+      "src": "splash32.png",
       "sizes": "32x32",
       "type": "image/png"
     },
     {
-      "src": "imgs/android-chrome-192x192.png",
+      "src": "imgs/aplsh192.png",
       "sizes": "192x192",
       "type": "image/png"
     },
     {
-      "src": "imgs/android-chrome-512x512.png",
+      "src": "imgs/splash512.png",
       "sizes": "512x512",
       "type": "image/png"
     }

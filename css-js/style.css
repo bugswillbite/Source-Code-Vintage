@@ -37,7 +37,13 @@
 .archive-product-card h5 {
     font-size: 15px;
 }
-
+.skater {
+    margin: 0 auto;
+    width: 557px;
+    position: relative;
+    display: block;
+    margin-top: -95px;
+}
 
 .archive-img {
     width: 100%;

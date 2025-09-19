@@ -1038,3 +1038,19 @@ window.addEventListener('scroll', () => {
     const rotateY = Math.max(-15, Math.min(15, offset / 15));
     image.style.transform = `rotateY(${rotateY}deg)`;
 });
+
+document.addEventListener('DOMContentLoaded', function() {
+    function isMobile() {
+        return window.innerWidth <= 450;
+    }
+    if (isMobile()) {
+        document.querySelectorAll('.archive-img-wrapper').forEach(function(wrapper) {
+            var overlay = wrapper.querySelector('.archive-overlay');
+            wrapper.addEventListener('click', function(e) {
+                if (overlay) {
+                    overlay.classList.toggle('toggled');
+                }
+            });
+        });
+    }
+});

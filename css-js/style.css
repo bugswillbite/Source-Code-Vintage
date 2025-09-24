@@ -24,7 +24,17 @@
     overflow: hidden;
     transition: transform 0.2s, border-color 0.2s;
 }
-
+.stuff
+{
+position: relative;
+  width: 186px;
+  margin-left: calc(50% - 178px);
+  margin: 0 auto;
+    margin-top: 0px;
+  left: 50%;
+  transform: translateX(-50%);
+  margin-top: 20px;
+}
 .archive-img-wrapper {
     position: relative;
     width: 100%;
@@ -382,8 +392,8 @@ section#home {
     padding: 30px 0 30px 0;
     scrollbar-width: none;
     -ms-overflow-style: none;
-    --image-size: 250px;
-    --image-gap: 25px;
+    --image-size: 400px;
+    --image-gap: 50px;
 }
 
 .scrolling-container::-webkit-scrollbar {
@@ -422,8 +432,8 @@ section#home {
         0 0 5px rgba(35, 203, 49, 0.2),
         0 0 10px rgba(35, 203, 49, 0.1),
         0 5px 10px rgba(35, 203, 49, 0.15); 
+    border-radius: 9999px;
 }
-
 .scroll-img:hover {
     transform: scale(1.15);
     animation-play-state: paused;
@@ -624,6 +634,7 @@ nav ul li a:hover
     border-radius: 3px;
     margin: 10px 0;
     transition: all 0.3s ease;
+    opacity: 100%
 }
 
 .product-card h5, .product-card1 h5 {
@@ -688,6 +699,9 @@ footer {
     max-width: 100vw;
     overflow: hidden;
     z-index: 1;
+    align-content: center;
+  justify-content: center;
+  display: flex;
 }
 .footer-video {
     position: absolute;
@@ -707,6 +721,7 @@ footer.foot2
 .glasses {
     width: 100px;
     margin: 20px;
+    opacity: 0;
 }
 
 /* RESPONSIVE */
@@ -788,6 +803,7 @@ right: -67px;
         font-size: 12px;
         padding: 4px 6px;
         white-space: nowrap;
+        letter-spacing: -1px;
     }
     
     main {
@@ -836,12 +852,14 @@ right: -67px;
         padding: 20px 0 40px 0; 
         overflow-x: auto; 
         overflow-y: hidden;
-        --image-size: calc(100vw - 60px);
-        --image-gap: 15px;
+        --image-size: calc(100vw - 150px);
+        --image-gap: 25px;
     }
-    
+    .stuff {
+        width: 125px;
+    }
     .scroll-img {
-        max-width: 250px; 
+        max-width: 413px;
         border: none;
         transform-origin: center center; 
         box-shadow: 
@@ -2799,7 +2817,8 @@ margin-top: 6px;
 .main-container {
   font-family: "Trebuchet MS", sans-serif;
   position: relative;
-  height: 203px;
+  /* height: 203px; */
+  height: 160px;
   aspect-ratio: 1.579;
   border-radius: 1em;
   overflow: hidden;
@@ -2807,7 +2826,8 @@ margin-top: 6px;
   align-items: center;
   justify-content: center;
   transition: all 300ms ease-in;
-  margin-top: 50px;
+  /* margin-top: 20px; */
+  margin-right: 100px;
 }
 .main-container:hover {
   transform: rotateZ(1deg) rotateY(10deg) scale(1.1);
@@ -2848,7 +2868,8 @@ margin-top: 6px;
 }
 
 .card1 {
-  height: 10em;
+  /* height: 10em; */
+height: 8em;
   aspect-ratio: 1.586;
   border-radius: 1em;
   background-color: #999;
@@ -2900,17 +2921,22 @@ margin-top: 6px;
   border: 1px solid #aaa;
   box-shadow: -1px -1px 0 #ddd;
   transform: translate(-50%, -50%);
-  height: 10em;
+  /* height: 10em; */
+  height: 8em;
   aspect-ratio: 1.604;
   background-image: linear-gradient(90deg, #777, #555 2px, #aaa 2px, #aaa);
   background-size: 4px 100%;
 }
 
 .rev {
-  top: 0.5em;
-  left: 0.75em;
+  /* top: 0.5em;
+  left: 0.75em; */
+  top: 0.6em;
+  left: 0.65em;
   color: #a400009f;
-  font-size: 1.25em;
+  /* font-size: 1.25em; */
+  font-size: 0.9em;
+
 }
 
 .master {
@@ -2923,20 +2949,26 @@ margin-top: 6px;
     rgba(121, 121, 121, 1) 100%
   );
   color: #fff;
-  height: 2.5em;
-  width: 2.5em;
+  /* height: 2.5em;
+  width: 2.5em; */
+  height: 1.5em;
+  width: 1.5em;
   border: 1px solid #bbb;
   border-radius: 50%;
 }
 
 .master.one {
-  right: 2em;
+  /* right: 2em; */
+  right: 1.4em;
 }
 
 .master-text {
-  bottom: 0.25em;
+  /* bottom: 0.25em;
   right: 0.8em;
-  font-size: 0.75em;
+  font-size: 0.75em; */
+  bottom: 0.76em;
+  right: 1em;
+  font-size: 0.5em;
 }
 
 .ultra-text {
@@ -2947,18 +2979,30 @@ margin-top: 6px;
 }
 
 .card-number {
-  bottom: 3em;
+  /* bottom: 3em;
   left: 0.75em;
   font-size: 1.2em;
+  position: absolute;
+  color: #fff;
+  text-shadow: -1px -1px #333; */
+  bottom: 1.5em;
+  left: .75em;
+  font-size: .9em;
   position: absolute;
   color: #fff;
   text-shadow: -1px -1px #333;
 }
 
 .card-holder {
-  bottom: 3.5em;
+  /* bottom: 3.5em;
   left: 1.4em;
   font-size: 0.75em;
+  position: absolute;
+  color: #fff;
+  text-shadow: -1px -1px #333; */
+  bottom: 1em;
+  left: 1.2em;
+  font-size: 0.6em;
   position: absolute;
   color: #fff;
   text-shadow: -1px -1px #333;
@@ -2974,9 +3018,13 @@ margin-top: 6px;
 }
 
 .chip {
-  position: absolute;
+  /* position: absolute;
   top: 27.5%;
   left: 8.25%;
+  cursor: grab; */
+  position: absolute;
+  top: 36.5%;
+  left: 4.3%;
   cursor: grab;
 }
 

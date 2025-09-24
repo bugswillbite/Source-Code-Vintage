@@ -901,6 +901,7 @@ right: -67px;
     .glasses {
         width: 60px;
         margin: 15px;
+        opacity: 0 !important;
     }
     
     /* Ensure everything is visible except settings when closed */
@@ -2656,7 +2657,6 @@ margin-top: 6px;
         height: 350px;
         right: -450px;
     }
-    
     .promo-text {
         font-size: 22px;
         bottom: 50px;
@@ -3027,7 +3027,12 @@ height: 8em;
   left: 4.3%;
   cursor: grab;
 }
-
+@media (max-width: 450px) {
+  .main-container {
+        height: 130px !important;
+        margin-right: 50px;
+        }
+}
 @keyframes rotate {
   0% {
     transform: translate(-25em, -15em);

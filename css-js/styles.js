@@ -273,7 +273,8 @@ document.addEventListener("DOMContentLoaded", function () {
         const musicMenuToggle = document.getElementById('musicMenuToggle');
         const musicPopup = document.getElementById('musicPopup');
         const closeMusicPopup = document.getElementById('closeMusicPopup');
-        const songButtons = document.querySelectorAll('.song-btn');
+        const prevStationBtn = document.getElementById('prevStationBtn');
+        const nextStationBtn = document.getElementById('nextStationBtn');
         const currentGenre = document.getElementById('currentGenre');
         const currentSongTitle = document.getElementById('currentSongTitle');
         const radioDescription = document.getElementById('radioDescription');
@@ -325,10 +326,10 @@ document.addEventListener("DOMContentLoaded", function () {
             },
             'synthwave': {
                 name: 'Techno',
-                songTitle: 'REMOTE CONTROL THIEF',
+                songTitle: 'RUN 2',
                 albumCover: 'imgs/ALBUMS/UFO.png',
-                url: 'music/techno.mp3',
-                description: 'This is Techno radio - REMOTE CONTROL THIEF. All songs produced & composed by The Prophitt.'
+                url: 'music/RUN21.mp3',
+                description: 'This is Techno radio - RUN 2. All songs produced & composed by The Prophitt.'
             },
             'lo-fi-beats': {
                 name: 'Pop',
@@ -359,172 +360,106 @@ document.addEventListener("DOMContentLoaded", function () {
                 description: 'Indie Track -+> COSMIC WAFFLE HOUSE. All songs produced & composed by The Prophitt.'
             }
         };
+        const songKeys = Object.keys(songs);
+        let currentStationIndex = songKeys.indexOf(currentSongId);
 
         // Open music popup
         function openMusicPopup() {
-            console.log('Opening music popup');
             musicPopup.style.display = 'block';
             document.body.style.overflow = 'hidden';
-            
-            // Initialize display without auto-playing
             updateDisplay(currentSongId);
         }
 
         // Close music popup
         function closeMusicPopupFunc() {
-            console.log('Closing music popup');
             musicPopup.style.display = 'none';
             document.body.style.overflow = 'auto';
-            
-            // Stop audio when closing
-            if (currentAudio) {
-                currentAudio.pause();
-                currentAudio.currentTime = 0;
-                isPlaying = false;
-                playPauseBtn.textContent = '▶';
-            }
         }
 
         // Update display elements
         function updateDisplay(songId) {
             const song = songs[songId];
             currentSongId = songId;
-            
-            // Update album cover
             const currentAlbumCover = document.getElementById('currentAlbumCover');
             if (currentAlbumCover) {
                 currentAlbumCover.src = song.albumCover;
                 currentAlbumCover.alt = song.albumCover;
             }
-            
-            // Update genre and song title
             if (currentGenre) currentGenre.textContent = song.name;
             if (currentSongTitle) currentSongTitle.textContent = song.songTitle;
-            
-            // Update radio description ticker
             if (radioDescription) radioDescription.textContent = song.description;
             if (radioDescriptionDupe) radioDescriptionDupe.textContent = song.description;
-            
-            // Remove active class from all song buttons
-            songButtons.forEach(btn => btn.classList.remove('active'));
-            
-            // Add active class to selected song button
-            const selectedButton = document.querySelector(`[data-song="${songId}"]`);
-            if (selectedButton) {
-                selectedButton.classList.add('active');
-            }
-            
-            console.log(`Display updated for: ${song.name} - ${song.songTitle}`);
+            // No song-btns to update
         }
 
         // Play selected song
         function playSong(songId) {
             const song = songs[songId];
-            console.log(`Attempting to play: ${song.name} - ${song.songTitle}`);
-            
-            // Stop current audio if playing
+            currentStationIndex = songKeys.indexOf(songId);
             if (currentAudio) {
                 currentAudio.pause();
                 currentAudio.currentTime = 0;
                 currentAudio = null;
             }
-            
-            // Update display first
             updateDisplay(songId);
-            
-            // Create new audio element
             currentAudio = new Audio();
             currentAudio.volume = isMuted ? 0 : currentVolume;
             currentAudio.preload = 'auto';
-            
-            // Handle successful load
-            currentAudio.addEventListener('canplaythrough', () => {
-                console.log(`Audio loaded successfully: ${song.songTitle}`);
-            });
-            
-            // Handle load errors
+            currentAudio.addEventListener('canplaythrough', () => {});
             currentAudio.addEventListener('error', (e) => {
-                console.log(`Audio load error for ${song.songTitle}:`, e);
-                console.log(`Trying URL: ${song.url}`);
-                // Still update UI for demo purposes
                 isPlaying = true;
                 playPauseBtn.textContent = '⏸';
             });
-            
-            // Handle audio end event
             currentAudio.addEventListener('ended', () => {
                 isPlaying = false;
                 if (playPauseBtn) playPauseBtn.textContent = '▶';
-                console.log(`Song ended: ${song.songTitle}`);
             });
-            
-            // Set source and attempt to play
             currentAudio.src = song.url;
-            
             currentAudio.play().then(() => {
                 isPlaying = true;
                 if (playPauseBtn) playPauseBtn.textContent = '⏸';
-                console.log(`Now playing: ${song.name} - ${song.songTitle}`);
             }).catch(error => {
-                console.log('Audio playback failed:', error);
-                console.log(`File URL attempted: ${song.url}`);
-                // For demo purposes, still update the UI
                 isPlaying = true;
                 if (playPauseBtn) playPauseBtn.textContent = '⏸';
-                console.log(`Demo mode: ${song.name} - ${song.songTitle}`);
             });
         }
 
         // Toggle play/pause
         function togglePlayPause() {
-            console.log('Play/pause button clicked');
-            
             if (currentAudio && currentAudio.src) {
                 if (isPlaying) {
                     currentAudio.pause();
                     isPlaying = false;
                     playPauseBtn.textContent = '▶';
-                    console.log('Audio paused');
                 } else {
                     currentAudio.play().then(() => {
                         isPlaying = true;
                         playPauseBtn.textContent = '⏸';
-                        console.log('Audio resumed');
                     }).catch(error => {
-                        console.log('Resume failed:', error);
-                        // Demo mode
                         isPlaying = true;
                         playPauseBtn.textContent = '⏸';
-                        console.log('Demo mode: resumed');
                     });
                 }
             } else {
-                // No audio loaded, start with current song
-                console.log('No audio loaded, starting current song');
                 playSong(currentSongId);
             }
         }
 
         // Toggle mute
         function toggleMute() {
-            console.log('Volume button clicked');
-            
             if (currentAudio) {
                 if (isMuted) {
                     currentAudio.volume = currentVolume;
                     if (volumeSlider) volumeSlider.value = currentVolume * 100;
                     if (volumeBtn) volumeBtn.textContent = '🔊';
                     isMuted = false;
-                    console.log('Audio unmuted');
                 } else {
                     currentAudio.volume = 0;
                     if (volumeSlider) volumeSlider.value = 0;
                     if (volumeBtn) volumeBtn.textContent = '🔇';
                     isMuted = true;
-                    console.log('Audio muted');
                 }
             } else {
-                // Toggle mute state even without audio
                 isMuted = !isMuted;
                 if (volumeBtn) {
                     volumeBtn.textContent = isMuted ? '🔇' : '🔊';
@@ -532,22 +467,17 @@ document.addEventListener("DOMContentLoaded", function () {
                 if (volumeSlider) {
                     volumeSlider.value = isMuted ? 0 : currentVolume * 100;
                 }
-                console.log(`Mute state: ${isMuted}`);
             }
         }
 
         // Update volume
         function updateVolume() {
             if (!volumeSlider) return;
-            
             const volume = volumeSlider.value / 100;
             currentVolume = volume;
-            
             if (currentAudio && !isMuted) {
                 currentAudio.volume = volume;
             }
-            
-            // Update volume button icon
             if (volumeBtn) {
                 if (volume === 0 || isMuted) {
                     volumeBtn.textContent = '🔇';
@@ -557,8 +487,6 @@ document.addEventListener("DOMContentLoaded", function () {
                     volumeBtn.textContent = '🔊';
                 }
             }
-            
-            console.log(`Volume updated: ${volume}`);
         }
 
         // Event listeners
@@ -567,32 +495,16 @@ document.addEventListener("DOMContentLoaded", function () {
             e.stopPropagation();
             openMusicPopup();
         });
-
         closeMusicPopup.addEventListener('click', function(e) {
             e.preventDefault();
             e.stopPropagation();
             closeMusicPopupFunc();
         });
-        
-        // Close popup when clicking outside
         musicPopup.addEventListener('click', function(e) {
             if (e.target === musicPopup) {
                 closeMusicPopupFunc();
             }
         });
-
-        // Song selection
-        songButtons.forEach(button => {
-            button.addEventListener('click', function(e) {
-                e.preventDefault();
-                e.stopPropagation();
-                const songKey = this.getAttribute('data-song');
-                console.log(`Song button clicked: ${songKey}`);
-                playSong(songKey);
-            });
-        });
-
-        // Music controls
         if (playPauseBtn) {
             playPauseBtn.addEventListener('click', function(e) {
                 e.preventDefault();
@@ -600,7 +512,6 @@ document.addEventListener("DOMContentLoaded", function () {
                 togglePlayPause();
             });
         }
-
         if (volumeBtn) {
             volumeBtn.addEventListener('click', function(e) {
                 e.preventDefault();
@@ -608,28 +519,35 @@ document.addEventListener("DOMContentLoaded", function () {
                 toggleMute();
             });
         }
-
         if (volumeSlider) {
             volumeSlider.addEventListener('input', updateVolume);
             volumeSlider.addEventListener('change', updateVolume);
         }
-
-        // Close with Escape key
+        if (nextStationBtn) {
+            nextStationBtn.addEventListener('click', function(e) {
+                e.preventDefault();
+                e.stopPropagation();
+                currentStationIndex = (currentStationIndex + 1) % songKeys.length;
+                playSong(songKeys[currentStationIndex]);
+            });
+        }
+        if (prevStationBtn) {
+            prevStationBtn.addEventListener('click', function(e) {
+                e.preventDefault();
+                e.stopPropagation();
+                currentStationIndex = (currentStationIndex - 1 + songKeys.length) % songKeys.length;
+                playSong(songKeys[currentStationIndex]);
+            });
+        }
         document.addEventListener('keydown', function(e) {
             if (e.key === 'Escape' && musicPopup.style.display === 'block') {
                 closeMusicPopupFunc();
             }
         });
-
-        // Initialize
         if (volumeSlider) volumeSlider.value = currentVolume * 100;
         if (playPauseBtn) playPauseBtn.textContent = '▶';
         if (volumeBtn) volumeBtn.textContent = '🔊';
-        
-        // Set initial display
         updateDisplay(currentSongId);
-        
-        console.log('Music player setup complete');
     }
 
     // RESPONSIVE BEHAVIOR HANDLER

@@ -320,14 +320,14 @@ document.addEventListener("DOMContentLoaded", function () {
             'retro-wave': {
                 name: 'House',
                 songTitle: 'REFRIDGERATOR RUNNIN',
-                albumCover: 'imgs/ALBUMS/hand.gif',
+                albumCover: 'imgs/ALBUMS/frig.gif',
                 url: 'music/refridgerator_runnin_101 HOUSE.mp3',
                 description: 'House Track -+> REFRIDGERATOR RUNNIN. All songs produced & composed by The Prophitt. Better go catch it!'
             },
             'synthwave': {
                 name: 'Techno',
                 songTitle: 'RUN 2',
-                albumCover: 'imgs/ALBUMS/UFO.png',
+                albumCover: 'imgs/ALBUMS/RUN2.gif',
                 url: 'music/RUN21.mp3',
                 description: 'This is Techno radio - RUN 2. All songs produced & composed by The Prophitt.'
             },
@@ -348,16 +348,16 @@ document.addEventListener("DOMContentLoaded", function () {
             'chillwave': {
                 name: 'Funk',
                 songTitle: 'SHIVA, BABY',
-                albumCover: 'imgs/ALBUMS/IDKK.png',
+                albumCover: 'imgs/ALBUMS/sba5.gif',
                 url: 'music/shivababy_funk_100_2.mp3',
                 description: 'This is Funk radio - SHIVA, BABY. All songs produced & composed by The Prophitt.'
             },
             'cyberpunk': {
                 name: 'Indie',
-                songTitle: 'COSMIC WAFFLE HOUSE',
-                albumCover: 'imgs/ALBUMS/ZOMBI.png',
+                songTitle: 'OVER-LACED SHOES',
+                albumCover: 'imgs/ALBUMS/dance.gif',
                 url: 'music/Cosmic Waffle House_Indie_154.mp3',
-                description: 'Indie Track -+> COSMIC WAFFLE HOUSE. All songs produced & composed by The Prophitt.'
+                description: 'Indie Track -+> OVER-LACED SHOES. All songs produced & composed by The Prophitt.'
             }
         };
         const songKeys = Object.keys(songs);

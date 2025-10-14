@@ -441,6 +441,7 @@ section#home {
 .header-img {
     width: 100%;
     margin: 0 auto;
+    margin-top: -20px;
 }
 .scrolling-container::-webkit-scrollbar {
     display: none;
@@ -867,6 +868,7 @@ footer.foot2
     .header-img {
         width: 83%;
         margin: 0 auto;
+        margin-top: -20px;
     }
     .names
     {
@@ -2856,10 +2858,6 @@ margin-top: 6px;
   height: 100%;
   background-image: radial-gradient(#c5ff7e, #18ff24 40%, transparent 70%);
 }
-.music-controls-overlay h3
-{
-    font-size: 18px;
-}
 
 .switch .dots {
   position: absolute;
@@ -2921,7 +2919,6 @@ margin-top: 6px;
 }
 
 
-
 .main-container {
   font-family: "Trebuchet MS", sans-serif;
   position: relative;
@@ -2941,7 +2938,10 @@ margin-top: 6px;
   transform: rotateZ(1deg) rotateY(10deg) scale(1.1);
   box-shadow: 0 2em 8em #3d8700;
 }
-
+.music-controls-overlay h3
+{
+    font-size: 18px;
+}
 .border {
   display: flex;
   align-items: center;

@@ -63,10 +63,17 @@ document.addEventListener("DOMContentLoaded", function () {
     function setupSmoothScroll() {
         document.querySelectorAll('nav a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
+                // If this anchor is a dropdown toggle (For Sale), don't perform the auto-scroll.
+                // Some toggles still use an href for semantics, so support data-noscroll or explicit id.
+                if (this.id === 'forSaleToggle' || this.dataset.noscroll === 'true') {
+                    e.preventDefault();
+                    return; // let the toggle's own click handler run (it will show/hide submenu)
+                }
+
                 e.preventDefault();
                 const targetId = this.getAttribute('href');
                 const targetSection = document.querySelector(targetId);
-                
+
                 if (targetSection) {
                     targetSection.scrollIntoView({
                         behavior: 'smooth',
@@ -981,7 +988,51 @@ document.addEventListener("DOMContentLoaded", function () {
     setupScrollingImagesClick();
     setupDualScrolling();
     setupFlyingPromo();
+    setupPreventVideoFullscreen();
 });
+
+    // Prevent videos from entering fullscreen
+    function setupPreventVideoFullscreen() {
+        try {
+            const videos = document.querySelectorAll('video');
+            if (!videos || videos.length === 0) return;
+
+            // If any code tries to request fullscreen on a video, override the method per element.
+            videos.forEach(v => {
+                // Ensure inline playback on mobile (iOS/Android)
+                v.setAttribute('playsinline', '');
+                v.setAttribute('webkit-playsinline', '');
+                v.setAttribute('x5-playsinline', '');
+
+                // Disable picture-in-picture and fullscreen controls where supported
+                try { v.setAttribute('disablepictureinpicture', ''); } catch (e) {}
+                try { v.setAttribute('controlsList', 'nofullscreen nodownload'); } catch (e) {}
+
+                // Override element methods to no-op
+                try { v.requestFullscreen = () => Promise.reject(new Error('fullscreen disabled')); } catch (e) {}
+                try { v.webkitRequestFullscreen = () => {}; } catch (e) {}
+                try { v.mozRequestFullScreen = () => {}; } catch (e) {}
+                try { v.msRequestFullscreen = () => {}; } catch (e) {}
+
+                // iOS: prevent programmatic begin fullscreen event where possible
+                v.addEventListener('webkitbeginfullscreen', function(ev) {
+                    // If this fires, attempt to exit; often this won't be available, but try to keep UX consistent
+                    try { if (document.webkitExitFullscreen) document.webkitExitFullscreen(); } catch (e) {}
+                });
+            });
+
+            // Global guard: if a video becomes fullscreen, immediately exit
+            document.addEventListener('fullscreenchange', () => {
+                try {
+                    if (document.fullscreenElement && document.fullscreenElement.tagName === 'VIDEO') {
+                        document.exitFullscreen().catch(() => {});
+                    }
+                } catch (e) {}
+            });
+        } catch (e) {
+            console.warn('setupPreventVideoFullscreen failed', e);
+        }
+    }
 
 
 

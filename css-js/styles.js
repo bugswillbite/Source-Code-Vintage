@@ -611,6 +611,45 @@ document.addEventListener("DOMContentLoaded", function () {
         handleResize();
     }
 
+    // FOR SALE DROPDOWN BEHAVIOR
+    function setupForSaleDropdown() {
+        const forSaleToggle = document.getElementById('forSaleToggle');
+        const forSaleDropdown = document.getElementById('forSaleDropdown');
+
+        if (!forSaleToggle || !forSaleDropdown) return;
+
+        // Toggle on click for mobile
+        forSaleToggle.addEventListener('click', function(e) {
+            e.preventDefault();
+            e.stopPropagation();
+            const isVisible = forSaleDropdown.style.display === 'block';
+            forSaleDropdown.style.display = isVisible ? 'none' : 'block';
+        });
+
+        // Smooth scroll when clicking a dropdown item
+        forSaleDropdown.querySelectorAll('a[data-target]').forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                e.stopPropagation();
+                const target = this.getAttribute('data-target');
+                const el = document.querySelector(target);
+                if (el) {
+                    forSaleDropdown.style.display = 'none';
+                    el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            });
+        });
+
+        // Close dropdown when clicking outside (mobile)
+        document.addEventListener('click', function(e) {
+            if (!forSaleToggle.contains(e.target) && !forSaleDropdown.contains(e.target)) {
+                if (window.innerWidth <= 768) {
+                    forSaleDropdown.style.display = 'none';
+                }
+            }
+        });
+    }
+
     // TOUCH GESTURE SUPPORT FOR MOBILE
     function setupTouchGestures() {
         const isMobile = window.innerWidth <= 420;
@@ -936,6 +975,7 @@ document.addEventListener("DOMContentLoaded", function () {
     setupHeaderParallax();
     setupSettingsMenu();
     setupMusicPlayer();
+    setupForSaleDropdown();
     setupResponsiveBehavior();
     setupTouchGestures();
     setupScrollingImagesClick();

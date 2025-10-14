@@ -23,8 +23,9 @@
     <title>Source Code Vintage</title>
     <meta name="description" content="Source Code Vintage - Join the Binary Swag Club. Unique items in many ranges of styles and pricing that you wont find anywhere else.">
     <meta name="apple-mobile-web-app-title" content="Source Code Vintage">
+    
     <!-- Open Graph (Facebook, LinkedIn, etc.) -->
-    <meta property="og:title" content="Source Code Vintage - Join the Binary Swag Club.">
+    <meta property="og:title" content="Source Code Vintage - Join the Binary Swag Club">
     <meta property="og:site_name" content="Source Code Vintage">
     <meta property="og:description" content="Source Code Vintage offers unique items in many ranges of styles and pricing that you won't find anywhere else.">
     <meta property="og:image" content="https://binaryswag.club/splash.png">
@@ -33,7 +34,7 @@
 
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Source Code Vintage - Join the Binary Swag Club.">
+    <meta name="twitter:title" content="Source Code Vintage - Join the Binary Swag Club">
     <meta name="twitter:description" content="Source Code Vintage offers unique items in many ranges of styles and pricing that you won't find anywhere else.">
     <meta name="twitter:image" content="https://binaryswag.club/splash.png">
 
@@ -70,8 +71,7 @@
     <img class="scatter3" src="imgs/pngs-gifs/alien1 copy.gif">
     <!-- <img class="scatter4" src="imgs/default-img.png" alt="Scatter 4">
     <img class="scatter5" src="imgs/default-img.png" alt="Scatter 5">
-    <img class="scatter6" src="imgs/default-img.png" alt="Scatter 6">
-     -->
+    <img class="scatter6" src="imgs/default-img.png" alt="Scatter 6">-->
 
     <!-- FLYING ANIMATED ELEMENTS -->
     <div class="flying-elements">
@@ -93,7 +93,7 @@
         <img class="cheech2" src="imgs/pngs-gifs/WIZARDPNG.png">
         <img class="sword" src="imgs/sord-selected.png" alt="Sword Selected" id="sword1">
         <img class="sword2" src="imgs/sword.png" alt="Sword" id="sword2">
-         <nav>
+        <nav>
             <ul>
                 <li class="music-menu-item">
                     <button id="musicMenuToggle" class="music-icon-btn">
@@ -101,25 +101,31 @@
                     </button>
                 </li>
                 <li><a href="#home">Home</a></li>
-                <li><a href="#products">For Sale</a></li>
+                <li class="for-sale-nav">
+                    <a href="#products" id="forSaleToggle">For Sale</a>
+                    <ul class="for-sale-dropdown" id="forSaleDropdown">
+                        <li><a href="#products" data-target="#products">All For Sale</a></li>
+                        <li><a href="#tees" data-target="#tees">TeEs & ToPs</a></li>
+                        <li><a href="#hoodies" data-target="#hoodies">HoOdIeS</a></li>
+                        <li><a href="#dresses" data-target="#dresses">DrEsSeS & SkiRtS</a></li>
+                        <li><a href="#trinkets" data-target="#trinkets">TrINkEtS & FiGuReS</a></li>
+                    </ul>
+                </li>
                 <li><a href="#about">About</a></li>
                 <li><a href="#contact">Contact</a></li>
                 <li><a href="archive.html">Archive</a></li>
-
                 <li class="settings-menu-item">
                     <button id="settingsMenuToggle" class="settings-icon-btn">
                         <span class="settings-icon">⚙</span>
                     </button>
                 </li>
             </ul>
-            
             <!-- SETTINGS MENU DROPDOWN -->
             <div id="settingsMenu" class="settings-menu">
                 <div class="settings-menu-content">
                     <h4>settings</h4>
                     <div class="setting-item">
                         <label class="setting-label">toggle bg animations: </label>
-                        
                         <label class="switch">
                         <input type="checkbox" checked="checked" id="animationToggle">
                         <div class="button">
@@ -193,13 +199,12 @@
         </div>
     </div>
 
-
     <main>
-        
+        <!-- SECTION: HOME -->
         <section id="home">    
-        <!-- SCROLLING IMAGES CONTAINER -->
+            <!-- SCROLLING IMAGES CONTAINER -->
             <div class="scrolling-container">
-                <div class="scrolling-images">
+                <!-- <div class="scrolling-images">
                     <img src="imgs/header/IMG_2560.jpg" alt="Product 1" class="scroll-img">
                     <img src="imgs/header/IMG_3868.JPG" alt="Product 2" class="scroll-img">
                     <img src="imgs/header/PICT0014.JPG" alt="Product 3" class="scroll-img">
@@ -223,345 +228,11 @@
                     <img src="imgs/header/PICT0064.JPG" alt="Product 9" class="scroll-img">
                     <img src="imgs/header/PICT0238.JPG" alt="Product 10" class="scroll-img">
                     <img src="imgs/header/IMG_8871.jpg" alt="Product 11" class="scroll-img">
-
-                </div>
-            </div>
-        <img src="stuff.png" class="stuff" alt="Stuff">
-        </section>
-                <!-- <div class="main-container">
-        <div class="border">
-            <div class="card1">
-            <div class="shadow">
-                <div class="content">
-                <p class="rev">BINARY SWAG CLUB</p>
-                <p class="ultra-text">PATREON</p>
-                <p class="master-text">sourcecard</p>
-                <p class="card-number">0101 0011 0100 0011</p>
-                <p class="card-holder">Source Code Vintage</p>
-                <p class="master one"></p>
-                <p class="master two"></p>
-                <svg
-                    version="1.1"
-                    class="chip"
-                    xmlns="http://www.w3.org/2000/svg"
-                    xmlns:xlink="http://www.w3.org/1999/xlink"
-                    x="0px"
-                    y="0px"
-                    width="40px"
-                    height="40px"
-                    viewBox="0 0 50 50"
-                    xml:space="preserve"
-                >
-                    <image
-                    width="50"
-                    height="50"
-                    x="0"
-                    y="0"
-                    href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAMAAAAp4XiDAAAABGdBTUEAALGPC/xhBQAAACBjSFJN
-                    AAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAB6VBMVEUAAACNcTiVeUKVeUOY
-                    fEaafEeUeUSYfEWZfEaykleyklaXe0SWekSZZjOYfEWYe0WXfUWXe0WcgEicfkiXe0SVekSXekSW
-                    ekKYe0a9nF67m12ZfUWUeEaXfESVekOdgEmVeUWWekSniU+VeUKVeUOrjFKYfEWliE6WeESZe0GS
-                    e0WYfES7ml2Xe0WXeESUeEOWfEWcf0eWfESXe0SXfEWYekSVeUKXfEWxklawkVaZfEWWekOUekOW
-                    ekSYfESZe0eXekWYfEWZe0WZe0eVeUSWeETAnmDCoWLJpmbxy4P1zoXwyoLIpWbjvXjivnjgu3bf
-                    u3beunWvkFWxkle/nmDivXiWekTnwXvkwHrCoWOuj1SXe0TEo2TDo2PlwHratnKZfEbQrWvPrWua
-                    fUfbt3PJp2agg0v0zYX0zYSfgkvKp2frxX7mwHrlv3rsxn/yzIPgvHfduXWXe0XuyIDzzISsjVO1
-                    lVm0lFitjVPzzIPqxX7duna0lVncuHTLqGjvyIHeuXXxyYGZfUayk1iyk1e2lln1zYTEomO2llrb
-                    tnOafkjFpGSbfkfZtXLhvHfkv3nqxH3mwXujhU3KqWizlFilh06khk2fgkqsjlPHpWXJp2erjVOh
-                    g0yWe0SliE+XekShhEvAn2D///+gx8TWAAAARnRSTlMACVCTtsRl7Pv7+vxkBab7pZv5+ZlL/UnU
-                    /f3SJCVe+Fx39naA9/75XSMh0/3SSkia+pil/KRj7Pr662JPkrbP7OLQ0JFOijI1MwAAAAFiS0dE
-                    orDd34wAAAAJcEhZcwAACxMAAAsTAQCanBgAAAAHdElNRQfnAg0IDx2lsiuJAAACLElEQVRIx2Ng
-                    GAXkAUYmZhZWPICFmYkRVQcbOwenmzse4MbFzc6DpIGXj8PD04sA8PbhF+CFaxEU8iWkAQT8hEVg
-                    OkTF/InR4eUVICYO1SIhCRMLDAoKDvFDVhUaEhwUFAjjSUlDdMiEhcOEItzdI6OiYxA6YqODIt3d
-                    I2DcuDBZsBY5eVTr4xMSYcyk5BRUOXkFsBZFJTQnp6alQxgZmVloUkrKYC0qqmji2WE5EEZuWB6a
-                    lKoKdi35YQUQRkFYPpFaCouKIYzi6EDitJSUlsGY5RWVRGjJLyxNy4ZxqtIqqvOxaVELQwZFZdkI
-                    JVU1RSiSalAt6rUwUBdWG1CP6pT6gNqwOrgCdQyHNYR5YQFhDXj8MiK1IAeyN6aORiyBjByVTc0F
-                    qBoKWpqwRCVSgilOaY2OaUPw29qjOzqLvTAchpos47u6EZyYnngUSRwpuTe6D+6qaFQdOPNLRzOM
-                    1dzhRZyW+CZouHk3dWLXglFcFIflQhj9YWjJGlZcaKAVSvjyPrRQ0oQVKDAQHlYFYUwIm4gqExGm
-                    BSkutaVQJeomwViTJqPK6OhCy2Q9sQBk8cY0DxjTJw0lAQWK6cOKfgNhpKK7ZMpUeF3jPa28BCET
-                    amiEqJKM+X1gxvWXpoUjVIVPnwErw71nmpgiqiQGBjNzbgs3j1nus+fMndc+Cwm0T52/oNR9lsdC
-                    S24ra7Tq1cbWjpXV3sHRCb1idXZ0sGdltXNxRateRwHRAACYHutzk/2I5QAAACV0RVh0ZGF0ZTpj
-                    cmVhdGUAMjAyMy0wMi0xM1QwODoxNToyOSswMDowMEUnN7UAAAAldEVYdGRhdGU6bW9kaWZ5ADIw
-                    MjMtMDItMTNUMDg6MTU6MjkrMDA6MDA0eo8JAAAAKHRFWHRkYXRlOnRpbWVzdGFtcAAyMDIzLTAy
-                    LTEzVDA4OjE1OjI5KzAwOjAwY2+u1gAAAABJRU5ErkJggg=="
-                    ></image>
-                </svg>
-                </div>
-            </div>
-            </div>
-        </div>
                 </div> -->
-        <section id="products" class="main-content">
-            <!-- SHIRTS -->
-            <h2 class="POP">TeEs & ToPs</h2>
-                <div class="product-container">
-                    <div class="product-card">
-                        <h3>Wall-E Shirt</h3>
-                        <img src="imgs/shirts/walle.png" class="P1" alt="Wall-E Shirt">
-                        <h5>Mens M</h5>
-                        <p><strong>$175</strong></p>
-                        <a href="https://www.depop.com/products/sourcecodevintage-pixar-wall-e-disney-official/" target="_blank"><button>Buy</button></a>
-                    </div>
-
-                    <div class="product-card">
-                        <h3>Beastie Boys Ringer</h3>
-                        <img src="imgs/shirts/bb.png" class="P1" alt="Beastie Boys Ringer">
-                        <h5>Mens L</h5>
-                        <p><strong>$35</strong></p>
-                        <a href="https://www.depop.com/products/sourcecodevintage-beastie-boys-check-your-head/" target="_blank"><button>Buy</button></a>
-                    </div>
-
-                    <div class="product-card">
-                        <h3>Hot Air Balloon Tee</h3>
-                        <img src="imgs/shirts/hbo.jpg" class="P1" alt="Hot Air Balloon Tee">
-                        <h5> Mens XL</h5>
-                        <p><strong>$45</strong></p>
-                        <a href="https://www.depop.com/products/sourcecodevintage-hot-air-balloon-tee-one/" target="_blank"><button>Buy</button></a>
-                    </div>
-
-                    <div class="product-card">
-                        <h3>Marc Jacobs Tee</h3>
-                        <img src="imgs/shirts/poo.jpg" class="P1" alt="Marc Jacobs Tee">
-                        <h5>Womens S</h5>
-                        <p><strong>$75</strong></p>
-                        <a href="https://www.depop.com/products/sourcecodevintage-white-and-pink-steve-madden/" target="_blank"><button>Buy</button></a>
-                    </div>
-                    
-                    <div class="product-card">
-                        <h3>Rock Layered Top</h3>
-                        <img src="imgs/shirts/rock.jpg" class="P1" alt="Rock Layered Top">
-                        <h5>Womens S</h5>
-                        <p><strong>$30</strong></p>
-                        <a href="https://www.depop.com/products/sourcecodevintage-black-and-white-layered-tshirt/" target="_blank"><button>Buy</button></a>
-                    </div>
-
-                    <div class="product-card">
-                        <h3>Super! Tee</h3>
-                        <img src="imgs/shirts/P01.jpg" class="P1" alt="Super Tee">
-                        <h5>Womens S</h5>
-                        <p><strong>$35</strong></p>
-                        <a href="https://www.depop.com/products/sourcecodevintage-super-cute-rare-anling-fushi/" target="_blank"><button>Buy</button></a>
-                    </div>
-
-                    <div class="product-card">
-                        <h3>Graphic Flare Long Sleeve</h3>
-                        <img src="imgs/shirts/vw.png" class="P1" alt="Graphic Flare Long Sleeve">
-                        <h5>Womens S</h5>
-                        <p><strong>$45</strong></p>
-                        <a href="https://www.depop.com/products/sourcecodevintage-akademika-unique-flare-sleeve-shirt/" target="_blank"><button>Buy</button></a>
-                    </div>
-
-                    <div class="product-card">
-                        <h3>Tiger Tee</h3>
-                        <img src="imgs/shirts/P03.jpg" class="P1" alt="Tiger Tee">
-                        <h5>Kids L</h5>
-                        <p><strong>$40</strong></p>
-                        <a href="https://www.depop.com/products/sourcecodevintage-cool-vintage-the-mountain-tiger/" target="_blank"><button>Buy</button></a>
-                    </div>
-                    
-                    <div class="product-card">
-                        <h3>BabyMetal Tee</h3>
-                        <img src="imgs/shirts/baby.jpg" class="P1" alt="BabyMetal Tee">
-                        <h5>Womens M</h5>
-                        <p><strong>$30</strong></p>
-                        <a href="https://www.depop.com/products/sourcecodevintage-baby-metal-t-shirt-great" target="_blank"><button>Buy</button></a>
-                    </div>       
-
-                    <div class="product-card">
-                        <h3>Wrestlemania Tee</h3>
-                        <img src="imgs/shirts/P05.jpg" class="P1" alt="Wrestlemania Tee">
-                        <h5>Womens L</h5>
-                        <p><strong>$40</strong></p>
-                        <a href="https://www.depop.com/products/sourcecodevintage-wrestlemania-iv-4-official-merch/" target="_blank"><button>Buy</button></a>
-                    </div>
-                    
-                    <div class="product-card">
-                        <h3>Young Frank Tee</h3>
-                        <img src="imgs/shirts/P06.jpg" class="P1" alt="Young Frank Tee">
-                        <h5>Unisex M</h5>
-                        <p><strong>$20</strong></p>
-                        <a href="https://www.depop.com/products/sourcecodevintage-fruit-of-the-loom-young/" target="_blank"><button>Buy</button></a>
-                    </div>
-
-                    <div class="product-card">
-                        <h3>Benet/Comfort Colors Tee</h3>
-                        <img src="imgs/shirts/P07.jpg" class="P1" alt="Benet Tee">
-                        <h5>Mens M</h5>
-                        <p><strong>$20</strong></p>
-                        <a href="https://www.depop.com/products/sourcecodevintage-really-sick-benet-graphic-tee/" target="_blank"><button>Buy</button></a>
-                    </div>
-
-                    <div class="product-card">
-                        <h3>RealBvoice Tee</h3>
-                        <img src="imgs/shirts/realB.png" class="P1" alt="RealBvoice Tee">
-                        <h5>Womens S</h5>
-                        <p><strong>$50</strong></p>
-                        <a href="https://www.depop.com/products/sourcecodevintage-realbvoice-japan-import-tee-size" target="_blank"><button>Buy</button></a>
-                    </div>
-
-                    <div class="product-card">
-                        <h3>Paul Frank Baby Tee</h3>
-                        <img src="imgs/shirts/pf.png" class="P1" alt="Paul Frank Baby Tee">
-                        <h5>Womens S</h5>
-                        <p><strong>$200</strong></p>
-                        <a href="https://www.depop.com/products/sourcecodevintage-paul-frank-industries-camper-van" target="_blank"><button>Buy</button></a>
-                    </div>
-
-                    <div class="product-card">
-                        <h3>Yayoi Kusama Tee</h3>
-                        <img src="imgs/shirts/yayoi.png" class="P1" alt="Yayoi Kusama Tee">
-                        <h5>Womens S</h5>
-                        <p><strong>$200</strong></p>
-                        <a href="https://www.depop.com/products/sourcecodevintage-24-hour-television-x-yayoi" target="_blank"><button>Buy</button></a>
-                    </div>
-
-                    <div class="product-card">
-                        <h3>Predator Shirt</h3>
-                        <img src="imgs/shirts/pred.png" class="P1" alt="Predator Shirt">
-                        <h5>Mens 3XL</h5>
-                        <p><strong>$50</strong></p>
-                        <a href="https://www.depop.com/products/sourcecodevintage-predator-x-lootcrate-official-predator" target="_blank"><button>Buy</button></a>
-                    </div>
-
-                    <div class="product-card">
-                        <h3>Little My Long Sleeve</h3>
-                        <img src="imgs/shirts/lm.png" class="P1" alt="Little My Long Sleeve">
-                        <h5>Womens S</h5>
-                        <p><strong>$15</strong></p>
-                        <a href="https://www.depop.com/products/sourcecodevintage-mumin-moomin-official-merch" target="_blank"><button>Buy</button></a>
-                    </div>
-
-                    <div class="product-card">
-                        <h3>Beer Shirt</h3>
-                        <img src="imgs/shirts/beer.png" class="P1" alt="Beer Shirt">
-                        <h5>Mens XL</h5>
-                        <p><strong>$15</strong></p>
-                        <a href="https://www.depop.com/products/sourcecodevintage-fruit-of-the-loom-beer/" target="_blank"><button>Buy</button></a>
-                    </div>
-
-                    <div class="product-card">
-                        <h3>Harley Davidson Shirt</h3>
-                        <img src="imgs/shirts/hd.png" class="P1" alt="Harley Davidson Shirt">
-                        <h5>Mens XL</h5>
-                        <p><strong>$15</strong></p>
-                        <a href="https://www.depop.com/products/sourcecodevintage-harley-davidson-motorcycles-size-xl/" target="_blank"><button>Buy</button></a>
-                    </div>
-                </div>
-
-            <!-- HOODIES -->
-            <h2 class="POP">HoOdIeS </h2>
-                    <div class="product-container1">
-            <div class="product-card1">
-                    <h3>Sunglasses Hoodie</h3>
-                    <img src="imgs/shirts/3P0.jpg" class="P1" alt="Sunglasses Hoodie">
-                    <h5>Mens M</h5>
-                    <p><strong>$50</strong></p>
-                    <a href="https://www.depop.com/products/sourcecodevintage-vintage-marc-by-marc-jacobs/" target="_blank">
-                        <button>Buy</button>
-                    </a>
-                </div>
-                <div class="product-card1">
-                    <h3>Banksy Hoodie</h3>
-                    <img src="imgs/shirts/banksy.jpg" class="P1" alt="Banksy Hoodie">
-                    <h5>Mens L</h5>
-                    <p><strong>$150</strong></p>
-                    <a href="https://www.depop.com/products/sourcecodevintage-banksy-exhibition-japan-tour-limited/" target="_blank">
-                        <button>Buy</button>
-                    </a>
-                </div>
+                <img src="imgs/MeUs.DONE.png" class="header-img" alt="Header Image">
             </div>
-
-            <!-- DRESSES/SKIRTS -->
-            <h2 class="POP"id="collectables">DrEsSeS & SkiRtS</h2>
-            <div class="product-container1">
-                <div class="product-card1">
-                    <h3>Boho Dress</h3>
-                    <img src="imgs/shirts/boho.jpg" class="P1" alt="Boho Dress">
-                    <h5>Womens OS</h5>
-                    <p>$50</p>
-                    <a href="https://www.depop.com/products/sourcecodevintage-vintage-on-the-rocks-dress/" target="_blank">
-                        <button>BUY</button>
-                    </a>
-                </div>
-                <div class="product-card1">
-                    <h3>Pink Miniskirt</h3>
-                    <img src="imgs/shirts/pinkSkirt.png" class="P1" alt="Pink Miniskirt">
-                    <h5>Womens S</h5>
-                    <p>$15</p>
-                    <a href="https://www.depop.com/products/sourcecodevintage-burgundy-and-pink-mini-skirt" target="_blank">
-                        <button>BUY</button>
-                    </a>
-                </div>
-                <div class="product-card1">
-                    <h3>Floral Midiskirt</h3>
-                    <img src="imgs/shirts/floral.png" class="P1" alt="Floral Midiskirt">
-                    <h5>Womens S</h5>
-                    <p>$40</p>
-                    <a href="https://www.depop.com/products/sourcecodevintage-beautiful-floral-print-midi-skirt/" target="_blank">
-                        <button>BUY</button>
-                    </a>
-                </div>
-            </div>
-            
-            <!-- SHOES -->
-            <!-- <h2 class="POP"id="collectables">ShOeS</h2> -->
-            
-
-            <!-- ACCESSORIES -->
-            <!-- <h2 class="POP"id="collectables">AcCeSsOrIeS & JeWeLeRy</h2>
-            <div class="product-container1">
-
-            </div> -->
-
-            <!-- COLLECTABLES -->
-            <h2 class="POP"id="collectables">TrINkEtS & FiGuReS</h2>
-            <div class="product-container1">
-                <div class="product-card1">
-                    <h3>Tiny (Devil's Rejects)</h3>
-                    <img src="imgs/FELLAS/super8.png" class="P1" alt="Tiny Action Figure">
-                    <h5>NECA</h5>
-                    <p><strong>$200</strong></p>
-                    <a href="https://www.depop.com/products/sourcecodevintage-tiny-devils-rejects-neca-figure/">
-                        <button>Buy</button>
-                    </a>
-                </div>
-                <div class="product-card1">
-                    <h3>Mummy (Universal Monsters)</h3>
-                    <img src="imgs/FELLAS/super4.png" class="P1" alt="Mummy Doll">
-                    <h5>JakksPacific</h5>
-                    <p><strong>$60</strong></p>
-                    <a href="#contact">
-                        <button>Contact</button>
-                    </a>
-                </div>
-            </div>
-        </section>        
-        <section id="about">
-            <h2 style="text-transform: none !important;" class="POP">aBoUt Us
-            </h2>
-            <video src="us.mp4" class="BN" autoplay loop muted type="video/mp4"></video>
-
-            <img src="imgs/BNG.png" class="names">
-            <h6 class="description">Source Code Vintage is a small business created by Bugs and Prophitt. We are a couple who have recently relocated from Chicago to Rochester, NY. We at Source Code have spent our whole lives acquiring, curating, and creating one of kind pieces and can't wait to share them with like-minded individuals. We have unique items in many ranges of styles and pricing that you wont find anywhere else. Only some items available online. Find us in person at one of our events, inquire below! </h6>
         </section>
-        <section id="contact">
-            <h2 class="POP">coNtAcT</h2>
-            <p class="contactTXT"><a href="https://mail.google.com/mail/u/0/?to=sourcecodevintage@gmail.com&tf=cm" target="_blank" >sourcecodevintage@gmail.com</a></p>
-            <p class="contactTXT"><a href="https://www.instagram.com/sourcecodevintage/" target="_blank" >@sourcecodevintage
-        </a></p>
-            <div class="contact-image-spacer">
-            <section id="spinning-image-section">
-                <div class="card-container">
-                    <div class="card">
-                    <div class="card-face front">
-                        <img src="imgs/sourcecodevintage copy.png" alt="Front Image">
-                    </div>
-                    <div class="card-face back">
-                        <img src="back-bizzcard copy.png" alt="Back Image">
-                    </div>
-                    </div>
-                </div>
-                </section>
-            </div>
+        
         <!-- <div class="main-container">
         <div class="border">
             <div class="card1">
@@ -624,89 +295,797 @@
             </div>
         </div>
                 </div> -->
+        
+        <!-- SECTION: PRODUCTS -->
+        <section id="products" class="main-content">
+            
+            <!-- TEES and TOPS -->
+            <h2 id="tees" class="POP">TeEs & ToPs</h2>
+
+                <div class="product-container">
+                    
+                    <!-- Wall-E Shirt -->
+                    <div class="product-card">
+                        <h3>Wall-E Shirt</h3>
+                        <div class="contact-image-spacerT">
+                            <section id="spinning-image-section">
+                                <div class="cardT-container">
+                                    <div class="cardT">
+                                        <div class="card-face front">
+                                            <img src="imgs/tee.pngs/walle/FrontWalle.png" alt="Front Image">
+                                        </div>
+                                        <div class="card-face back">
+                                            <img src="imgs/tee.pngs/walle/BackWalle.png" alt="Back Image">
+                                        </div>
+                                    </div>
+                                </div>
+                            </section>
+                        </div>                      
+                        <h5>Mens M</h5>
+                        <p><strong>$175</strong></p>
+                        <a href="https://www.depop.com/products/sourcecodevintage-pixar-wall-e-disney-official/" target="_blank"><button>Buy</button></a>
+                    </div>
+
+                    <!-- Iron Man (Mad Engine) -->
+                    <div class="product-card">
+                        <h3>Iron Man (Mad Engine) Tee</h3>
+                        <div class="contact-image-spacerT">
+                            <section id="spinning-image-section">
+                                <div class="cardT-container">
+                                    <div class="cardT">
+                                        <div class="card-face front">
+                                            <img src="imgs/tee.pngs/ironMan/ironManFront.png" alt="Front Image">
+                                        </div>
+                                        <div class="card-face back">
+                                            <img src="imgs/tee.pngs/ironMan/ironManBack.png" alt="Back Image">
+                                        </div>
+                                    </div>
+                                </div>
+                            </section>
+                        </div>
+                        <h5>Mens S</h5>
+                        <p><strong>$55</strong></p>
+                        <a href="https://www.depop.com/products/sourcecodevintage-mad-engine-x-iron/" target="_blank"><button>Buy</button></a>
+                    </div>
+
+                    <!-- Beastie Boys Ringer -->
+                    <div class="product-card">
+                        <h3>Beastie Boys Ringer</h3>
+                        <div class="contact-image-spacerT">
+                            <section id="spinning-image-section">
+                                <div class="cardT-container">
+                                    <div class="cardT">
+                                        <div class="card-face front">
+                                            <img src="imgs/tee.pngs/bboys/bboyFront.png" alt="Front Image">
+                                        </div>
+                                        <div class="card-face back">
+                                            <img src="imgs/tee.pngs/bboys/bboyBack.png" alt="Back Image">
+                                        </div>
+                                    </div>
+                                </div>
+                            </section>
+                        </div>
+                        <h5>Mens L</h5>
+                        <p><strong>$45</strong></p>
+                        <a href="https://www.depop.com/products/sourcecodevintage-beastie-boys-check-your-head/" target="_blank"><button>Buy</button></a>
+                    </div>
+
+                    <!-- Hot Air Balloon Tee -->
+                    <div class="product-card">
+                        <h3>Hot Air Balloon Tee</h3>
+                        <div class="contact-image-spacerT">
+                            <section id="spinning-image-section">
+                                <div class="cardT-container">
+                                    <div class="cardT">
+                                        <div class="card-face front">
+                                            <img src="imgs/tee.pngs/balloon/ballonFront.png" alt="Front Image">
+                                        </div>
+                                        <div class="card-face back">
+                                            <img src="imgs/tee.pngs/balloon/balloonBack.png" alt="Back Image">
+                                        </div>
+                                    </div>
+                                </div>
+                            </section>
+                        </div>                        
+                        <h5> Mens XL</h5>
+                        <p><strong>$45</strong></p>
+                        <a href="https://www.depop.com/products/sourcecodevintage-hot-air-balloon-tee-one/" target="_blank"><button>Buy</button></a>
+                    </div>
+                        
+                    <!-- Marc Jacobs Tee -->
+                    <!-- <div class="product-card">
+                        <h3>Marc Jacobs Tee</h3>
+                        <img src="imgs/shirts/poo.jpg" class="P1" alt="Marc Jacobs Tee">
+                        <h5>Womens S</h5>
+                        <p><strong>$75</strong></p>
+                        <a href="https://www.depop.com/products/sourcecodevintage-white-and-pink-steve-madden/" target="_blank"><button>Buy</button></a>
+                    </div> -->
+                    
+                    <!-- Rock Layered Top -->
+                    <div class="product-card">
+                        <h3>Rock Layered Top</h3>
+                        <div class="contact-image-spacerT">
+                            <section id="spinning-image-section">
+                                <div class="cardT-container">
+                                    <div class="cardT">
+                                        <div class="card-face front">
+                                            <img src="imgs/tee.pngs/rock/rockFront.png" alt="Front Image">
+                                        </div>
+                                        <div class="card-face back">
+                                            <img src="imgs/tee.pngs/rock/rockBack.png" alt="Back Image">
+                                        </div>
+                                    </div>
+                                </div>
+                            </section>
+                        </div>                        
+                        <h5>Womens S</h5>
+                        <p><strong>$50</strong></p>
+                        <a href="https://www.depop.com/products/sourcecodevintage-black-and-white-layered-tshirt/" target="_blank"><button>Buy</button></a>
+                    </div>
+
+                    <!-- Super! Tee -->
+                    <div class="product-card">
+                        <h3>Super! Tee</h3>
+                        <div class="contact-image-spacerT">
+                            <section id="spinning-image-section">
+                                <div class="cardT-container">
+                                    <div class="cardT">
+                                        <div class="card-face front">
+                                            <img src="imgs/tee.pngs/super/superFront.png" alt="Front Image">
+                                        </div>
+                                        <div class="card-face back">
+                                            <img src="imgs/tee.pngs/super/superBacvk.png" alt="Back Image">
+                                        </div>
+                                    </div>
+                                </div>
+                            </section>
+                        </div>                        
+                        <h5>Womens S</h5>
+                        <p><strong>$35</strong></p>
+                        <a href="https://www.depop.com/products/sourcecodevintage-super-cute-rare-anling-fushi/" target="_blank"><button>Buy</button></a>
+                    </div>
+
+                    <!-- Graphic Flare Long Sleeve -->
+                    <!-- <div class="product-card">
+                        <h3>Graphic Flare Long Sleeve</h3>
+                        <img src="imgs/shirts/vw.png" class="P1" alt="Graphic Flare Long Sleeve">
+                        <h5>Womens S</h5>
+                        <p><strong>$45</strong></p>
+                        <a href="https://www.depop.com/products/sourcecodevintage-akademika-unique-flare-sleeve-shirt/" target="_blank"><button>Buy</button></a>
+                    </div> -->
+
+                    <!-- Tiger Tee -->
+                    <div class="product-card">
+                        <h3>Tiger Tee</h3>
+                        <div class="contact-image-spacerT">
+                            <section id="spinning-image-section">
+                                <div class="cardT-container">
+                                    <div class="cardT">
+                                        <div class="card-face front">
+                                            <img src="imgs/tee.pngs/tiger/tigerFront.png" alt="Front Image">
+                                        </div>
+                                        <div class="card-face back">
+                                            <img src="imgs/tee.pngs/tiger/tigerBack.png" alt="Back Image">
+                                        </div>
+                                    </div>
+                                </div>
+                            </section>
+                        </div>                        
+                        <h5>Kids L</h5>
+                        <p><strong>$40</strong></p>
+                        <a href="https://www.depop.com/products/sourcecodevintage-cool-vintage-the-mountain-tiger/" target="_blank"><button>Buy</button></a>
+                    </div>
+                    
+                    <!-- BabyMetal Tee -->
+                    <!-- <div class="product-card">
+                        <h3>BabyMetal Tee</h3>
+                        <img src="imgs/shirts/baby.jpg" class="P1" alt="BabyMetal Tee">
+                        <h5>Womens M</h5>
+                        <p><strong>$30</strong></p>
+                        <a href="https://www.depop.com/products/sourcecodevintage-baby-metal-t-shirt-great" target="_blank"><button>Buy</button></a>
+                    </div>        -->
+
+                    <!-- Wrestlemania Tee -->
+                    <div class="product-card">
+                        <h3>Wrestlemania Tee</h3>
+                        <div class="contact-image-spacerT">
+                            <section id="spinning-image-section">
+                                <div class="cardT-container">
+                                    <div class="cardT">
+                                        <div class="card-face front">
+                                            <img src="imgs/tee.pngs/wrestle/wrestleFront.png" alt="Front Image">
+                                        </div>
+                                        <div class="card-face back">
+                                            <img src="imgs/tee.pngs/wrestle/wrestleBack.png" alt="Back Image">
+                                        </div>
+                                    </div>
+                                </div>
+                            </section>
+                        </div>                        
+                        <h5>Womens L</h5>
+                        <p><strong>$30</strong></p>
+                        <a href="https://www.depop.com/products/sourcecodevintage-wrestlemania-iv-4-official-merch/" target="_blank"><button>Buy</button></a>
+                    </div>
+                    
+                    <!-- Young Frank Tee -->
+                    <div class="product-card">
+                        <h3>Young Frank Tee</h3>
+                        <div class="contact-image-spacerT">
+                            <section id="spinning-image-section">
+                                <div class="cardT-container">
+                                    <div class="cardT">
+                                        <div class="card-face front">
+                                            <img src="imgs/tee.pngs/abby/abbyFront.png" alt="Front Image">
+                                        </div>
+                                        <div class="card-face back">
+                                            <img src="imgs/tee.pngs/abby/abbyBack.png" alt="Back Image">
+                                        </div>
+                                    </div>
+                                </div>
+                            </section>
+                        </div>                        
+                        <h5>Unisex M</h5>
+                        <p><strong>$15</strong></p>
+                        <a href="https://www.depop.com/products/sourcecodevintage-fruit-of-the-loom-young/" target="_blank"><button>Buy</button></a>
+                    </div>
+
+                    <!-- Benet/Comfort Colors Tee -->
+                    <div class="product-card">
+                        <h3>Benet/Comfort Colors Tee</h3>
+                        <div class="contact-image-spacerT">
+                            <section id="spinning-image-section">
+                                <div class="cardT-container">
+                                    <div class="cardT">
+                                        <div class="card-face front">
+                                            <img src="imgs/tee.pngs/benet/benetFront.png" alt="Front Image">
+                                        </div>
+                                        <div class="card-face back">
+                                            <img src="imgs/tee.pngs/benet/benetBack.png" alt="Back Image">
+                                        </div>
+                                    </div>
+                                </div>
+                            </section>
+                        </div>                        
+                        <h5>Mens M</h5>
+                        <p><strong>$20</strong></p>
+                        <a href="https://www.depop.com/products/sourcecodevintage-really-sick-benet-graphic-tee/" target="_blank"><button>Buy</button></a>
+                    </div>
+
+                    <!-- RealBvoice Tee -->
+                    <!-- <div class="product-card">
+                        <h3>RealBvoice Tee</h3>
+                        <div class="contact-image-spacerT">
+                            <section id="spinning-image-section">
+                                <div class="cardT-container">
+                                    <div class="cardT">
+                                        <div class="card-face front">
+                                            <img src="imgs/tee.pngs/realB/realBFront.png" alt="Front Image">
+                                        </div>
+                                        <div class="card-face back">
+                                            <img src="imgs/tee.pngs/realB/realBBack.png" alt="Back Image">
+                                        </div>
+                                    </div>
+                                </div>
+                            </section>
+                        </div>                        
+                        <h5>Womens S</h5>
+                        <p><strong>$100</strong></p>
+                        <a href="https://www.depop.com/products/sourcecodevintage-realbvoice-japan-import-tee-size" target="_blank"><button>Buy</button></a>
+                    </div> -->
+
+                    <!-- Paul Frank Tee -->
+                    <!-- <div class="product-card">
+                        <h3>Paul Frank Baby Tee</h3>
+                        <img src="imgs/shirts/pf.png" class="P1" alt="Paul Frank Baby Tee">
+                        <h5>Womens S</h5>
+                        <p><strong>$200</strong></p>
+                        <a href="https://www.depop.com/products/sourcecodevintage-paul-frank-industries-camper-van" target="_blank"><button>Buy</button></a>
+                    </div> -->
+
+                    <!-- Yayoi Kusama Tee -->
+                    <div class="product-card">
+                        <h3>Yayoi Kusama Tee</h3>
+                        <div class="contact-image-spacerT">
+                            <section id="spinning-image-section">
+                                <div class="cardT-container">
+                                    <div class="cardT">
+                                        <div class="card-face front">
+                                            <img src="imgs/tee.pngs/yayoi/yayoiFront.png" alt="Front Image">
+                                        </div>
+                                        <div class="card-face back">
+                                            <img src="imgs/tee.pngs/yayoi/yayoiFront.png" alt="Back Image">
+                                        </div>
+                                    </div>
+                                </div>
+                            </section>
+                        </div>                        
+                        <h5>Womens S</h5>
+                        <p><strong>$200</strong></p>
+                        <a href="https://www.depop.com/products/sourcecodevintage-24-hour-television-x-yayoi" target="_blank"><button>Buy</button></a>
+                    </div>
+
+                    <!-- Predator Shirt -->
+                    <div class="product-card">
+                        <h3>Predator Shirt</h3>
+                        <div class="contact-image-spacerT">
+                            <section id="spinning-image-section">
+                                <div class="cardT-container">
+                                    <div class="cardT">
+                                        <div class="card-face front">
+                                            <img src="imgs/tee.pngs/predator/predatorFront.png" alt="Front Image">
+                                        </div>
+                                        <div class="card-face back">
+                                            <img src="imgs/tee.pngs/predator/predatorBack.png" alt="Back Image">
+                                        </div>
+                                    </div>
+                                </div>
+                            </section>
+                        </div>                        
+                        <h5>Mens 3XL</h5>
+                        <p><strong>$50</strong></p>
+                        <a href="https://www.depop.com/products/sourcecodevintage-predator-x-lootcrate-official-predator" target="_blank"><button>Buy</button></a>
+                    </div>
+
+                    <!-- Little My Long Sleeve -->
+                    <!-- <div class="product-card">
+                        <h3>Little My Long Sleeve</h3>
+                        <img src="imgs/shirts/lm.png" class="P1" alt="Little My Long Sleeve">
+                        <h5>Womens S</h5>
+                        <p><strong>$15</strong></p>
+                        <a href="https://www.depop.com/products/sourcecodevintage-mumin-moomin-official-merch" target="_blank"><button>Buy</button></a>
+                    </div> -->
+
+                    <!-- Beer Shirt -->
+                    <div class="product-card">
+                        <h3>Beer Shirt</h3>
+                        <div class="contact-image-spacerT">
+                            <section id="spinning-image-section">
+                                <div class="cardT-container">
+                                    <div class="cardT">
+                                        <div class="card-face front">
+                                            <img src="imgs/tee.pngs/beer/FrontBeer.png" alt="Front Image">
+                                        </div>
+                                        <div class="card-face back">
+                                            <img src="imgs/tee.pngs/beer/BackBeer.png" alt="Back Image">
+                                        </div>
+                                    </div>
+                                </div>
+                            </section>
+                        </div>
+                        <h5>Mens XL</h5>
+                        <p><strong>$15</strong></p>
+                        <a href="https://www.depop.com/products/sourcecodevintage-fruit-of-the-loom-beer/" target="_blank"><button>Buy</button></a>
+                    </div>
+
+                    <!-- Bob Shirt -->
+                    <div class="product-card">
+                        <h3>Bob's Shirt</h3>
+                        <div class="contact-image-spacerT">
+                            <section id="spinning-image-section">
+                                <div class="cardT-container">
+                                    <div class="cardT">
+                                        <div class="card-face front">
+                                            <img src="imgs/tee.pngs/bob/bobFront.png" alt="Front Image">
+                                        </div>
+                                        <div class="card-face back">
+                                            <img src="imgs/tee.pngs/bob/bobBack.png" alt="Back Image">
+                                        </div>
+                                    </div>
+                                </div>
+                            </section>
+                        </div>
+                        <h5>Mens XL</h5>
+                        <p><strong>$30</strong></p>
+                        <a href="https://www.depop.com/products/sourcecodevintage-vintage-lee-bobs-shirt-size/" target="_blank"><button>Buy</button></a>
+                    </div>
+
+                    <!-- Harley Davidson Shirt -->
+                    <div class="product-card">
+                        <h3>Harley Davidson Shirt</h3>
+                        <div class="contact-image-spacerT">
+                            <section id="spinning-image-section">
+                                <div class="cardT-container">
+                                    <div class="cardT">
+                                        <div class="card-face front">
+                                            <img src="imgs/tee.pngs/harley/harleyFront.png" alt="Front Image">
+                                        </div>
+                                        <div class="card-face back">
+                                            <img src="imgs/tee.pngs/harley/harleyBack.png" alt="Back Image">
+                                        </div>
+                                    </div>
+                                </div>
+                            </section>
+                        </div>
+                        <h5>Mens XL</h5>
+                        <p><strong>$15</strong></p>
+                        <a href="https://www.depop.com/products/sourcecodevintage-harley-davidson-motorcycles-size-xl/" target="_blank"><button>Buy</button></a>
+                    </div>
+
+                    <!-- Primitive Bulma Shirt -->
+                    <div class="product-card">
+                        <h3>Primitive Bulma Shirt</h3>
+                        <div class="contact-image-spacerT">
+                            <section id="spinning-image-section">
+                                <div class="cardT-container">
+                                    <div class="cardT">
+                                        <div class="card-face front">
+                                            <img src="imgs/tee.pngs/bulma/primFront.png" alt="Front Image">
+                                        </div>
+                                        <div class="card-face back">
+                                            <img src="imgs/tee.pngs/bulma/primBack.png" alt="Back Image">
+                                        </div>
+                                    </div>
+                                </div>
+                            </section>
+                        </div>
+                        <h5>Mens L</h5>
+                        <p><strong>$50</strong></p>
+                        <a href="https://www.depop.com/products/sourcecodevintage-dragon-ball-z-x-primitive-7b72/" target="_blank"><button>Buy</button></a>
+                    </div>
+
+                    <!-- Hunter X Hunter Shirt -->
+                    <div class="product-card">
+                        <h3>Hunter X Hunter Shirt</h3>
+                        <div class="contact-image-spacerT">
+                            <section id="spinning-image-section">
+                                <div class="cardT-container">
+                                    <div class="cardT">
+                                        <div class="card-face front">
+                                            <img src="imgs/tee.pngs/hunterX/hunterFront.png" alt="Front Image">
+                                        </div>
+                                        <div class="card-face back">
+                                            <img src="imgs/tee.pngs/hunterX/hunterBack.png" alt="Back Image">
+                                        </div>
+                                    </div>
+                                </div>
+                            </section>
+                        </div>
+                        <h5>Mens XL</h5>
+                        <p><strong>$35</strong></p>
+                        <a href="https://www.depop.com/products/sourcecodevintage-atsuko-x-hunter-x-hunter/" target="_blank"><button>Buy</button></a>
+                    </div>
+
+                    <!-- Red Car Shirt -->
+                    <div class="product-card">
+                        <h3>JustDrift Shirt</h3>
+                        <div class="contact-image-spacerT">
+                            <section id="spinning-image-section">
+                                <div class="cardT-container">
+                                    <div class="cardT">
+                                        <div class="card-face front">
+                                            <img src="imgs/tee.pngs/redCar/carFront.png" alt="Front Image">
+                                        </div>
+                                        <div class="card-face back">
+                                            <img src="imgs/tee.pngs/redCar/carBack.png" alt="Back Image">
+                                        </div>
+                                    </div>
+                                </div>
+                            </section>
+                        </div>
+                        <h5>Mens XL</h5>
+                        <p><strong>$40</strong></p>
+                        <a href="https://www.depop.com/products/sourcecodevintage-justdriftitco-tee-size/" target="_blank"><button>Buy</button></a>
+                    </div>
+
+                    <!-- Meta Shirt -->
+                    <div class="product-card">
+                        <h3>Meta Shirt</h3>
+                        <div class="contact-image-spacerT">
+                            <section id="spinning-image-section">
+                                <div class="cardT-container">
+                                    <div class="cardT">
+                                        <div class="card-face front">
+                                            <img src="imgs/tee.pngs/meta/metaFront.png" alt="Front Image">
+                                        </div>
+                                        <div class="card-face back">
+                                            <img src="imgs/tee.pngs/meta/metaBack.png" alt="Back Image">
+                                        </div>
+                                    </div>
+                                </div>
+                            </section>
+                        </div>
+                        <h5>Mens XL</h5>
+                        <p><strong>$20</strong></p>
+                        <a href="https://www.depop.com/products/sourcecodevintage-meta-threads-container-load/" target="_blank"><button>Buy</button></a>
+                    </div>
+
+                    <!-- BeatMe Shirt -->
+                    <div class="product-card">
+                        <h3>BeatMe Shirt</h3>
+                        <div class="contact-image-spacerT">
+                            <section id="spinning-image-section">
+                                <div class="cardT-container">
+                                    <div class="cardT">
+                                        <div class="card-face front">
+                                            <img src="imgs/tee.pngs/beatMe/beatFront.png" alt="Front Image">
+                                        </div>
+                                        <div class="card-face back">
+                                            <img src="imgs/tee.pngs/beatMe/beatBack.png" alt="Back Image">
+                                        </div>
+                                    </div>
+                                </div>
+                            </section>
+                        </div>
+                        <h5>Unisex XL</h5>
+                        <p><strong>$50</strong></p>
+                        <a href="https://www.depop.com/products/sourcecodevintage-sedition-nightmares-joan-jett/" target="_blank"><button>Buy</button></a>
+                    </div>
+
+                    <!-- Pacsun Shirt -->
+                    <div class="product-card">
+                        <h3>Pacsun Shirt</h3>
+                        <div class="contact-image-spacerT">
+                            <section id="spinning-image-section">
+                                <div class="cardT-container">
+                                    <div class="cardT">
+                                        <div class="card-face front">
+                                            <img src="imgs/tee.pngs/pacsun/pacsunFront.png" alt="Front Image">
+                                        </div>
+                                        <div class="card-face back">
+                                            <img src="imgs/tee.pngs/pacsun/pacsunBack.png" alt="Back Image">
+                                        </div>
+                                    </div>
+                                </div>
+                            </section>
+                        </div>
+                        <h5>Mens XL</h5>
+                        <p><strong>$15</strong></p>
+                        <a href="https://www.depop.com/products/sourcecodevintage-pacsun-mushroom-tew-size-xl/" target="_blank"><button>Buy</button></a>
+                    </div>
+
+                    <!-- NoBoundaries Shirt -->
+                    <div class="product-card">
+                        <h3>NoBoundaries Shirt</h3>
+                        <div class="contact-image-spacerT">
+                            <section id="spinning-image-section">
+                                <div class="cardT-container">
+                                    <div class="cardT">
+                                        <div class="card-face front">
+                                            <img src="imgs/tee.pngs/green/greenFront.png" alt="Front Image">
+                                        </div>
+                                        <div class="card-face back">
+                                            <img src="imgs/tee.pngs/green/pacsunBack.png" alt="Back Image">
+                                        </div>
+                                    </div>
+                                </div>
+                            </section>
+                        </div>
+                        <h5>Mens 2XL</h5>
+                        <p><strong>$15</strong></p>
+                        <a href="https://www.depop.com/products/sourcecodevintage-no-boundaries-green-shirt-size/" target="_blank"><button>Buy</button></a>
+                    </div>
+
+                </div>
+
+            <!-- HOODIES -->
+            <h2 id="hoodies" class="POP">HoOdIeS </h2>
+                    <div class="product-container1">
+            <div class="product-card1">
+                    <h3>Sunglasses Hoodie</h3>
+                    <div class="contact-image-spacerT">
+                            <section id="spinning-image-section">
+                                <div class="cardT-container">
+                                    <div class="cardT">
+                                        <div class="card-face front">
+                                            <img src="imgs/tee.pngs/eyesHoodie/eyesFront.png" alt="Front Image">
+                                        </div>
+                                        <div class="card-face back">
+                                            <img src="imgs/tee.pngs/eyesHoodie/eyesBack.png" alt="Back Image">
+                                        </div>
+                                    </div>
+                                </div>
+                            </section>
+                        </div>
+                    <h5>Mens M</h5>
+                    <p><strong>$50</strong></p>
+                    <a href="https://www.depop.com/products/sourcecodevintage-vintage-marc-by-marc-jacobs/" target="_blank">
+                        <button>Buy</button>
+                    </a>
+                </div>
+                <div class="product-card1">
+                    <h3>Banksy Hoodie</h3>
+                    <img src="imgs/shirts/banksy.jpg" class="P1" alt="Banksy Hoodie">
+                    <h5>Mens L</h5>
+                    <p><strong>$150</strong></p>
+                    <a href="https://www.depop.com/products/sourcecodevintage-banksy-exhibition-japan-tour-limited/" target="_blank">
+                        <button>Buy</button>
+                    </a>
+                </div>
+            </div>
+
+            <!-- DRESSES/SKIRTS -->
+            <h2 id="dresses" class="POP">DrEsSeS & SkiRtS</h2>
+            <div class="product-container1">
+                <div class="product-card1">
+                    <h3>Boho Dress</h3>
+                    <img src="imgs/shirts/boho.jpg" class="P1" alt="Boho Dress">
+                    <h5>Womens OS</h5>
+                    <p>$50</p>
+                    <a href="https://www.depop.com/products/sourcecodevintage-vintage-on-the-rocks-dress/" target="_blank">
+                        <button>BUY</button>
+                    </a>
+                </div>
+                <div class="product-card1">
+                    <h3>Pink Miniskirt</h3>
+                    <img src="imgs/shirts/pinkSkirt.png" class="P1" alt="Pink Miniskirt">
+                    <h5>Womens S</h5>
+                    <p>$15</p>
+                    <a href="https://www.depop.com/products/sourcecodevintage-burgundy-and-pink-mini-skirt" target="_blank">
+                        <button>BUY</button>
+                    </a>
+                </div>
+                <div class="product-card1">
+                    <h3>Floral Midiskirt</h3>
+                    <img src="imgs/shirts/floral.png" class="P1" alt="Floral Midiskirt">
+                    <h5>Womens S</h5>
+                    <p>$40</p>
+                    <a href="https://www.depop.com/products/sourcecodevintage-beautiful-floral-print-midi-skirt/" target="_blank">
+                        <button>BUY</button>
+                    </a>
+                </div>
+            </div>
+            
+            <!-- SHOES
+            <h2 class="POP"id="collectables">ShOeS</h2>
+            <div class="product-container1">
+                <div class="product-card1">
+                    <h3>Boho Dress</h3>
+                    <div class="contact-image-spacerT">
+                        <section id="spinning-image-section">
+                            <div class="cardT-container">
+                                <div class="cardT">
+                                    <div class="card-face front">
+                                        <img src="FrontWalle.png" alt="Front Image">
+                                    </div>
+                                    <div class="card-face back">
+                                        <img src="backWalle.png" alt="Back Image">
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+                    </div>
+                    <h5>Womens OS</h5>
+                    <p>$50</p>
+                    <a href="https://www.depop.com/products/sourcecodevintage-vintage-on-the-rocks-dress/" target="_blank">
+                        <button>BUY</button>
+                    </a>
+                </div>
+            </div> -->
+
+            <!-- ACCESSORIES -->
+            <!-- <h2 class="POP"id="collectables">AcCeSsOrIeS & JeWeLeRy</h2>
+            <div class="product-container1">
+            </div> -->
+
+            <!-- COLLECTABLES -->
+            <h2 id="trinkets" class="POP">TrINkEtS & FiGuReS</h2>
+            <div class="product-container1">
+                <div class="product-card1">
+                    <h3>Tiny (Devil's Rejects)</h3>
+                    <img src="imgs/FELLAS/super8.png" class="P1" alt="Tiny Action Figure">
+                    <h5>NECA</h5>
+                    <p><strong>$200</strong></p>
+                    <a href="https://www.depop.com/products/sourcecodevintage-tiny-devils-rejects-neca-figure/">
+                        <button>Buy</button>
+                    </a>
+                </div>
+                <div class="product-card1">
+                    <h3>Mummy (Universal Monsters)</h3>
+                    <img src="imgs/FELLAS/super4.png" class="P1" alt="Mummy Doll">
+                    <h5>JakksPacific</h5>
+                    <p><strong>$60</strong></p>
+                    <a href="#contact">
+                        <button>Contact</button>
+                    </a>
+                </div>
+            </div>
+        </section>   
+
+        <!-- SECTION: ABOUT -->
+        <section id="about">
+            <h2 style="text-transform: none !important;" class="POP">aBoUt Us
+            </h2>
+            <video src="us.mp4" class="BN" autoplay loop muted type="video/mp4"></video>
+
+            <img src="imgs/BNG.png" class="names">
+            <h6 class="description">Source Code Vintage is a small business created by Bugs and Prophitt. We are a couple who have recently relocated from Chicago to Rochester, NY. We at Source Code have spent our whole lives acquiring, curating, and creating one of kind pieces and can't wait to share them with like-minded individuals. We have unique items in many ranges of styles and pricing that you wont find anywhere else. Only some items available online. Find us in person at one of our events, inquire below! </h6>
+        </section>
+
+        <!-- SECTION: CONTACT -->
+        <section id="contact">
+            <h2 class="POP">coNtAcT</h2>
+            <p class="contactTXT"><a href="https://mail.google.com/mail/u/0/?to=sourcecodevintage@gmail.com&tf=cm" target="_blank" >sourcecodevintage@gmail.com</a></p>
+            <p class="contactTXT"><a href="https://www.instagram.com/sourcecodevintage/" target="_blank" >@sourcecodevintage</a></p>
+            <!-- BUSINESS CARD -->
+            <div class="contact-image-spacer">
+                <section id="spinning-image-section">
+                    <div class="card-container">
+                        <div class="card">
+                            <div class="card-face front">
+                                <img src="imgs/sourcecodevintage copy.png" alt="Front Image">
+                            </div>
+                            <div class="card-face back">
+                                <img src="back-bizzcard copy.png" alt="Back Image">
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
         </section>
         
         <h4 class="quote">What the caterpillar calls the end of the world, The Prophitt calls a butterfly.</h4>
         <img src="imgs/pngs-gifs/us.png" class="us">
-
-</main>
-<!-- FLYING PROMO IMAGE -->
-<div id="flyingPromo" class="flying-promo">
-    <div class="promo-link">
-        <img src="imgs/pngs-gifs/CXLGEYYXO6EMGZXJPMCOD6RJ4XGV3FTL.gif" class="promo-image-g">
-        <img src="imgs/pngs-gifs/WannaKeepOn.png" alt="Keep Surfing" class="promo-image">
-        <div class="promo-text">Wanna keep surfing…?</div>
-    </div>
-</div>
-<footer>
-        <img src="imgs/pngs-gifs/aeroglasses.gif" class="glasses">
-                <div class="main-container">
-        <div class="border">
-            <div class="card1">
-            <div class="shadow">
-                <div class="content">
-                <p class="rev">BINARY SWAG CLUB</p>
-                <p class="ultra-text">PATREON</p>
-                <p class="master-text">sourcecard</p>
-                <p class="card-number">0101 0011 0100 0011</p>
-                <p class="card-holder">Source Code Vintage</p>
-                <p class="master one"></p>
-                <p class="master two"></p>
-                <svg
-                    version="1.1"
-                    class="chip"
-                    xmlns="http://www.w3.org/2000/svg"
-                    xmlns:xlink="http://www.w3.org/1999/xlink"
-                    x="0px"
-                    y="0px"
-                    width="40px"
-                    height="40px"
-                    viewBox="0 0 50 50"
-                    xml:space="preserve"
-                >
-                    <image
-                    width="50"
-                    height="50"
-                    x="0"
-                    y="0"
-                    href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAMAAAAp4XiDAAAABGdBTUEAALGPC/xhBQAAACBjSFJN
-                    AAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAB6VBMVEUAAACNcTiVeUKVeUOY
-                    fEaafEeUeUSYfEWZfEaykleyklaXe0SWekSZZjOYfEWYe0WXfUWXe0WcgEicfkiXe0SVekSXekSW
-                    ekKYe0a9nF67m12ZfUWUeEaXfESVekOdgEmVeUWWekSniU+VeUKVeUOrjFKYfEWliE6WeESZe0GS
-                    e0WYfES7ml2Xe0WXeESUeEOWfEWcf0eWfESXe0SXfEWYekSVeUKXfEWxklawkVaZfEWWekOUekOW
-                    ekSYfESZe0eXekWYfEWZe0WZe0eVeUSWeETAnmDCoWLJpmbxy4P1zoXwyoLIpWbjvXjivnjgu3bf
-                    u3beunWvkFWxkle/nmDivXiWekTnwXvkwHrCoWOuj1SXe0TEo2TDo2PlwHratnKZfEbQrWvPrWua
-                    fUfbt3PJp2agg0v0zYX0zYSfgkvKp2frxX7mwHrlv3rsxn/yzIPgvHfduXWXe0XuyIDzzISsjVO1
-                    lVm0lFitjVPzzIPqxX7duna0lVncuHTLqGjvyIHeuXXxyYGZfUayk1iyk1e2lln1zYTEomO2llrb
-                    tnOafkjFpGSbfkfZtXLhvHfkv3nqxH3mwXujhU3KqWizlFilh06khk2fgkqsjlPHpWXJp2erjVOh
-                    g0yWe0SliE+XekShhEvAn2D///+gx8TWAAAARnRSTlMACVCTtsRl7Pv7+vxkBab7pZv5+ZlL/UnU
-                    /f3SJCVe+Fx39naA9/75XSMh0/3SSkia+pil/KRj7Pr662JPkrbP7OLQ0JFOijI1MwAAAAFiS0dE
-                    orDd34wAAAAJcEhZcwAACxMAAAsTAQCanBgAAAAHdElNRQfnAg0IDx2lsiuJAAACLElEQVRIx2Ng
-                    GAXkAUYmZhZWPICFmYkRVQcbOwenmzse4MbFzc6DpIGXj8PD04sA8PbhF+CFaxEU8iWkAQT8hEVg
-                    OkTF/InR4eUVICYO1SIhCRMLDAoKDvFDVhUaEhwUFAjjSUlDdMiEhcOEItzdI6OiYxA6YqODIt3d
-                    I2DcuDBZsBY5eVTr4xMSYcyk5BRUOXkFsBZFJTQnp6alQxgZmVloUkrKYC0qqmji2WE5EEZuWB6a
-                    lKoKdi35YQUQRkFYPpFaCouKIYzi6EDitJSUlsGY5RWVRGjJLyxNy4ZxqtIqqvOxaVELQwZFZdkI
-                    JVU1RSiSalAt6rUwUBdWG1CP6pT6gNqwOrgCdQyHNYR5YQFhDXj8MiK1IAeyN6aORiyBjByVTc0F
-                    qBoKWpqwRCVSgilOaY2OaUPw29qjOzqLvTAchpos47u6EZyYnngUSRwpuTe6D+6qaFQdOPNLRzOM
-                    1dzhRZyW+CZouHk3dWLXglFcFIflQhj9YWjJGlZcaKAVSvjyPrRQ0oQVKDAQHlYFYUwIm4gqExGm
-                    BSkutaVQJeomwViTJqPK6OhCy2Q9sQBk8cY0DxjTJw0lAQWK6cOKfgNhpKK7ZMpUeF3jPa28BCET
-                    amiEqJKM+X1gxvWXpoUjVIVPnwErw71nmpgiqiQGBjNzbgs3j1nus+fMndc+Cwm0T52/oNR9lsdC
-                    S24ra7Tq1cbWjpXV3sHRCb1idXZ0sGdltXNxRateRwHRAACYHutzk/2I5QAAACV0RVh0ZGF0ZTpj
-                    cmVhdGUAMjAyMy0wMi0xM1QwODoxNToyOSswMDowMEUnN7UAAAAldEVYdGRhdGU6bW9kaWZ5ADIw
-                    MjMtMDItMTNUMDg6MTU6MjkrMDA6MDA0eo8JAAAAKHRFWHRkYXRlOnRpbWVzdGFtcAAyMDIzLTAy
-                    LTEzVDA4OjE1OjI5KzAwOjAwY2+u1gAAAABJRU5ErkJggg=="
-                    ></image>
-                </svg>
-                </div>
-            </div>
-            </div>
+    </main>
+    
+    <!-- FLYING PROMO IMAGE -->
+    <div id="flyingPromo" class="flying-promo">
+        <div class="promo-link">
+            <img src="imgs/pngs-gifs/CXLGEYYXO6EMGZXJPMCOD6RJ4XGV3FTL.gif" class="promo-image-g">
+            <img src="imgs/pngs-gifs/WannaKeepOn.png" alt="Keep Surfing" class="promo-image">
+            <div class="promo-text">Wanna keep surfing…?</div>
         </div>
+    </div>
+
+    <!-- FOOTER -->
+    <footer>
+        <img src="imgs/pngs-gifs/aeroglasses.gif" class="glasses">
+
+        <!-- Credit Card -->
+        <div class="main-container">
+            <a href="https://patreon.com/SourceCodeVintage?utm_medium=unknown&utm_source=join_link&utm_campaign=creatorshare_creator&utm_content=copyLink" target="_blank">
+            <div class="border">
+                <div class="card1">
+                    <div class="shadow">
+                        <div class="content">
+                            <p class="rev">BINARY SWAG CLUB</p>
+                            <p class="ultra-text">PATREON</p>
+                            <p class="master-text">sourcecard</p>
+                            <p class="card-number">0101 0011 0100 0011</p>
+                            <p class="card-holder">Source Code Vintage</p>
+                            <p class="master one"></p>
+                            <p class="master two"></p>
+                            <svg version="1.1" class="chip" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="40px" height="40px" viewBox="0 0 50 50" xml:space="preserve">
+                                <image width="50" height="50" x="0" y="0"
+                                    href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAMAAAAp4XiDAAAABGdBTUEAALGPC/xhBQAAACBjSFJN
+                                    AAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAB6VBMVEUAAACNcTiVeUKVeUOY
+                                    fEaafEeUeUSYfEWZfEaykleyklaXe0SWekSZZjOYfEWYe0WXfUWXe0WcgEicfkiXe0SVekSXekSW
+                                    ekKYe0a9nF67m12ZfUWUeEaXfESVekOdgEmVeUWWekSniU+VeUKVeUOrjFKYfEWliE6WeESZe0GS
+                                    e0WYfES7ml2Xe0WXeESUeEOWfEWcf0eWfESXe0SXfEWYekSVeUKXfEWxklawkVaZfEWWekOUekOW
+                                    ekSYfESZe0eXekWYfEWZe0WZe0eVeUSWeETAnmDCoWLJpmbxy4P1zoXwyoLIpWbjvXjivnjgu3bf
+                                    u3beunWvkFWxkle/nmDivXiWekTnwXvkwHrCoWOuj1SXe0TEo2TDo2PlwHratnKZfEbQrWvPrWua
+                                    fUfbt3PJp2agg0v0zYX0zYSfgkvKp2frxX7mwHrlv3rsxn/yzIPgvHfduXWXe0XuyIDzzISsjVO1
+                                    lVm0lFitjVPzzIPqxX7duna0lVncuHTLqGjvyIHeuXXxyYGZfUayk1iyk1e2lln1zYTEomO2llrb
+                                    tnOafkjFpGSbfkfZtXLhvHfkv3nqxH3mwXujhU3KqWizlFilh06khk2fgkqsjlPHpWXJp2erjVOh
+                                    g0yWe0SliE+XekShhEvAn2D///+gx8TWAAAARnRSTlMACVCTtsRl7Pv7+vxkBab7pZv5+ZlL/UnU
+                                    /f3SJCVe+Fx39naA9/75XSMh0/3SSkia+pil/KRj7Pr662JPkrbP7OLQ0JFOijI1MwAAAAFiS0dE
+                                    orDd34wAAAAJcEhZcwAACxMAAAsTAQCanBgAAAAHdElNRQfnAg0IDx2lsiuJAAACLElEQVRIx2Ng
+                                    GAXkAUYmZhZWPICFmYkRVQcbOwenmzse4MbFzc6DpIGXj8PD04sA8PbhF+CFaxEU8iWkAQT8hEVg
+                                    OkTF/InR4eUVICYO1SIhCRMLDAoKDvFDVhUaEhwUFAjjSUlDdMiEhcOEItzdI6OiYxA6YqODIt3d
+                                    I2DcuDBZsBY5eVTr4xMSYcyk5BRUOXkFsBZFJTQnp6alQxgZmVloUkrKYC0qqmji2WE5EEZuWB6a
+                                    lKoKdi35YQUQRkFYPpFaCouKIYzi6EDitJSUlsGY5RWVRGjJLyxNy4ZxqtIqqvOxaVELQwZFZdkI
+                                    JVU1RSiSalAt6rUwUBdWG1CP6pT6gNqwOrgCdQyHNYR5YQFhDXj8MiK1IAeyN6aORiyBjByVTc0F
+                                    qBoKWpqwRCVSgilOaY2OaUPw29qjOzqLvTAchpos47u6EZyYnngUSRwpuTe6D+6qaFQdOPNLRzOM
+                                    1dzhRZyW+CZouHk3dWLXglFcFIflQhj9YWjJGlZcaKAVSvjyPrRQ0oQVKDAQHlYFYUwIm4gqExGm
+                                    BSkutaVQJeomwViTJqPK6OhCy2Q9sQBk8cY0DxjTJw0lAQWK6cOKfgNhpKK7ZMpUeF3jPa28BCET
+                                    amiEqJKM+X1gxvWXpoUjVIVPnwErw71nmpgiqiQGBjNzbgs3j1nus+fMndc+Cwm0T52/oNR9lsdC
+                                    S24ra7Tq1cbWjpXV3sHRCb1idXZ0sGdltXNxRateRwHRAACYHutzk/2I5QAAACV0RVh0ZGF0ZTpj
+                                    cmVhdGUAMjAyMy0wMi0xM1QwODoxNToyOSswMDowMEUnN7UAAAAldEVYdGRhdGU6bW9kaWZ5ADIw
+                                    MjMtMDItMTNUMDg6MTU6MjkrMDA6MDA0eo8JAAAAKHRFWHRkYXRlOnRpbWVzdGFtcAAyMDIzLTAy
+                                    LTEzVDA4OjE1OjI5KzAwOjAwY2+u1gAAAABJRU5ErkJggg==">
+                                </image>
+                            </svg>
+                        </div>
+                    </div>
                 </div>
-            <video autoplay loop muted playsinline class="footer-video">
-        <source src="AQPE9zKGZE-9cL-KOfVkW32-5afqVB6v5Ks2VGerMt33-IbkBTbznta0QkVoPvaRITMJ2HlJN73DLFwMEVYW4QlDzHzqwbPEGfkmbMM.mp4" type="video/mp4">
-        Your browser does not support this video.
-    </video>
-</footer>
+            </div>
+            </a>
+        </div>
+
+        <video autoplay loop muted playsinline class="footer-video">
+            <source src="AQPE9zKGZE-9cL-KOfVkW32-5afqVB6v5Ks2VGerMt33-IbkBTbznta0QkVoPvaRITMJ2HlJN73DLFwMEVYW4QlDzHzqwbPEGfkmbMM.mp4" type="video/mp4">
+            Your browser does not support this video.
+        </video>
+    </footer>
 
 </body>
 </html>

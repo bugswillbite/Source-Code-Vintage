@@ -673,17 +673,24 @@ nav ul { position: relative; }
 @media (hover: hover) and (pointer: fine) {
   .for-sale-nav:hover .for-sale-dropdown { display: block; }
 }
-/* Mobile: make dropdown full width and static placement */
+/* Mobile: make dropdown full width, fixed under the header, and on top of everything so links are clickable */
 @media (max-width: 768px) {
+    .for-sale-dropdown {
+        z-index: 10050 !important; /* very high so nothing overlays it on mobile */
+        pointer-events: auto;
+    }
+}
+/* Mobile: make dropdown full width and static placement */
+/* @media (max-width: 768px) {
   .for-sale-dropdown {
     position: static;
     top: auto;
     left: auto;
-    min-width: 100%;
+   width: 200px;
     border-radius: 0;
     box-shadow: none;
   }
-}
+} */
 
 /* PRODUCT CARDS */
 .product-card, .product-card1 {

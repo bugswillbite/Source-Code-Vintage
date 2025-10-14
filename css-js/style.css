@@ -9,9 +9,6 @@
     justify-content: center;
     margin-bottom: 32px;
 }
-
-
-
 .archive-product-card {
     position: relative;
     width: 260px;
@@ -97,7 +94,6 @@ position: relative;
     font-style: normal;
     font-display: swap;
 }
-
 html 
 {
     scroll-behavior: smooth;
@@ -287,6 +283,50 @@ margin: 10px 0px 0px 0px;
   z-index: 1;
 }
 
+/* ===  Spinning Flip Image Card 4 SZHIRTS=== */
+.cardT-container {
+  perspective: 1000px;
+}
+.cardT {
+  width: 213.75px;
+  height: 179.55px;
+  position: relative;
+  transition: transform 0.75s;
+  transform-style: preserve-3d;
+}
+
+.cardT-container:hover .cardT {
+  transform: rotateY(180deg);
+}
+
+.card-face {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  border-radius: 1em;
+  overflow: hidden;
+}
+
+.card-face img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border: none;
+  outline: none;
+  display: block;
+}
+
+.front {
+  z-index: 2;
+  transform: rotateY(0deg);
+}
+
+.back {
+  transform: rotateY(180deg);
+  z-index: 1;
+}
 
 /* FIXED HEADER */
 header {
@@ -394,8 +434,14 @@ section#home {
     -ms-overflow-style: none;
     --image-size: 400px;
     --image-gap: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
-
+.header-img {
+    width: 100%;
+    margin: 0 auto;
+}
 .scrolling-container::-webkit-scrollbar {
     display: none;
 }
@@ -591,6 +637,54 @@ nav ul li a:hover
     text-decoration: underline;
 }
 
+/* For Sale dropdown */
+nav ul { position: relative; }
+.for-sale-nav { position: relative; }
+.for-sale-nav > a { cursor: pointer; }
+.for-sale-dropdown {
+  display: none;
+  position: absolute;
+  top: 120%;
+  left: 0;
+  background: rgba(10,10,10,0.95);
+  border: 2px solid #00ff66;
+  border-radius: 8px;
+  padding: 0.5rem 0;
+  min-width: 180px;
+  box-shadow: 0 0 12px rgba(0,255,102,0.15);
+  z-index: 200;
+  list-style: none;
+}
+.for-sale-dropdown li { margin: 0; }
+.for-sale-dropdown a {
+  display: block;
+  padding: 0.5rem 1rem;
+  color: #e6ffe6;
+  text-decoration: none;
+  font-family: 'JetBrains Mono', monospace;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+}
+.for-sale-dropdown a:hover {
+  /* background: rgba(0,255,102,0.06); */
+  color: #00ff66;
+}
+/* Show on hover (desktop) */
+@media (hover: hover) and (pointer: fine) {
+  .for-sale-nav:hover .for-sale-dropdown { display: block; }
+}
+/* Mobile: make dropdown full width and static placement */
+@media (max-width: 768px) {
+  .for-sale-dropdown {
+    position: static;
+    top: auto;
+    left: auto;
+    min-width: 100%;
+    border-radius: 0;
+    box-shadow: none;
+  }
+}
+
 /* PRODUCT CARDS */
 .product-card, .product-card1 {
     width: 200px;
@@ -762,6 +856,10 @@ footer.foot2
     .bizcard-shimmer
     {
         max-height: 100%;
+    }
+    .header-img {
+        width: 83%;
+        margin: 0 auto;
     }
     .names
     {
@@ -2751,7 +2849,10 @@ margin-top: 6px;
   height: 100%;
   background-image: radial-gradient(#c5ff7e, #18ff24 40%, transparent 70%);
 }
-
+.music-controls-overlay h3
+{
+    font-size: 18px;
+}
 
 .switch .dots {
   position: absolute;

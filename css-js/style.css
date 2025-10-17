@@ -15,22 +15,167 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    background: rgba(30,30,30,0.7);
     border-radius: 10px;
     border: 2.5px solid #00ff4a;
     overflow: hidden;
     transition: transform 0.2s, border-color 0.2s;
 }
+.ok {
+    margin: 0 auto;
+    text-align: center;
+}
+
+/* Ensure the Patreon .ok paragraph is visible and readable on small screens */
+@media (max-width: 700px) {
+    .ok {
+        display: block !important;
+        visibility: visible !important;
+        font-size: 16px;
+        padding: 8px 12px;
+        line-height: 1.4;
+    }
+    .ok .shiny {
+        display: inline-block;
+    }
+}
+.shiny {
+    display: inline-block;
+    /* base color fallback for older browsers */
+    color: #00ff66;
+    position: relative;
+    background: linear-gradient(90deg, #00ff66 0%, #e6ffe6 25%, #aaffc9 50%, #e6ffe6 75%, #00ff66 100%);
+    background-size: 200% 100%;
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-decoration: none;
+    text-shadow: 0 0 8px rgba(0,255,102,0.08);
+    animation: shiny-shimmer 3s linear infinite;
+}
+
+/* Pause shimmer on hover for readability */
+.shiny:hover {
+    animation-play-state: paused;
+}
+
+/* Archive toggle styles */
+.archive-toggle {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    margin: 8px 0; /* reduced spacing */
+}
+.archive-toggle-btn {
+    background: rgba(30,30,30,0.9);
+    color: #00ff66;
+    border: 1px solid rgba(0,255,102,0.2);
+    padding: 8px 14px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: bold;
+}
+.archive-toggle-btn.active,
+.archive-toggle-btn[aria-pressed="true"] {
+    background: #00ff66;
+    color: #08110a;
+    box-shadow: 0 0 12px rgba(0,255,102,0.12);
+}
+
+.archive-section[aria-hidden="true"] {
+    display: none;
+}
+.archive-section[aria-hidden="false"] {
+    display: block;
+}
+
+/* Bring archive titles closer to the toggle */
+.archive-section h2.POP {
+    margin-top: 4px !important;
+    margin-bottom: 6px !important;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.archive-section .container {
+    margin-top: 6px !important;
+    padding-top: 0 !important;
+        margin: 0 auto;
+    text-align: center;
+}
+
+/* Collections / Campaign image - size and center without breaking layout */
+.collection-art {
+    display: block;
+    margin: 16px auto 0 auto;
+    width: 100%;
+    width: 640px;
+    max-width: 820px; /* prevent it from being too wide on large screens */
+    height: auto;
+    /* max-height: 60vh; ensure it fits in most viewports */
+    object-fit: contain;
+    border-radius: 2px;
+}
+/* Utility: center content inside the editable detail blocks and allow per-section overrides */
+.collection-editable {
+    display: none; /* kept hidden in the collections view, cloned into detail pane */
+    text-align: center;
+}
+.collection-editable .collection-detail-img,
+.collection-detail-content img.collection-detail-img,
+.collection-editable img {
+    display: block;
+    margin: 0 auto;
+    max-width: 100%;
+    height: auto;
+    object-fit: contain;
+}
+
+/* Back button styling: reuse archive toggle look but scoped for the back button */
+.collection-back {
+    display: inline-block;
+    background: rgba(30,30,30,0.95);
+    color: #00ff66;
+    border: 1px solid rgba(0,255,102,0.2);
+    padding: 8px 14px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: bold;
+    margin-bottom: 12px;
+}
+.collection-back:hover,
+.collection-back:focus {
+    background: #00ff66;
+    color: #08110a;
+    box-shadow: 0 0 12px rgba(0,255,102,0.12);
+}
+
+
+@media (max-width: 900px) {
+    .collection-art { max-width: 80%;  }
+}
+
+@media (max-width: 420px) {
+    .collection-art { max-width: 80%; }
+}
+
+@keyframes shiny-shimmer {
+    0% {
+        background-position: 200% 0;
+    }
+    100% {
+        background-position: -200% 0;
+    }
+}
 .stuff
 {
-position: relative;
-  width: 186px;
-  margin-left: calc(50% - 178px);
-  margin: 0 auto;
-    margin-top: 0px;
-  left: 50%;
-  transform: translateX(-50%);
-  margin-top: 20px;
+    position: relative;
+    width: 186px;
+    margin-left: calc(50% - 178px);
+    margin: 0 auto;
+        margin-top: 0px;
+    left: 50%;
+    transform: translateX(-50%);
+    margin-top: 20px;
 }
 .archive-img-wrapper {
     position: relative;
@@ -43,13 +188,14 @@ position: relative;
 }
 .archive-product-card h5 {
     font-size: 15px;
+    padding-top: 10px;
 }
 .skater {
     margin: 0 auto;
     width: 557px;
     position: relative;
     display: block;
-    margin-top: -95px;
+    margin-top: -56px;
 }
 
 .archive-img {
@@ -65,7 +211,6 @@ position: relative;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    background: rgba(0,0,0,0.7);
     color: #fff;
     padding: 12px 24px;
     border-radius: 8px;
@@ -797,8 +942,8 @@ footer {
     text-align: center;
     position: relative;
     margin-left: -20px;
-    width: 100vw;
-    max-width: 100vw;
+    width: 101vw;
+    max-width: 101vw;
     overflow: hidden;
     z-index: 1;
     align-content: center;
@@ -831,6 +976,66 @@ footer.foot2
 @media (max-width: 450px) {
     body {
         font-size: 16px;
+
+/* Collection detail view styles */
+.tpl-detail {
+    margin: 0 auto;
+}
+.collection-detail {
+    padding: 18px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+}
+.collection-back {
+    align-self: flex-start;
+    background: rgba(30,30,30,0.95);
+    color: #00ff66;
+    border: 1px solid rgba(0,255,102,0.2);
+    padding: 8px 14px;
+    border-radius: 6px;
+    cursor: pointer;
+    margin-bottom: 12px;
+    font-weight: bold;
+    transition: background 160ms ease, color 160ms ease, box-shadow 160ms ease, transform 120ms ease;
+}
+.collection-back:hover {
+    background: rgba(0,255,102,0.12);
+    color: #08110a;
+    box-shadow: 0 0 12px rgba(0,255,102,0.12);
+    transform: translateY(-1px);
+}
+.collection-back:active {
+    transform: translateY(0);
+}
+.collection-back:focus {
+    outline: 3px solid rgba(0,255,102,0.12);
+    outline-offset: 2px;
+}
+.collection-detail-content {
+    display: block; /* no automatic flex layout: authors control layout inside each subsection */
+    width: 100%;
+    max-width: 1000px;
+}
+img.collection-detail-img {
+    width: 640px;
+    max-width: 95%;
+    height: auto;
+    object-fit: contain;
+    border-radius: 6px;
+    margin: 0 auto;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.4);
+}
+.collection-detail-meta { max-width: 360px; color: #00ff66; }
+
+@media (max-width: 900px) {
+    .collection-detail-img { width: 520px; }
+}
+
+@media (max-width: 420px) {
+    .collection-detail-img { width: 100%; }
+}
     }
     .cheech, .cheech2 
     {
@@ -879,7 +1084,9 @@ footer.foot2
         margin-top: 38px;
         margin-left: -30px;
     }
-    
+    .skater {
+        margin-top: -1px;
+    }
     header {
         height: 170px;
         padding: 15px 5px;
@@ -2359,6 +2566,62 @@ margin-top: 6px;
         0 0 20px rgba(35, 203, 49, 0.4),
         0 0 40px rgba(35, 203, 49, 0.2);
 }
+/* CONTACT TOOLTIP */
+#contact p a[data-tooltip] {
+    position: relative;
+}
+
+#contact p a[data-tooltip]::after {
+    content: attr(data-tooltip);
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%) translateY(8px);
+    bottom: 100%;
+    background: rgba(0,0,0,0.95);
+    color: #fff;
+    padding: 6px 8px;
+    border-radius: 6px;
+    font-size: 12px;
+    white-space: nowrap;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.15s ease, transform 0.15s ease;
+    z-index: 10500;
+}
+
+#contact p a[data-tooltip]:hover::after,
+#contact p a[data-tooltip]:focus::after {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+    #contact p a[data-tooltip]::after {
+        transition: none;
+    }
+}
+/* CONTACT ROW: inline on desktop, stacked on mobile */
+.contact-row {
+    display: flex;
+    flex-direction: row;
+    gap: 12px;
+    align-items: center;
+    justify-content: center; /* center on desktop */
+    margin-top: 6px;
+}
+
+.contact-row .contactTXT {
+    margin: 0; /* Remove vertical margins so they align nicely */
+}
+
+@media (max-width: 700px) {
+    .contact-row {
+        flex-direction: column;
+        gap: 6px;
+        align-items: center; /* center on mobile */
+        justify-content: center;
+    }
+}
 /* FLYING PROMO IMAGE */
 .flying-promo {
     position: fixed;
@@ -2932,7 +3195,7 @@ margin-top: 6px;
   justify-content: center;
   transition: all 300ms ease-in;
   /* margin-top: 20px; */
-  margin-right: 100px;
+  margin-right: -26px;
 }
 .main-container:hover {
   transform: rotateZ(1deg) rotateY(10deg) scale(1.1);
@@ -3138,7 +3401,7 @@ height: 8em;
 @media (max-width: 450px) {
   .main-container {
         height: 130px !important;
-        margin-right: 50px;
+        margin-right: -18px;
         }
 }
 @keyframes rotate {

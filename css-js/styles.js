@@ -5,7 +5,8 @@ document.addEventListener("DOMContentLoaded", function () {
     function addScrollAnimations() {
         // Add animation classes to elements
         const sections = document.querySelectorAll('section');
-        const productCards = document.querySelectorAll('.product-card, .product-card1');
+    // include archive product cards so the same stagger/slide animations apply
+    const productCards = document.querySelectorAll('.product-card, .product-card1, .archive-product-card');
         const headings = document.querySelectorAll('h2');
         
         // Add fade-in to sections
@@ -905,9 +906,9 @@ document.addEventListener("DOMContentLoaded", function () {
             } else {
                 console.log('5 minute interval triggered but promo already active or in interactive mode');
             }
-        }, 300000); // 5 minutes
+        }, 100000); // 100 seconds
 
-        // Initialize first promo appearance after 5 minutes - only on desktop
+        // Initialize first promo appearance after 100 seconds - only on desktop
         initialTimeout = setTimeout(() => {
             if (window.innerWidth <= 768) {
                 console.log('Screen too small for initial promo');
@@ -975,6 +976,10 @@ document.addEventListener("DOMContentLoaded", function () {
         console.log('Flying promo setup complete - desktop only, 5-minute intervals');
     }
 
+    window.addScrollAnimations = addScrollAnimations;
+    window.observeElements = observeElements;
+    window.setupHeaderParallax = setupHeaderParallax;
+
     addScrollAnimations();
     observeElements();
     setupSmoothScroll();
@@ -989,6 +994,177 @@ document.addEventListener("DOMContentLoaded", function () {
     setupDualScrolling();
     setupFlyingPromo();
     setupPreventVideoFullscreen();
+    setupCollectionDetailView();
+});
+
+// COLLECTION DETAIL VIEW: clicking a collection image opens a detail pane with Back
+function setupCollectionDetailView() {
+    const collectionImages = document.querySelectorAll('.collection-art');
+    if (!collectionImages || collectionImages.length === 0) return;
+
+    // We'll keep a snapshot of the collections/products container to restore on Back
+    let savedCollectionsHTML = null;
+
+    async function openDetail(img) {
+        const collectionsSection = document.getElementById('collections');
+        if (!collectionsSection) return;
+
+        // Save current HTML once
+        if (savedCollectionsHTML === null) savedCollectionsHTML = collectionsSection.innerHTML;
+        // Build detail pane using optional per-image content sources
+        const detail = document.createElement('div');
+        detail.className = 'collection-detail';
+
+        // Back button
+        const backBtn = document.createElement('button');
+        backBtn.className = 'collection-back';
+        backBtn.setAttribute('aria-label', 'Back to collections');
+        backBtn.textContent = '← Back';
+        detail.appendChild(backBtn);
+
+        // Content wrapper
+        const contentWrap = document.createElement('div');
+        contentWrap.className = 'collection-detail-content';
+
+        // Primary: render the HTML from a hidden editable div referenced by data-detail-id
+        const detailId = img.dataset.detailId;
+        if (detailId) {
+            const source = document.getElementById(detailId);
+            if (source) {
+                // Insert the author's HTML exactly as written in the hidden div
+                contentWrap.innerHTML = source.innerHTML;
+                // Allow the source to indicate it doesn't want the site's auto layout
+                if (source.dataset.noLayout === 'true' || source.classList.contains('no-auto')) {
+                    // mark wrapper so CSS can adjust if needed
+                    detail.classList.add('no-auto-layout');
+                }
+            } else {
+                // fallback to older behaviors if the source div isn't found
+                const tplId = img.dataset.detailTemplate;
+                if (tplId) {
+                    const tpl = document.getElementById(tplId);
+                    if (tpl && tpl.content) {
+                        contentWrap.appendChild(tpl.content.cloneNode(true));
+                    }
+                } else if (img.dataset.detailSrc) {
+                    try {
+                        const resp = await fetch(img.dataset.detailSrc, {cache: 'no-store'});
+                        if (resp.ok) {
+                            const html = await resp.text();
+                            const frag = document.createElement('div');
+                            frag.innerHTML = html;
+                            contentWrap.appendChild(frag);
+                        }
+                    } catch (e) {}
+                } else if (img.dataset.detailHtml) {
+                    const frag = document.createElement('div');
+                    frag.innerHTML = img.dataset.detailHtml;
+                    contentWrap.appendChild(frag);
+                } else {
+                    const ii = document.createElement('img'); ii.src = img.src; ii.alt = img.alt || ''; ii.className = 'collection-detail-img';
+                    const meta = document.createElement('div'); meta.className = 'collection-detail-meta';
+                    const h3 = document.createElement('h3'); h3.textContent = img.alt || 'Collection item';
+                    const p = document.createElement('p'); p.textContent = '';
+                    meta.appendChild(h3); meta.appendChild(p);
+                    contentWrap.appendChild(ii); contentWrap.appendChild(meta);
+                }
+            }
+        } else {
+            // No data-detail-id: keep previous fallbacks (template, remote, inline or default)
+            const tplId = img.dataset.detailTemplate;
+            if (tplId) {
+                const tpl = document.getElementById(tplId);
+                if (tpl && tpl.content) {
+                    contentWrap.appendChild(tpl.content.cloneNode(true));
+                }
+            } else if (img.dataset.detailSrc) {
+                try {
+                    const resp = await fetch(img.dataset.detailSrc, {cache: 'no-store'});
+                    if (resp.ok) {
+                        const html = await resp.text();
+                        const frag = document.createElement('div');
+                        frag.innerHTML = html;
+                        contentWrap.appendChild(frag);
+                    }
+                } catch (e) {}
+            } else if (img.dataset.detailHtml) {
+                const frag = document.createElement('div');
+                frag.innerHTML = img.dataset.detailHtml;
+                contentWrap.appendChild(frag);
+            } else {
+                const ii = document.createElement('img'); ii.src = img.src; ii.alt = img.alt || ''; ii.className = 'collection-detail-img';
+                const meta = document.createElement('div'); meta.className = 'collection-detail-meta';
+                const h3 = document.createElement('h3'); h3.textContent = img.alt || 'Collection item';
+                const p = document.createElement('p'); p.textContent = '';
+                meta.appendChild(h3); meta.appendChild(p);
+                contentWrap.appendChild(ii); contentWrap.appendChild(meta);
+            }
+        }
+
+        detail.appendChild(contentWrap);
+
+        // Replace collectionsSection content with detail
+        collectionsSection.innerHTML = '';
+        collectionsSection.appendChild(detail);
+
+        // Attach back handler
+        backBtn.addEventListener('click', function () {
+            if (savedCollectionsHTML !== null) {
+                collectionsSection.innerHTML = savedCollectionsHTML;
+                savedCollectionsHTML = null;
+                // re-run any observers/handlers (so animations and click handlers work again)
+                try { if (window.observeElements) window.observeElements(); } catch (e) {}
+                try { setupCollectionDetailView(); } catch (e) {}
+            }
+        });
+    }
+
+    collectionImages.forEach(img => {
+        img.style.cursor = 'pointer';
+        img.addEventListener('click', function (e) {
+            e.preventDefault();
+            openDetail(img);
+        });
+    });
+}
+
+// Archive toggle: show collections or products
+document.addEventListener('DOMContentLoaded', function() {
+    const btnCollections = document.getElementById('showCollections');
+    const btnProducts = document.getElementById('showProducts');
+    const sectionCollections = document.getElementById('collections');
+    const sectionProducts = document.getElementById('products');
+
+    function showSection(which) {
+        if (which === 'collections') {
+            sectionCollections.setAttribute('aria-hidden', 'false');
+            sectionCollections.style.display = 'block';
+            sectionProducts.setAttribute('aria-hidden', 'true');
+            sectionProducts.style.display = 'none';
+            btnCollections.classList.add('active');
+            btnCollections.setAttribute('aria-pressed', 'true');
+            btnProducts.classList.remove('active');
+            btnProducts.setAttribute('aria-pressed', 'false');
+        } else {
+            sectionCollections.setAttribute('aria-hidden', 'true');
+            sectionCollections.style.display = 'none';
+            sectionProducts.setAttribute('aria-hidden', 'false');
+            sectionProducts.style.display = 'block';
+            btnCollections.classList.remove('active');
+            btnCollections.setAttribute('aria-pressed', 'false');
+            btnProducts.classList.add('active');
+            btnProducts.setAttribute('aria-pressed', 'true');
+            // Re-run observers/animations so elements that were hidden become visible/animated
+            try { if (window.observeElements) window.observeElements(); } catch (e) { console.warn('observeElements failed', e); }
+        }
+    }
+
+    if (btnCollections && btnProducts && sectionCollections && sectionProducts) {
+        btnCollections.addEventListener('click', function(e) { e.preventDefault(); showSection('collections'); });
+        btnProducts.addEventListener('click', function(e) { e.preventDefault(); showSection('products'); });
+        // default state: show collections
+        showSection('collections');
+    }
 });
 
     // Prevent videos from entering fullscreen
@@ -1037,15 +1213,17 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
 window.addEventListener('scroll', () => {
-    const image = document.querySelector('.tilt-img');
-    if (!image) return;
+    // support multiple tilt images on the page (apply to each .tilt-img)
+    const images = document.querySelectorAll('.tilt-img, .archive-img');
+    if (!images || images.length === 0) return;
 
-    const rect = image.getBoundingClientRect();
     const windowCenter = window.innerHeight / 2;
-    const offset = rect.top + rect.height / 2 - windowCenter;
-
-    const rotateY = Math.max(-15, Math.min(15, offset / 15));
-    image.style.transform = `rotateY(${rotateY}deg)`;
+    images.forEach(image => {
+        const rect = image.getBoundingClientRect();
+        const offset = rect.top + rect.height / 2 - windowCenter;
+        const rotateY = Math.max(-15, Math.min(15, offset / 15));
+        image.style.transform = `rotateY(${rotateY}deg)`;
+    });
 });
 
 document.addEventListener('DOMContentLoaded', function() {

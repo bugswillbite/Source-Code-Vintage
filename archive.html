@@ -9,12 +9,12 @@
     <title>Source Code Vintage</title>
     <link rel="canonical" href="https://binaryswag.club/archive.html">
     <!-- Favicons -->
-    <link rel="icon" type="image/svg+xml" href="https://binaryswag.club/splash.svg">
-    <link rel="icon" type="image/png" sizes="96x96" href="https://binaryswag.club/splash96.png">
-    <link rel="icon" type="image/x-icon" href="https://binaryswag.club/splash.ico">
+    <link rel="icon" type="image/svg+xml" href="https://binaryswag.club/splash1.svg">
+    <link rel="icon" type="image/png" sizes="96x96" href="https://binaryswag.club/splash196.png">
+    <link rel="icon" type="image/x-icon" href="https://binaryswag.club/splash1.ico">
 
     <!-- Apple Touch Icon -->
-    <link rel="apple-touch-icon" sizes="180x180" href="https://binaryswag.club/splash.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="https://binaryswag.club/splash1.png">
 
     <!-- Web App Manifest -->
     <link rel="manifest" href="https://binaryswag.club/manifest.webmanifest">
@@ -27,7 +27,7 @@
     <meta property="og:title" content="Source Code Vintage - Join the Binary Swag Club.">
     <meta property="og:site_name" content="Source Code Vintage">
     <meta property="og:description" content="Source Code Vintage offers unique items in many ranges of styles and pricing that you won't find anywhere else.">
-    <meta property="og:image" content="https://binaryswag.club/splash.png">
+    <meta property="og:image" content="https://binaryswag.club/splash1.png">
     <meta property="og:url" content="https://binaryswag.club">
     <meta property="og:type" content="website">
 
@@ -35,10 +35,11 @@
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Source Code Vintage - Join the Binary Swag Club.">
     <meta name="twitter:description" content="Source Code Vintage offers unique items in many ranges of styles and pricing that you won't find anywhere else.">
-    <meta name="twitter:image" content="https://binaryswag.club/splash.png">
+    <meta name="twitter:image" content="https://binaryswag.club/splash1.png">
 
     <!-- Fonts and Styles -->
     <link rel="stylesheet" href="css-js/style.css">
+    <link rel="stylesheet" href="css-js/mediaquerries.css">
     <script defer src="css-js/styles.js"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -65,13 +66,8 @@
     <img class="bat" src="imgs/pngs-gifs/bat.gif" alt="Bat">
     <img class="alien" src="imgs/pngs-gifs/ikeaAlien.png" alt="Alien">
     <img class="doom" src="imgs/pngs-gifs/4CYPGEA37SV43FWY7UVSKVJRMKVN2J3S.gif" alt="doom">
-    <!-- <img class="scatter1" src="imgs/pngs-gifs/4CYPGEA37SV43FWY7UVSKVJRMKVN2J3S.gif" alt="Scatter 1"> -->
     <img class="scatter2" src="imgs/pngs-gifs/2RZTNGUUZCMGXJJDUIQTS4IITTZTFRCD copy.gif"> 
-    <img class="scatter3" src="imgs/pngs-gifs/alien1 copy.gif">
-    <!-- <img class="scatter4" src="imgs/default-img.png" alt="Scatter 4">
-    <img class="scatter5" src="imgs/default-img.png" alt="Scatter 5">
-    <img class="scatter6" src="imgs/default-img.png" alt="Scatter 6">
-     -->
+  
 
     <!-- FLYING ANIMATED ELEMENTS -->
     <div class="flying-elements">
@@ -93,47 +89,44 @@
         <img class="cheech2" src="imgs/pngs-gifs/WIZARDPNG.png">
         <img class="sword" src="imgs/sord-selected.png" alt="Sword Selected" id="sword1">
         <img class="sword2" src="imgs/sword.png" alt="Sword" id="sword2">
-         <nav>
-            <ul>
-                <li class="music-menu-item">
-                    <button id="musicMenuToggle" class="music-icon-btn">
-                        <span class="music-icon">♫</span>
-                    </button>
-                </li>
-                <li><a href="index.html">Home</a></li>
-                <li><a href="index.html#products">For Sale</a></li>
-                <li><a href="index.html#about">About</a></li>
-                <li><a href="index.html#contact">Contact</a></li>
-                <li><a href="#">Archive</a></li>
-
-                <li class="settings-menu-item">
-                    <button id="settingsMenuToggle" class="settings-icon-btn">
-                        <span class="settings-icon">⚙</span>
-                    </button>
-                </li>
-            </ul>
-            
-            <!-- SETTINGS MENU DROPDOWN -->
-            <div id="settingsMenu" class="settings-menu">
-                <div class="settings-menu-content">
-                    <h4>settings</h4>
-                    <div class="setting-item">
-                        <label class="setting-label">toggle bg animations: </label>
-                        
-                        <label class="switch">
-                        <input type="checkbox" checked="checked" id="animationToggle">
-                        <div class="button">
-                            <div class="light"></div>
-                            <div class="dots"></div>
-                            <div class="characters"></div>
-                            <div class="shine"></div>
-                            <div class="shadow"></div>
+            <nav>
+                <ul>
+                    <li class="music-menu-item">
+                        <button id="musicMenuToggle" class="music-icon-btn">
+                            <span class="music-icon">♫</span>
+                        </button>
+                    </li>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="index.html#products">For Sale</a></li>
+                    <li><a href="index.html#about">About</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                    <li><a href="#">Archive</a></li>
+                    <li class="settings-menu-item">
+                        <button id="settingsMenuToggle" class="settings-icon-btn">
+                            <span class="settings-icon">⚙</span>
+                        </button>
+                    </li>
+                </ul>            
+                <!-- SETTINGS MENU DROPDOWN -->
+                <div id="settingsMenu" class="settings-menu">
+                    <div class="settings-menu-content">
+                        <h4>settings</h4>
+                        <div class="setting-item">
+                            <label class="setting-label">toggle bg animations:</label>
+                            <label class="switch">
+                                <input type="checkbox" checked="checked" id="animationToggle">
+                                <div class="button">
+                                    <div class="light"></div>
+                                    <div class="dots"></div>
+                                    <div class="characters"></div>
+                                    <div class="shine"></div>
+                                    <div class="shadow"></div>
+                                </div>
+                            </label>
                         </div>
-                        </label>
                     </div>
                 </div>
-            </div>
-        </nav>
+            </nav>
     </header>
 
     <!-- SWORD POPUP -->
@@ -146,7 +139,7 @@
         </div>
     </div>
 
-    <!-- MUSIC POPUP -->
+ <!-- MUSIC POPUP -->
     <div id="musicPopup" class="music-popup-overlay">
         <div class="music-popup-content">
             <button class="popup-close" id="closeMusicPopup">&times;</button>
@@ -179,43 +172,9 @@
                             </div>
                         </div>
                     </div>
-                    <div class="song-list">
-                        <button class="song-btn active" data-song="cyber-dreams">
-                            <img src="imgs/ALBUMS/phoneoe copy.gif" alt="Hip Hop Album" class="album-cover">
-                            <span class="song-title">HIP HOP</span>
-                        </button>
-                        <button class="song-btn" data-song="neon-nights">
-                            <img src="imgs/ALBUMS/GUITAR.png" alt="Smooth Jazz Album" class="album-cover">
-                            <span class="song-title">SMOOTH JAZZ</span>
-                        </button>
-                        <button class="song-btn" data-song="digital-rain">
-                            <img src="imgs/ALBUMS/STARR.png" alt="Ambient Album" class="album-cover">
-                            <span class="song-title">AMBIENT</span>
-                        </button>
-                        <button class="song-btn" data-song="retro-wave">
-                            <img src="imgs/ALBUMS/hand.gif" alt="House Album" class="album-cover">
-                            <span class="song-title">HOUSE</span>
-                        </button>
-                        <button class="song-btn" data-song="synthwave">
-                            <img src="imgs/ALBUMS/UFO.png" alt="Techno Album" class="album-cover">
-                            <span class="song-title">TECHNO</span>
-                        </button>
-                        <button class="song-btn" data-song="lo-fi-beats">
-                            <img src="imgs/ALBUMS/SUNNY.png" alt="Pop Album" class="album-cover">
-                            <span class="song-title">POP</span>
-                        </button>
-                        <button class="song-btn" data-song="synthpop">
-                            <img src="imgs/ALBUMS/JUMP.png" alt="Dance Album" class="album-cover">
-                            <span class="song-title">DANCE</span>
-                        </button>
-                        <button class="song-btn" data-song="chillwave">
-                            <img src="imgs/ALBUMS/IDKK.png" alt="Funk Album" class="album-cover">
-                            <span class="song-title">FUNK</span>
-                        </button>
-                        <button class="song-btn" data-song="cyberpunk">
-                            <img src="imgs/ALBUMS/ZOMBI.png" alt="Spooky Album" class="album-cover">
-                            <span class="song-title">INDIE</span>
-                        </button>
+                    <div class="station-nav">
+                        <button id="prevStationBtn" class="station-btn">⏮ Prev</button>
+                        <button id="nextStationBtn" class="station-btn">Next ⏭</button>
                     </div>
                     <div class="music-controls">
                         <button id="playPauseBtn" class="control-btn">⏸</button>
@@ -227,77 +186,213 @@
         </div>
     </div>
 
+
     <main>
         
         <section id="home">
                 <div class="container">
                     <h2 class="POP cool">ThE aRcHiVe</h2> 
-                    <p>Welcome to the Source Code Archive. An index of clothing, accessories, and items we have sold but not forgotten. Explore our collection to find unique pieces to inspire your style.</p>
+                    <p class="ok">Welcome to the Source Code Archive, an evolving index of everything we have created. This is a curated blend of past collections & campaigns, alongside clothing, accessories, and items we have sold but not forgotten. Explore our archive to find unique pieces to inspire your style.</p>
                 </div>
                 <img class="skater" src="skater.gif" alt="Skater">
          </section>
-        <section id="products" class="main-content">
+
+        <!-- Archive view toggle -->
+        <div class="archive-toggle">
+            <button id="showCollections" class="archive-toggle-btn active" aria-pressed="true">Collections</button>
+            <button id="showProducts" class="archive-toggle-btn" aria-pressed="false">Products</button>
+        </div>
+
+        <section id="collections" class="archive-section" aria-hidden="false" style="display: block;">
+            <h2 class="POP">CoLleCtIoNs / CaMpAiGnS</h2>
+            <!-- collection images reference editable detail sections via data-detail-id (easier to edit per-section) -->
+            <img src="imgs/EDITS/DoUDream.png" class="collection-art" alt="Do U Dream?" data-detail-id="detail-doudream">
+            <img src="imgs/EDITS/HDYCc.png" class="collection-art" alt="How do you connect?" data-detail-id="detail-hdyc">
+            <img src="imgs/EDITS/SHIELD023.png" class="collection-art" alt="Shield Yourself From Reality" data-detail-id="detail-shield">
+        </section>
+
+        <!-- Editable detail sections (hidden) - easier to author different layouts per-collection -->
+        <div id="detail-doudream" class="collection-editable" style="display:none;" aria-hidden="true">
+            <div class="tpl-detail">
+                <img src="imgs/EDITS/DoUDream.png" alt="Do U Dream?" class="collection-detail-img">
+                <div class="collection-detail-meta">
+                    <h2>Do You Dream? We Do.</h2>
+                </div>
+            </div>
+        </div>
+
+            <div id="detail-hdyc" class="collection-editable" style="display:none;" aria-hidden="true">
+            <!-- This section demonstrates a different layout: text first, then image -->
+            <div class="tpl-detail">
+                <div class="collection-detail-meta">
+                    <h2>How Do You Connect?</h2>
+                </div>
+                <img src="imgs/EDITS/HDYCc.png" alt="How do you connect?" class="collection-detail-img">
+            </div>
+        </div>
+
+        <div id="detail-shield" class="collection-editable" style="display:none;" aria-hidden="true">
+            <div class="tpl-detail">
+                <img src="imgs/EDITS/SHIELD023.png" alt="Shield Yourself From Reality" class="collection-detail-img">
+                <div class="collection-detail-meta">
+                    <h2>Shield Yourself From Reality</h2>
+                </div>
+            </div>
+        </div>
+
+        <section id="products" class="main-content archive-section" aria-hidden="true" style="display: none;">
             <!-- SHIRTS -->
             <h2 class="POP">TeEs & ToPs</h2>
-                <div class="archive-product-container">       
+
+                <div class="archive-product-container">
+                    <!-- Ostrich Shirt-->       
                     <div class="archive-product-card fade-in">
-                        <div class="archive-img-wrapper">
-                            <img src="imgs/shirts/P04.jpg" class="archive-img" alt="Ostrich Tee">
-                        </div>
-                        <h5>The Mountain Ostrich</h5>
+                        <h5>The Mountain Ostrich Tee</h5>
+                        <div class="contact-image-spacerT">
+                            <section id="spinning-image-section">
+                                <div class="cardT-container">
+                                    <div class="cardT">
+                                        <div class="card-face front">
+                                            <img src="imgs/tee.pngs/ostrich.png" alt="Front Image">
+                                        </div>
+                                        <div class="card-face back">
+                                            <img src="imgs/tee.pngs/ostrich.png" alt="Back Image">
+                                        </div>
+                                    </div>
+                                </div>
+                            </section>
+                        </div>          
                     </div>
+                    <!-- Weed Shirt-->       
                     <div class="archive-product-card fade-in">
-                        <div class="archive-img-wrapper">
-                            <img src="imgs/shirts/Sold-Weed.jpg" class="archive-img" alt="Weed Tee">
-                        </div>
-                        <h5>Vintage Weed Tee</h5>
+                        <h5>Weed Tee</h5>
+                        <div class="contact-image-spacerT">
+                            <section id="spinning-image-section">
+                                <div class="cardT-container">
+                                    <div class="cardT">
+                                        <div class="card-face front">
+                                            <img src="imgs/tee.pngs/weedPNG.png" alt="Front Image">
+                                        </div>
+                                        <div class="card-face back">
+                                            <img src="imgs/tee.pngs/weedPNG.png" alt="Back Image">
+                                        </div>
+                                    </div>
+                                </div>
+                            </section>
+                        </div>          
+                    </div>
+                     <!-- Bob Shirt -->
+                       <div class="archive-product-card fade-in">
+                        <h5>Bob's Shirt</h5>
+                        <div class="contact-image-spacerT">
+                            <section id="spinning-image-section">
+                                <div class="cardT-container">
+                                    <div class="cardT">
+                                        <div class="card-face front">
+                                            <img src="imgs/tee.pngs/bob/bobFront.png" alt="Front Image">
+                                        </div>
+                                        <div class="card-face back">
+                                            <img src="imgs/tee.pngs/bob/bobBack.png" alt="Back Image">
+                                        </div>
+                                    </div>
+                                </div>
+                            </section>
+                        </div>          
                     </div>
                 </div>
 
             <!-- HOODIES -->
-            <!-- <h2 class="POP">HoOdIeS </h2>
-                    <div class="product-container1">
-            
+            <!-- <h2 class="POP">HoOdIeS </h2> -->
+            <!-- Hoodie -->
+                <!-- <div class="archive-product-container">       
+                    <div class="archive-product-card fade-in">
+                        <h5>Hoodie</h5>
+                        <div class="contact-image-spacerT">
+                            <section id="spinning-image-section">
+                                <div class="cardT-container">
+                                    <div class="cardT">
+                                        <div class="card-face front">
+                                            <img src="imgs/tee.pngs/" alt="Front Image">
+                                        </div>
+                                        <div class="card-face back">
+                                            <img src="imgs/tee.pngs/" alt="Back Image">
+                                        </div>
+                                    </div>
+                                </div>
+                            </section>
+                        </div>          
+                    </div> 
+                </div>            
             </div> -->
 
             <!-- DRESSES -->
-            <h2 class="POP"id="collectables">DrEsSeS & SkiRtS</h2>
-            <div class="archive-product-container">
-                <div class="archive-product-card fade-in">
-                    <div class="archive-img-wrapper">
-                        <img src="imgs/shirts/dress1.jpg" class="archive-img" alt="Psychedelic Dress">
-                    </div>
-                    <h5>Psychedelic Dress</h5>
+            <h2 class="POP">DrEsSeS & SkiRtS</h2>
+            <!-- Pink Miniskirt Plaid -->
+                <div class="archive-product-container">       
+                    <div class="archive-product-card fade-in">
+                        <h5>Pink Plaid Miniskirt</h5>
+                        <div class="contact-image-spacerT">
+                            <section id="spinning-image-section">
+                                <div class="cardT-container">
+                                    <div class="cardT">
+                                        <div class="card-face front">
+                                            <img src="imgs/tee.pngs/skirt_plaid/plaidFront.png" alt="Front Image">
+                                        </div>
+                                        <div class="card-face back">
+                                            <img src="imgs/tee.pngs/skirt_plaid/plaidBack.png" alt="Back Image">
+                                        </div>
+                                    </div>
+                                </div>
+                            </section>
+                        </div>          
+                    </div> 
                 </div>
-                <div class="archive-product-card fade-in">
-                    <div class="archive-img-wrapper">
-                        <img src="imgs/shirts/dress2.jpg" class="archive-img" alt="Purple Mod Dress">
-                    </div>
-                    <h5>Purple Mod Dress</h5>
-                </div>
-            </div>
-            
+    
             <!-- SHOES -->
-            <h2 class="POP"id="collectables">ShOeS</h2>
-            <div class="archive-product-container">
-                <div class="archive-product-card fade-in">
-                    <div class="archive-img-wrapper">
-                        <img src="imgs/shirts/converse.jpg" class="archive-img" alt="Plaid Converse">
-                    </div>
-                    <h5>Plaid Converse</h5>
-                </div>
-            </div>
+            <!-- <h2 class="POP"id="collectables">ShOeS</h2> -->
+                <!-- <div class="archive-product-container">       
+                    <div class="archive-product-card fade-in">
+                        <h5>Dress</h5>
+                        <div class="contact-image-spacerT">
+                            <section id="spinning-image-section">
+                                <div class="cardT-container">
+                                    <div class="cardT">
+                                        <div class="card-face front">
+                                            <img src="imgs/tee.pngs/" alt="Front Image">
+                                        </div>
+                                        <div class="card-face back">
+                                            <img src="imgs/tee.pngs/" alt="Back Image">
+                                        </div>
+                                    </div>
+                                </div>
+                            </section>
+                        </div>          
+                    </div> 
+                </div> -->
 
             <!-- ACCESSORIES -->
             <h2 class="POP"id="collectables">AcCeSsOrIeS & JeWeLeRy</h2>
-            <div class="archive-product-container">
-                <div class="archive-product-card fade-in">
-                    <div class="archive-img-wrapper">
-                        <img src="imgs/shirts/sunny.jpg" class="archive-img" alt="Aviators">
-                    </div>
-                    <h5>Yellow Aviators</h5>
+                
+                <!-- YELLOW AVIATORS-->
+                <div class="archive-product-container">       
+                    <div class="archive-product-card fade-in">
+                        <h5>Yellow Aviators</h5>
+                        <div class="contact-image-spacerT">
+                            <section id="spinning-image-section">
+                                <div class="cardT-container">
+                                    <div class="cardT">
+                                        <div class="card-face front">
+                                            <img src="imgs/tee.pngs/glassesFront.png" alt="Front Image">
+                                        </div>
+                                        <div class="card-face back">
+                                            <img src="imgs/tee.pngs/glassesBack.png" alt="Back Image">
+                                        </div>
+                                    </div>
+                                </div>
+                            </section>
+                        </div>          
+                    </div> 
                 </div>
-            </div>
 
             <!-- COLLECTABLES -->
             <h2 class="POP"id="collectables">TrINkEtS & FiGuReS</h2>
@@ -357,8 +452,9 @@
                     <h5>Captain Bridger | SeaQuest</h5>
                 </div>
             </div>
-        </section>        
-            <div class="contact-image-spacer">
+        </section> 
+               
+            <!-- <div class="contact-image-spacer">
             <section id="spinning-image-section">
                 <div class="card-container">
                     <div class="card">
@@ -371,7 +467,7 @@
                     </div>
                 </div>
                 </section>
-            </div>
+            </div> -->
         </section>
         <h4 class="quote">What the caterpillar calls the end of the world, The Prophitt calls a butterfly.</h4>
         <img src="imgs/pngs-gifs/us.png" class="us">
@@ -385,13 +481,64 @@
         <div class="promo-text">Wanna keep surfing…?</div>
     </div>
 </div>
-<footer>
-        <img src="imgs/pngs-gifs/aeroglasses.gif" class="glasses">
-            <video autoplay loop muted playsinline class="footer-video">
-        <source src="AQPE9zKGZE-9cL-KOfVkW32-5afqVB6v5Ks2VGerMt33-IbkBTbznta0QkVoPvaRITMJ2HlJN73DLFwMEVYW4QlDzHzqwbPEGfkmbMM.mp4" type="video/mp4">
-        Your browser does not support this video.
-    </video>
-</footer>
+    <!-- FOOTER -->
+    <footer>
+        <!-- Credit Card -->
+        <div class="main-container">
+            <a href="https://patreon.com/SourceCodeVintage?utm_medium=unknown&utm_source=join_link&utm_campaign=creatorshare_creator&utm_content=copyLink" target="_blank">
+            <div class="border">
+                <div class="card1">
+                    <div class="shadow">
+                        <div class="content">
+                            <p class="rev">BINARY SWAG CLUB</p>
+                            <p class="ultra-text">PATREON</p>
+                            <p class="master-text">sourcecard</p>
+                            <p class="card-number">0101 0011 0100 0011</p>
+                            <p class="card-holder">Source Code Vintage</p>
+                            <p class="master one"></p>
+                            <p class="master two"></p>
+                            <svg version="1.1" class="chip" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="40px" height="40px" viewBox="0 0 50 50" xml:space="preserve">
+                                <image width="50" height="50" x="0" y="0"
+                                    href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAMAAAAp4XiDAAAABGdBTUEAALGPC/xhBQAAACBjSFJN
+                                    AAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAB6VBMVEUAAACNcTiVeUKVeUOY
+                                    fEaafEeUeUSYfEWZfEaykleyklaXe0SWekSZZjOYfEWYe0WXfUWXe0WcgEicfkiXe0SVekSXekSW
+                                    ekKYe0a9nF67m12ZfUWUeEaXfESVekOdgEmVeUWWekSniU+VeUKVeUOrjFKYfEWliE6WeESZe0GS
+                                    e0WYfES7ml2Xe0WXeESUeEOWfEWcf0eWfESXe0SXfEWYekSVeUKXfEWxklawkVaZfEWWekOUekOW
+                                    ekSYfESZe0eXekWYfEWZe0WZe0eVeUSWeETAnmDCoWLJpmbxy4P1zoXwyoLIpWbjvXjivnjgu3bf
+                                    u3beunWvkFWxkle/nmDivXiWekTnwXvkwHrCoWOuj1SXe0TEo2TDo2PlwHratnKZfEbQrWvPrWua
+                                    fUfbt3PJp2agg0v0zYX0zYSfgkvKp2frxX7mwHrlv3rsxn/yzIPgvHfduXWXe0XuyIDzzISsjVO1
+                                    lVm0lFitjVPzzIPqxX7duna0lVncuHTLqGjvyIHeuXXxyYGZfUayk1iyk1e2lln1zYTEomO2llrb
+                                    tnOafkjFpGSbfkfZtXLhvHfkv3nqxH3mwXujhU3KqWizlFilh06khk2fgkqsjlPHpWXJp2erjVOh
+                                    g0yWe0SliE+XekShhEvAn2D///+gx8TWAAAARnRSTlMACVCTtsRl7Pv7+vxkBab7pZv5+ZlL/UnU
+                                    /f3SJCVe+Fx39naA9/75XSMh0/3SSkia+pil/KRj7Pr662JPkrbP7OLQ0JFOijI1MwAAAAFiS0dE
+                                    orDd34wAAAAJcEhZcwAACxMAAAsTAQCanBgAAAAHdElNRQfnAg0IDx2lsiuJAAACLElEQVRIx2Ng
+                                    GAXkAUYmZhZWPICFmYkRVQcbOwenmzse4MbFzc6DpIGXj8PD04sA8PbhF+CFaxEU8iWkAQT8hEVg
+                                    OkTF/InR4eUVICYO1SIhCRMLDAoKDvFDVhUaEhwUFAjjSUlDdMiEhcOEItzdI6OiYxA6YqODIt3d
+                                    I2DcuDBZsBY5eVTr4xMSYcyk5BRUOXkFsBZFJTQnp6alQxgZmVloUkrKYC0qqmji2WE5EEZuWB6a
+                                    lKoKdi35YQUQRkFYPpFaCouKIYzi6EDitJSUlsGY5RWVRGjJLyxNy4ZxqtIqqvOxaVELQwZFZdkI
+                                    JVU1RSiSalAt6rUwUBdWG1CP6pT6gNqwOrgCdQyHNYR5YQFhDXj8MiK1IAeyN6aORiyBjByVTc0F
+                                    qBoKWpqwRCVSgilOaY2OaUPw29qjOzqLvTAchpos47u6EZyYnngUSRwpuTe6D+6qaFQdOPNLRzOM
+                                    1dzhRZyW+CZouHk3dWLXglFcFIflQhj9YWjJGlZcaKAVSvjyPrRQ0oQVKDAQHlYFYUwIm4gqExGm
+                                    BSkutaVQJeomwViTJqPK6OhCy2Q9sQBk8cY0DxjTJw0lAQWK6cOKfgNhpKK7ZMpUeF3jPa28BCET
+                                    amiEqJKM+X1gxvWXpoUjVIVPnwErw71nmpgiqiQGBjNzbgs3j1nus+fMndc+Cwm0T52/oNR9lsdC
+                                    S24ra7Tq1cbWjpXV3sHRCb1idXZ0sGdltXNxRateRwHRAACYHutzk/2I5QAAACV0RVh0ZGF0ZTpj
+                                    cmVhdGUAMjAyMy0wMi0xM1QwODoxNToyOSswMDowMEUnN7UAAAAldEVYdGRhdGU6bW9kaWZ5ADIw
+                                    MjMtMDItMTNUMDg6MTU6MjkrMDA6MDA0eo8JAAAAKHRFWHRkYXRlOnRpbWVzdGFtcAAyMDIzLTAy
+                                    LTEzVDA4OjE1OjI5KzAwOjAwY2+u1gAAAABJRU5ErkJggg==">
+                                </image>
+                            </svg>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            </a>
+        </div>
+
+        <video autoplay loop muted playsinline class="footer-video">
+            <source src="AQPE9zKGZE-9cL-KOfVkW32-5afqVB6v5Ks2VGerMt33-IbkBTbznta0QkVoPvaRITMJ2HlJN73DLFwMEVYW4QlDzHzqwbPEGfkmbMM.mp4" type="video/mp4">
+            Your browser does not support this video.
+        </video>
+    </footer>
 
 </body>
 </html>

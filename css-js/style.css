@@ -30,6 +30,12 @@
     margin: 0 auto;
     text-align: center;
 }
+@media (max-width: 450px) {
+    .archTEXT
+    {
+        max-width: 300px;
+    }
+}
 /* Ensure the Patreon .ok paragraph is visible and readable on small screens */
 @media (max-width: 700px) {
     .ok {
@@ -2920,7 +2926,9 @@ margin-top: 6px;
     .cheech, .cheech2 {
         display: none;
     }
-    
+    nav {
+        margin-top: -5px;
+    }
     nav ul {
         flex-direction: row;
         flex-wrap: wrap;
@@ -2936,7 +2944,7 @@ margin-top: 6px;
     }
     
     main {
-               width: 95%;
+        width: 95%;
         padding: 15px 10px;
         margin-top: 180px;
     }
@@ -3358,12 +3366,6 @@ height: 8em;
 }
 
 .card-number {
-  /* bottom: 3em;
-  left: 0.75em;
-  font-size: 1.2em;
-  position: absolute;
-  color: #fff;
-  text-shadow: -1px -1px #333; */
   bottom: 1.5em;
   left: .75em;
   font-size: .9em;
@@ -3373,12 +3375,6 @@ height: 8em;
 }
 
 .card-holder {
-  /* bottom: 3.5em;
-  left: 1.4em;
-  font-size: 0.75em;
-  position: absolute;
-  color: #fff;
-  text-shadow: -1px -1px #333; */
   bottom: 1em;
   left: 1.2em;
   font-size: 0.6em;
@@ -3397,10 +3393,7 @@ height: 8em;
 }
 
 .chip {
-  /* position: absolute;
-  top: 27.5%;
-  left: 8.25%;
-  cursor: grab; */
+
   position: absolute;
   top: 36.5%;
   left: 4.3%;

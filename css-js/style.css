@@ -30,6 +30,7 @@
     margin: 0 auto;
     text-align: center;
 }
+
 @media (max-width: 450px) {
     .archTEXT
     {
@@ -38,6 +39,9 @@
     .header.scrolled
     {
         top: -5px;
+    }
+    .home-sec-cntct {
+        padding-bottom: 80px;
     }
 }
 /* Ensure the Patreon .ok paragraph is visible and readable on small screens */
@@ -51,6 +55,10 @@
     }
     .ok .shiny {
         display: inline-block;
+        padding: 0 4px;
+    }
+    .popup-quoter {
+        font-size: 14px !important;
     }
 }
 .shiny {
@@ -1059,7 +1067,15 @@ img.collection-detail-img {
 @media (max-width: 900px) {
     .collection-detail-img { width: 520px; }
 }
-
+.home-sec-cntct
+{
+    padding-bottom: 0px;
+}
+@media (max-width: 420px) {
+.home-sec-cntct {
+    padding-bottom: 80px;
+}
+}
 @media (max-width: 420px) {
     .collection-detail-img { width: 100%; }
 }
@@ -1071,7 +1087,6 @@ img.collection-detail-img {
     section#home
     {
         margin-top: -196px;
-
     }
         h6
     {
@@ -2656,7 +2671,7 @@ margin-top: 6px;
     .edit {
         width: 300px;
         margin: 0 auto;
-        left: 3.5px;
+        left: 2.5px;
     }
 }
 /* FLYING PROMO IMAGE */

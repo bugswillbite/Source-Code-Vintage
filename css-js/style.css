@@ -291,6 +291,12 @@ body
   font-style: normal;
     font-size: 50px;
 }
+@media (max-width: 420px) {
+    .POP {
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+}
 .subTitle
 {
     font-size: 20px;
@@ -1064,7 +1070,7 @@ img.collection-detail-img {
     }
     section#home
     {
-            margin-top: -196px;
+        margin-top: -196px;
 
     }
         h6

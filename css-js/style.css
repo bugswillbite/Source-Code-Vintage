@@ -30,7 +30,7 @@
     margin: 0 auto;
     text-align: center;
 }
-@media (max-width: 450px) {
+@media (min-width: 450px) and (max-width: 699px) {
     .archTEXT
     {
         max-width: 300px;

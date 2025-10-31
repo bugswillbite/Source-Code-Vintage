@@ -35,30 +35,44 @@ document.addEventListener("DOMContentLoaded", function () {
     function observeElements() {
         const animatedElements = document.querySelectorAll('.fade-in, .slide-in-left, .slide-in-right, .scale-in');
         
-        // Adjust threshold based on screen size for better mobile experience
-        const isMobile = window.innerWidth <= 420;
-        const threshold = isMobile ? 0.05 : 0.1;
-        const rootMargin = isMobile ? '0px 0px -20px 0px' : '0px 0px -50px 0px';
+        // Setting a very low threshold (0.01) ensures the animation starts smoothly and instantly 
+        // as soon as the element begins to enter the expanded intersection zone.
+        const threshold = 0.01; 
         
-        const observer = new IntersectionObserver((entries) => {
+        // Intersection Observer Options
+        // The positive 'bottom' rootMargin (100px) creates a 'look-ahead' zone.
+        // This makes the element 'intersect' 100px before it physically enters the screen,
+        // triggering the fade-in earlier, eliminating the buffer and the "rugged" start.
+        const options = {
+            root: null, // default viewport
+            rootMargin: '0px 0px 100px 0px', 
+            threshold: threshold
+        };
+        
+        const observer = new IntersectionObserver((entries, observer) => {
             entries.forEach(entry => {
+                const element = entry.target;
                 if (entry.isIntersecting) {
-                    // Element is entering viewport - animate in
-                    entry.target.classList.add('visible');
+                    // Trigger animation (add 'visible' class)
+                    element.classList.add('visible');
+                    // We keep observing so we can remove the class on exit (bidirectional)
                 } else {
-                    // Element is leaving viewport - animate out
-                    entry.target.classList.remove('visible');
+                    // Animation reset (remove 'visible' class) when element leaves view
+                    element.classList.remove('visible');
                 }
             });
-        }, {
-            threshold: threshold,
-            rootMargin: rootMargin
-        });
+        }, options);
 
+        // Apply observer to all elements
         animatedElements.forEach(element => {
             observer.observe(element);
         });
     }
+
+    // Run setup and observer
+    addScrollAnimations();
+    observeElements();
+    
 
     // SMOOTH SCROLL FOR NAVIGATION
     function setupSmoothScroll() {
@@ -1002,15 +1016,57 @@ function setupCollectionDetailView() {
     const collectionImages = document.querySelectorAll('.collection-art');
     if (!collectionImages || collectionImages.length === 0) return;
 
-    // We'll keep a snapshot of the collections/products container to restore on Back
-    let savedCollectionsHTML = null;
-
+    // When a collection-art image is clicked, show the matching hidden <section id="detail-..."> as a subpage
     async function openDetail(img) {
         const collectionsSection = document.getElementById('collections');
+        const productsSection = document.getElementById('products');
         if (!collectionsSection) return;
 
-        // Save current HTML once
-        if (savedCollectionsHTML === null) savedCollectionsHTML = collectionsSection.innerHTML;
+        const detailId = img.dataset.detailId;
+        if (detailId) {
+            const source = document.getElementById(detailId);
+            if (source) {
+                // Hide listing sections and show the authored detail section as a subpage
+                try {
+                    collectionsSection.style.display = 'none';
+                    collectionsSection.setAttribute('aria-hidden', 'true');
+                } catch (e) {}
+                if (productsSection) {
+                    try {
+                        productsSection.style.display = 'none';
+                        productsSection.setAttribute('aria-hidden', 'true');
+                    } catch (e) {}
+                }
+
+                // Ensure the section uses the site's archive-section styling and is visible
+                source.style.display = 'block';
+                source.setAttribute('aria-hidden', 'false');
+
+                // Prepend a Back button if not already present in the authored HTML
+                let backBtn = source.querySelector('.collection-back');
+                if (!backBtn) {
+                    backBtn = document.createElement('button');
+                    backBtn.className = 'collection-back';
+                    backBtn.setAttribute('aria-label', 'Back to collections');
+                    backBtn.textContent = '← Back';
+                    source.insertBefore(backBtn, source.firstChild);
+
+                    backBtn.addEventListener('click', function () {
+                        // Hide detail subpage and restore listing sections
+                        try { source.style.display = 'none'; source.setAttribute('aria-hidden', 'true'); } catch (e) {}
+                        try { collectionsSection.style.display = 'block'; collectionsSection.setAttribute('aria-hidden', 'false'); } catch (e) {}
+                        try { if (productsSection) { productsSection.style.display = 'none'; productsSection.setAttribute('aria-hidden', 'true'); } } catch (e) {}
+                        // Re-run observers/animations in case layout changed
+                        try { if (window.observeElements) window.observeElements(); } catch (e) {}
+                    });
+                }
+
+                return; // done — we've shown the authored subpage
+            }
+        }
+
+        // If we didn't find an authored section, fall back to the previous detail-building behavior
+        // (keep existing behavior: create a detail pane and populate it from templates / remote / inline)
         // Build detail pane using optional per-image content sources
         const detail = document.createElement('div');
         detail.className = 'collection-detail';
@@ -1026,79 +1082,33 @@ function setupCollectionDetailView() {
         const contentWrap = document.createElement('div');
         contentWrap.className = 'collection-detail-content';
 
-        // Primary: render the HTML from a hidden editable div referenced by data-detail-id
-        const detailId = img.dataset.detailId;
-        if (detailId) {
-            const source = document.getElementById(detailId);
-            if (source) {
-                // Insert the author's HTML exactly as written in the hidden div
-                contentWrap.innerHTML = source.innerHTML;
-                // Allow the source to indicate it doesn't want the site's auto layout
-                if (source.dataset.noLayout === 'true' || source.classList.contains('no-auto')) {
-                    // mark wrapper so CSS can adjust if needed
-                    detail.classList.add('no-auto-layout');
-                }
-            } else {
-                // fallback to older behaviors if the source div isn't found
-                const tplId = img.dataset.detailTemplate;
-                if (tplId) {
-                    const tpl = document.getElementById(tplId);
-                    if (tpl && tpl.content) {
-                        contentWrap.appendChild(tpl.content.cloneNode(true));
-                    }
-                } else if (img.dataset.detailSrc) {
-                    try {
-                        const resp = await fetch(img.dataset.detailSrc, {cache: 'no-store'});
-                        if (resp.ok) {
-                            const html = await resp.text();
-                            const frag = document.createElement('div');
-                            frag.innerHTML = html;
-                            contentWrap.appendChild(frag);
-                        }
-                    } catch (e) {}
-                } else if (img.dataset.detailHtml) {
+        const tplId = img.dataset.detailTemplate;
+        if (tplId) {
+            const tpl = document.getElementById(tplId);
+            if (tpl && tpl.content) {
+                contentWrap.appendChild(tpl.content.cloneNode(true));
+            }
+        } else if (img.dataset.detailSrc) {
+            try {
+                const resp = await fetch(img.dataset.detailSrc, {cache: 'no-store'});
+                if (resp.ok) {
+                    const html = await resp.text();
                     const frag = document.createElement('div');
-                    frag.innerHTML = img.dataset.detailHtml;
+                    frag.innerHTML = html;
                     contentWrap.appendChild(frag);
-                } else {
-                    const ii = document.createElement('img'); ii.src = img.src; ii.alt = img.alt || ''; ii.className = 'collection-detail-img';
-                    const meta = document.createElement('div'); meta.className = 'collection-detail-meta';
-                    const h3 = document.createElement('h3'); h3.textContent = img.alt || 'Collection item';
-                    const p = document.createElement('p'); p.textContent = '';
-                    meta.appendChild(h3); meta.appendChild(p);
-                    contentWrap.appendChild(ii); contentWrap.appendChild(meta);
                 }
-            }
+            } catch (e) {}
+        } else if (img.dataset.detailHtml) {
+            const frag = document.createElement('div');
+            frag.innerHTML = img.dataset.detailHtml;
+            contentWrap.appendChild(frag);
         } else {
-            // No data-detail-id: keep previous fallbacks (template, remote, inline or default)
-            const tplId = img.dataset.detailTemplate;
-            if (tplId) {
-                const tpl = document.getElementById(tplId);
-                if (tpl && tpl.content) {
-                    contentWrap.appendChild(tpl.content.cloneNode(true));
-                }
-            } else if (img.dataset.detailSrc) {
-                try {
-                    const resp = await fetch(img.dataset.detailSrc, {cache: 'no-store'});
-                    if (resp.ok) {
-                        const html = await resp.text();
-                        const frag = document.createElement('div');
-                        frag.innerHTML = html;
-                        contentWrap.appendChild(frag);
-                    }
-                } catch (e) {}
-            } else if (img.dataset.detailHtml) {
-                const frag = document.createElement('div');
-                frag.innerHTML = img.dataset.detailHtml;
-                contentWrap.appendChild(frag);
-            } else {
-                const ii = document.createElement('img'); ii.src = img.src; ii.alt = img.alt || ''; ii.className = 'collection-detail-img';
-                const meta = document.createElement('div'); meta.className = 'collection-detail-meta';
-                const h3 = document.createElement('h3'); h3.textContent = img.alt || 'Collection item';
-                const p = document.createElement('p'); p.textContent = '';
-                meta.appendChild(h3); meta.appendChild(p);
-                contentWrap.appendChild(ii); contentWrap.appendChild(meta);
-            }
+            const ii = document.createElement('img'); ii.src = img.src; ii.alt = img.alt || ''; ii.className = 'collection-detail-img';
+            const meta = document.createElement('div'); meta.className = 'collection-detail-meta';
+            const h3 = document.createElement('h3'); h3.textContent = img.alt || 'Collection item';
+            const p = document.createElement('p'); p.textContent = '';
+            meta.appendChild(h3); meta.appendChild(p);
+            contentWrap.appendChild(ii); contentWrap.appendChild(meta);
         }
 
         detail.appendChild(contentWrap);
@@ -1109,12 +1119,10 @@ function setupCollectionDetailView() {
 
         // Attach back handler
         backBtn.addEventListener('click', function () {
-            if (savedCollectionsHTML !== null) {
-                collectionsSection.innerHTML = savedCollectionsHTML;
-                savedCollectionsHTML = null;
-                // re-run any observers/handlers (so animations and click handlers work again)
-                try { if (window.observeElements) window.observeElements(); } catch (e) {}
-                try { setupCollectionDetailView(); } catch (e) {}
+            // restore the original collections/products sections by reloading the page section state
+            try { window.location.reload(); } catch (e) {
+                // as a fallback: attempt to show collections and hide detail
+                try { const cs = document.getElementById('collections'); if (cs) { cs.style.display = 'block'; cs.setAttribute('aria-hidden', 'false'); } } catch (ee) {}
             }
         });
     }
@@ -1221,7 +1229,7 @@ window.addEventListener('scroll', () => {
     images.forEach(image => {
         const rect = image.getBoundingClientRect();
         const offset = rect.top + rect.height / 2 - windowCenter;
-        const rotateY = Math.max(-15, Math.min(15, offset / 15));
+        const rotateY = Math.max(-15, Math.min(15, offset / 8));
         image.style.transform = `rotateY(${rotateY}deg)`;
     });
 });

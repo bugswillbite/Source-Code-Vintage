@@ -30,7 +30,7 @@
     margin: 0 auto;
     text-align: center;
 }
-@media (min-width: 450px) and (max-width: 699px) {
+@media (max-width: 450px) {
     .archTEXT
     {
         max-width: 300px;
@@ -305,6 +305,12 @@ body
     text-align: center;
     font-weight: lighter;
     text-transform: none;
+}
+@media (max-width: 450px) {
+    .quote
+    {
+        max-width: 300px;
+    }  
 }
 h6
 {

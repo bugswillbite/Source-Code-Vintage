@@ -3498,7 +3498,7 @@ height: 8em;
 .flipComputer {
     display: block;
 }
-@media (min-width: 450px) and (max-width: 700px) {
+@media (min-width: 400px) and (max-width: 700px) {
     .flipMobile {
         display: block;
     }

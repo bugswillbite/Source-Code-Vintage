@@ -3476,3 +3476,18 @@ height: 8em;
   box-shadow: 0 0 4px #0f0;
   transform: scale(0.97);
 }
+
+.flipMobile {
+    display: none;
+}
+.flipComputer {
+    display: block;
+}
+@media (min-width: 450px) and (max-width: 700px) {
+    .flipMobile {
+        display: block;
+    }
+    .flipComp {
+        display: none;
+    }       
+}

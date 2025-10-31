@@ -2636,6 +2636,11 @@ margin-top: 6px;
 .edit{
     width: 928px;
 }
+@media (max-width: 400px) {
+    .edit {
+        width: 300px;
+    }
+}
 /* FLYING PROMO IMAGE */
 .flying-promo {
     position: fixed;

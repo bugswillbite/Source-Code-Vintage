@@ -289,6 +289,7 @@ body
     background-image: url(../imgs/stars.gif);
     overflow-x: hidden;
     overflow-y: auto;
+    margin-left: -10px;
     cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="%23FFD700"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>') 12 12, auto;
 }
 .POP
@@ -411,12 +412,10 @@ h6
     transform: scale(1);
 }
 @media (max-width: 450px) {
-    .scale-in 
-{
-    transform: scale(0.4);
-    transition: opacity 0.4s ease, transform 0.4s ease;
-}
-
+    .scale-in {
+        transform: scale(0.4);
+        transition: opacity 0.4s ease, transform 0.4s ease;
+    }
 }
 /* === Spinning Flip Image Card (clean version) === */
 #spinning-image-section {
@@ -3455,7 +3454,7 @@ height: 8em;
         animation-duration: 15s !important;
     }
     nav {
-        margin-top: -8px; 
+        margin-top: -12px; 
     }
 
 }
@@ -3520,5 +3519,9 @@ height: 8em;
     }
     .flipComp {
         display: none;
-    }       
+    }    
+    body {
+       margin: 0 auto;
+       margin-left: -5px;
+    }   
 }

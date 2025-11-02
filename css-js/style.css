@@ -58,7 +58,7 @@
         top: -5px;
     }
     div.container {
-        height: 350px;
+        height: 400px;
     }
 } 
 .shiny {
@@ -409,6 +409,14 @@ h6
 .scale-in.visible {
     opacity: 1;
     transform: scale(1);
+}
+@media (max-width: 450px) {
+    .scale-in 
+{
+    transform: scale(0.4);
+    transition: opacity 0.4s ease, transform 0.4s ease;
+}
+
 }
 /* === Spinning Flip Image Card (clean version) === */
 #spinning-image-section {

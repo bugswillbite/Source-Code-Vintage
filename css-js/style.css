@@ -411,12 +411,7 @@ h6
     opacity: 1;
     transform: scale(1);
 }
-@media (max-width: 450px) {
-    .scale-in {
-        transform: scale(0.1);
-        transition: opacity 0.1s ease, transform 0.1s ease;
-    }
-}
+
 /* === Spinning Flip Image Card (clean version) === */
 #spinning-image-section {
   display: flex;

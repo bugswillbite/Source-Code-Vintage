@@ -58,7 +58,7 @@
         top: -5px;
     }
     div.container {
-        height: 277px;
+        height: 350px;
     }
 } 
 .shiny {
@@ -3447,7 +3447,7 @@ height: 8em;
         animation-duration: 15s !important;
     }
     nav {
-        margin-top: -5px; 
+        margin-top: -8px; 
     }
 
 }

@@ -3444,12 +3444,8 @@ height: 8em;
         height: 130px !important;
         /* margin-right: -18px; */
         }
-    .vertical-scroll-content,
-    .vertical-scroll-content-right {
-        animation-duration: 15s !important;
-    }
     nav {
-        margin-top: -12px; 
+        margin-top: -15px; 
     }
 
 }
@@ -3517,6 +3513,14 @@ height: 8em;
     }    
     body {
        margin: 0 auto;
-       margin-left: -5px;
+       margin-left: -8px;
     }   
+}
+@media (max-width: 800px) {
+    .flipMobile {
+        display: block;
+    }
+    .flipComp {
+        display: none;
+    }    
 }

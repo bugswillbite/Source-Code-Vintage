@@ -35,14 +35,9 @@ document.addEventListener("DOMContentLoaded", function () {
     function observeElements() {
         const animatedElements = document.querySelectorAll('.fade-in, .slide-in-left, .slide-in-right, .scale-in');
         
-        // Setting a very low threshold (0.01) ensures the animation starts smoothly and instantly 
-        // as soon as the element begins to enter the expanded intersection zone.
+    
         const threshold = 0.01; 
-        
-        // Intersection Observer Options
-        // The positive 'bottom' rootMargin (100px) creates a 'look-ahead' zone.
-        // This makes the element 'intersect' 100px before it physically enters the screen,
-        // triggering the fade-in earlier, eliminating the buffer and the "rugged" start.
+
         const options = {
             root: null, // default viewport
             rootMargin: '0px 0px 100px 0px', 
@@ -53,17 +48,13 @@ document.addEventListener("DOMContentLoaded", function () {
             entries.forEach(entry => {
                 const element = entry.target;
                 if (entry.isIntersecting) {
-                    // Trigger animation (add 'visible' class)
                     element.classList.add('visible');
-                    // We keep observing so we can remove the class on exit (bidirectional)
                 } else {
-                    // Animation reset (remove 'visible' class) when element leaves view
                     element.classList.remove('visible');
                 }
             });
         }, options);
 
-        // Apply observer to all elements
         animatedElements.forEach(element => {
             observer.observe(element);
         });
@@ -78,11 +69,9 @@ document.addEventListener("DOMContentLoaded", function () {
     function setupSmoothScroll() {
         document.querySelectorAll('nav a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
-                // If this anchor is a dropdown toggle (For Sale), don't perform the auto-scroll.
-                // Some toggles still use an href for semantics, so support data-noscroll or explicit id.
                 if (this.id === 'forSaleToggle' || this.dataset.noscroll === 'true') {
                     e.preventDefault();
-                    return; // let the toggle's own click handler run (it will show/hide submenu)
+                    return; 
                 }
 
                 e.preventDefault();
@@ -160,11 +149,11 @@ document.addEventListener("DOMContentLoaded", function () {
             // Reduce parallax effects on mobile for better performance
             if (isMobile) {
                 // Simplified mobile effects
-                const fadeDistance = windowHeight * 0.2;
+                const fadeDistance = windowHeight * 0.1;
                 const subtitleOpacity = Math.max(0, 1 - (scrollY / fadeDistance));
                 
                 subtitle.style.opacity = subtitleOpacity;
-                subtitle.style.transform = `translateY(-${scrollY * 0.1}px)`;
+                subtitle.style.transform = `translateY(-${scrollY * 0.5}px)`;
                 
                 // Minimal nav movement on mobile
                 if (scrollY > 30) {

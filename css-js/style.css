@@ -71,6 +71,20 @@
         display: none;
     }
 } 
+@media (max-width: 600px) {
+    .archive-product-container {
+        gap: 16px;
+        justify-content: center;
+    }
+    .archive-product-card {
+        width: 100% !important;
+        max-width: 100%;
+        flex: 0 0 100%;
+    }
+    .archive-img-wrapper {
+        height: auto;
+    }
+}
 .shiny {
     display: inline-block;
     /* base color fallback for older browsers */

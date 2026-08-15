@@ -85,6 +85,30 @@
         height: auto;
     }
 }
+/* Broader mobile/tablet breakpoint: ensure single-column layout on many devices */
+@media (max-width: 820px) {
+    .archive-product-container {
+        gap: 16px;
+        justify-content: center;
+    }
+    .archive-product-card {
+        width: 100% !important;
+        max-width: 100%;
+        flex: 0 0 100%;
+    }
+    .archive-img-wrapper {
+        height: auto;
+    }
+    /* Make internal card flips scale to container width */
+    .card, .cardT, .cardT-container, .card-container {
+        width: 100% !important;
+        max-width: 420px;
+    }
+    .card-face img, .card-face {
+        width: 100%;
+        height: auto;
+    }
+}
 .shiny {
     display: inline-block;
     /* base color fallback for older browsers */

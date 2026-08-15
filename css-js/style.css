@@ -71,42 +71,31 @@
         display: none;
     }
 } 
-@media (max-width: 600px) {
-    .archive-product-container {
-        gap: 16px;
-        justify-content: center;
-    }
-    .archive-product-card {
-        width: 100% !important;
-        max-width: 100%;
-        flex: 0 0 100%;
-    }
-    .archive-img-wrapper {
-        height: auto;
-    }
-}
-/* Broader mobile/tablet breakpoint: ensure single-column layout on many devices */
+/* Mobile: index product layout — single column and images visible */
 @media (max-width: 820px) {
-    .archive-product-container {
-        gap: 16px;
-        justify-content: center;
+    .product-container {
+        display: flex !important;
+        flex-direction: column !important;
+        gap: 12px !important;
+        align-items: stretch !important;
     }
-    .archive-product-card {
+    .product-card {
         width: 100% !important;
-        max-width: 100%;
-        flex: 0 0 100%;
+        max-width: none !important;
+        flex: 0 0 auto !important;
+        margin: 0 auto !important;
+        box-sizing: border-box !important;
+        padding: 12px !important;
     }
-    .archive-img-wrapper {
-        height: auto;
-    }
-    /* Make internal card flips scale to container width */
+    /* Ensure flip-card internals scale to container width on mobile */
     .card, .cardT, .cardT-container, .card-container {
         width: 100% !important;
-        max-width: 420px;
+        max-width: 420px !important;
     }
-    .card-face img, .card-face {
-        width: 100%;
-        height: auto;
+    .card-face img {
+        width: 100% !important;
+        height: auto !important;
+        display: block !important;
     }
 }
 .shiny {
@@ -2990,22 +2979,6 @@ margin-top: 6px;
     }
 }
 
-/* Force single-column product layout on narrow screens */
-@media (max-width: 820px) {
-    .archive-product-container {
-        display: flex !important;
-        flex-direction: column !important;
-        align-items: stretch !important;
-        gap: 12px !important;
-    }
-    .archive-product-card {
-        width: 100% !important;
-        max-width: none !important;
-        flex: 0 0 auto !important;
-        margin: 0 auto !important;
-        box-sizing: border-box !important;
-    }
-}
 /* Small tablets and large phones */
 @media (min-width: 451px) and (max-width: 650px) {
     .title {
@@ -3588,4 +3561,40 @@ height: 8em;
     .flipComp {
         display: none;
     }    
+}
+
+/* Final mobile override: ensure index products show as single column and images are visible */
+@media (max-width: 820px) {
+    .product-container {
+        display: flex !important;
+        flex-direction: column !important;
+        gap: 12px !important;
+        align-items: stretch !important;
+    }
+    .product-card {
+        width: 100% !important;
+        max-width: none !important;
+        flex: 0 0 auto !important;
+        margin: 0 auto !important;
+        box-sizing: border-box !important;
+        padding: 12px !important;
+    }
+    .card, .cardT {
+        width: 100% !important;
+        max-width: none !important;
+        height: auto !important;
+        transform: none !important;
+    }
+    .card-face {
+        position: relative !important;
+        width: 100% !important;
+        height: auto !important;
+        backface-visibility: visible !important;
+    }
+    .card-face img {
+        width: 100% !important;
+        height: auto !important;
+        display: block !important;
+        object-fit: contain !important;
+    }
 }

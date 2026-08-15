@@ -2989,6 +2989,23 @@ margin-top: 6px;
         bottom: -18px;
     }
 }
+
+/* Force single-column product layout on narrow screens */
+@media (max-width: 820px) {
+    .archive-product-container {
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: stretch !important;
+        gap: 12px !important;
+    }
+    .archive-product-card {
+        width: 100% !important;
+        max-width: none !important;
+        flex: 0 0 auto !important;
+        margin: 0 auto !important;
+        box-sizing: border-box !important;
+    }
+}
 /* Small tablets and large phones */
 @media (min-width: 451px) and (max-width: 650px) {
     .title {

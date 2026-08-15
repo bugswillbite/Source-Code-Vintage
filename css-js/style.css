@@ -3572,29 +3572,35 @@ height: 8em;
         align-items: stretch !important;
     }
     .product-card {
-        width: 100% !important;
-        max-width: none !important;
+        width: min(92%, 420px) !important;
+        max-width: 420px !important;
         flex: 0 0 auto !important;
         margin: 0 auto !important;
         box-sizing: border-box !important;
         padding: 12px !important;
     }
-    .card, .cardT {
+    /* Keep flip behavior: size cards responsively using aspect-ratio so absolute faces keep their height */
+    .card {
         width: 100% !important;
-        max-width: none !important;
-        height: auto !important;
-        transform: none !important;
+        max-width: 420px !important;
+        aspect-ratio: 240 / 420 !important;
+    }
+    .cardT {
+        width: 100% !important;
+        max-width: 420px !important;
+        aspect-ratio: 213.75 / 179.55 !important;
     }
     .card-face {
-        position: relative !important;
+        /* keep absolute positioning so flip still works */
+        position: absolute !important;
         width: 100% !important;
-        height: auto !important;
-        backface-visibility: visible !important;
+        height: 100% !important;
+        backface-visibility: hidden !important;
     }
     .card-face img {
         width: 100% !important;
-        height: auto !important;
+        height: 100% !important;
         display: block !important;
-        object-fit: contain !important;
+        object-fit: cover !important;
     }
 }

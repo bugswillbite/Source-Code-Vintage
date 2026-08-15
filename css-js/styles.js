@@ -67,6 +67,17 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // SMOOTH SCROLL FOR NAVIGATION
     function setupSmoothScroll() {
+        const header = document.querySelector('header');
+        const headerHeight = header ? header.offsetHeight : 0;
+
+        function scrollToSelector(selector) {
+            const target = document.querySelector(selector);
+            if (!target) return;
+            const rect = target.getBoundingClientRect();
+            const top = window.pageYOffset + rect.top - headerHeight - 8;
+            window.scrollTo({ top: top, behavior: 'smooth' });
+        }
+
         document.querySelectorAll('nav a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 if (this.id === 'forSaleToggle' || this.dataset.noscroll === 'true') {
@@ -75,15 +86,8 @@ document.addEventListener("DOMContentLoaded", function () {
                 }
 
                 e.preventDefault();
-                const targetId = this.getAttribute('href');
-                const targetSection = document.querySelector(targetId);
-
-                if (targetSection) {
-                    targetSection.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
-                }
+                const sel = this.dataset.target || this.getAttribute('href');
+                if (sel) scrollToSelector(sel);
             });
         });
     }
@@ -988,6 +992,56 @@ document.addEventListener("DOMContentLoaded", function () {
     setupSmoothScroll();
     setupSwordPopup();
     setupHeaderParallax();
+    // Enable data-target based scrolling and make title images clickable
+    function setupDataTargetScroll() {
+        const header = document.querySelector('header');
+        const headerHeight = header ? header.offsetHeight : 0;
+
+        function scrollToSelector(selector) {
+            const target = document.querySelector(selector);
+            if (!target) return;
+            const rect = target.getBoundingClientRect();
+            const top = window.pageYOffset + rect.top - headerHeight - 8;
+            window.scrollTo({ top: top, behavior: 'smooth' });
+        }
+
+        // Elements with data-target attribute
+        document.querySelectorAll('[data-target]').forEach(el => {
+            el.addEventListener('click', function (e) {
+                e.preventDefault();
+                const sel = el.dataset.target;
+                if (sel) scrollToSelector(sel);
+            });
+        });
+
+        // Make title images clickable by inferring the nearby h2 id if needed
+        document.querySelectorAll('.titleImg').forEach(img => {
+            if (!img.dataset.target) {
+                let prev = img.previousElementSibling;
+                while (prev && prev.tagName && prev.tagName.toLowerCase() !== 'h2') {
+                    prev = prev.previousElementSibling;
+                }
+                if (prev && prev.id) img.dataset.target = '#' + prev.id;
+            }
+            if (img.dataset.target && !img.closest('a')) {
+                img.style.cursor = 'pointer';
+                img.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    scrollToSelector(img.dataset.target);
+                });
+            }
+        });
+
+        // Nav links that have data-target (prefer data-target over href)
+        document.querySelectorAll('nav a[data-target]').forEach(a => {
+            a.addEventListener('click', function (e) {
+                e.preventDefault();
+                const sel = this.dataset.target || this.getAttribute('href');
+                if (sel) scrollToSelector(sel);
+            });
+        });
+    }
+    setupDataTargetScroll();
     setupSettingsMenu();
     setupMusicPlayer();
     setupForSaleDropdown();

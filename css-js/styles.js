@@ -70,15 +70,17 @@ document.addEventListener("DOMContentLoaded", function () {
         const header = document.querySelector('header');
         const headerHeight = header ? header.offsetHeight : 0;
 
-        function scrollToSelector(selector) {
-            const target = document.querySelector(selector);
+        function scrollToTarget(targetOrSelector) {
+            const target = typeof targetOrSelector === 'string'
+                ? document.querySelector(targetOrSelector)
+                : targetOrSelector;
             if (!target) return;
             const rect = target.getBoundingClientRect();
             const top = window.pageYOffset + rect.top - headerHeight - 8;
             window.scrollTo({ top: top, behavior: 'smooth' });
         }
 
-        document.querySelectorAll('nav a[href^="#"]').forEach(anchor => {
+        document.querySelectorAll('nav a[href^="#"]:not([data-target])').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 if (this.id === 'forSaleToggle' || this.dataset.noscroll === 'true') {
                     e.preventDefault();
@@ -641,16 +643,24 @@ document.addEventListener("DOMContentLoaded", function () {
             forSaleDropdown.style.display = isVisible ? 'none' : 'block';
         });
 
-        // Smooth scroll when clicking a dropdown item
+        // Smooth scroll when clicking a dropdown item. Use the visible title image
+        // when its desktop-only h2 target is hidden on mobile.
         forSaleDropdown.querySelectorAll('a[data-target]').forEach(link => {
             link.addEventListener('click', function(e) {
                 e.preventDefault();
                 e.stopPropagation();
                 const target = this.getAttribute('data-target');
-                const el = document.querySelector(target);
+                let el = document.querySelector(target);
+                if (el && getComputedStyle(el).display === 'none') {
+                    const titleImage = document.querySelector(`a[href="${target}"] .titleImg, a[href="${target}"] .titleImg2`);
+                    if (titleImage) el = titleImage;
+                }
                 if (el) {
                     forSaleDropdown.style.display = 'none';
-                    el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    const header = document.querySelector('header');
+                    const headerHeight = header ? header.offsetHeight : 0;
+                    const top = window.pageYOffset + el.getBoundingClientRect().top - headerHeight - 8;
+                    window.scrollTo({ top, behavior: 'smooth' });
                 }
             });
         });
@@ -662,6 +672,67 @@ document.addEventListener("DOMContentLoaded", function () {
                     forSaleDropdown.style.display = 'none';
                 }
             }
+        });
+    }
+
+    // Turn existing Depop buy links into marketplace dropdowns.
+    function setupMarketplaceDropdowns() {
+        const cards = document.querySelectorAll('.product-card, .product-card1, .product-card2');
+
+        cards.forEach(card => {
+            const depopLink = Array.from(card.querySelectorAll('a[href]')).find(link => {
+                return link.href.includes('depop.com') && link.querySelector('button');
+            });
+            if (!depopLink) return;
+
+            const menu = document.createElement('div');
+            menu.className = 'marketplace-menu';
+
+            const toggle = document.createElement('button');
+            toggle.type = 'button';
+            toggle.className = 'marketplace-toggle';
+            toggle.textContent = 'Buy';
+            toggle.setAttribute('aria-expanded', 'false');
+
+            const options = document.createElement('div');
+            options.className = 'marketplace-options';
+
+            const depopOption = document.createElement('a');
+            depopOption.className = 'marketplace-option';
+            depopOption.href = depopLink.href;
+            depopOption.target = '_blank';
+            depopOption.rel = 'noopener noreferrer';
+            depopOption.textContent = 'Depop';
+            options.appendChild(depopOption);
+
+            const grailedUrl = card.dataset.grailed;
+            if (grailedUrl) {
+                const grailedOption = document.createElement('a');
+                grailedOption.className = 'marketplace-option';
+                grailedOption.href = grailedUrl;
+                grailedOption.target = '_blank';
+                grailedOption.rel = 'noopener noreferrer';
+                grailedOption.textContent = 'Grailed';
+                options.appendChild(grailedOption);
+            }
+
+            toggle.addEventListener('click', function (event) {
+                event.stopPropagation();
+                const isOpen = menu.classList.toggle('is-open');
+                toggle.setAttribute('aria-expanded', String(isOpen));
+            });
+
+            menu.append(toggle, options);
+            depopLink.replaceWith(menu);
+        });
+
+        document.addEventListener('click', function (event) {
+            document.querySelectorAll('.marketplace-menu.is-open').forEach(menu => {
+                if (!menu.contains(event.target)) {
+                    menu.classList.remove('is-open');
+                    menu.querySelector('.marketplace-toggle')?.setAttribute('aria-expanded', 'false');
+                }
+            });
         });
     }
 
@@ -1005,39 +1076,17 @@ document.addEventListener("DOMContentLoaded", function () {
             window.scrollTo({ top: top, behavior: 'smooth' });
         }
 
-        // Elements with data-target attribute
-        document.querySelectorAll('[data-target]').forEach(el => {
-            el.addEventListener('click', function (e) {
-                e.preventDefault();
-                const sel = el.dataset.target;
-                if (sel) scrollToSelector(sel);
-            });
-        });
+        // Make title images use the same section links as their h2 headings.
+        document.querySelectorAll('.titleImg, .titleImg2').forEach(img => {
+            const link = img.closest('a');
+            if (!link) return;
 
-        // Make title images clickable by inferring the nearby h2 id if needed
-        document.querySelectorAll('.titleImg').forEach(img => {
-            if (!img.dataset.target) {
-                let prev = img.previousElementSibling;
-                while (prev && prev.tagName && prev.tagName.toLowerCase() !== 'h2') {
-                    prev = prev.previousElementSibling;
-                }
-                if (prev && prev.id) img.dataset.target = '#' + prev.id;
-            }
-            if (img.dataset.target && !img.closest('a')) {
-                img.style.cursor = 'pointer';
-                img.addEventListener('click', function (e) {
-                    e.preventDefault();
-                    scrollToSelector(img.dataset.target);
-                });
-            }
-        });
-
-        // Nav links that have data-target (prefer data-target over href)
-        document.querySelectorAll('nav a[data-target]').forEach(a => {
-            a.addEventListener('click', function (e) {
+            link.addEventListener('click', function (e) {
                 e.preventDefault();
-                const sel = this.dataset.target || this.getAttribute('href');
-                if (sel) scrollToSelector(sel);
+                const selector = link.getAttribute('href');
+                const heading = document.querySelector(selector);
+                const target = heading && getComputedStyle(heading).display !== 'none' ? heading : img;
+                scrollToTarget(target);
             });
         });
     }
@@ -1045,6 +1094,7 @@ document.addEventListener("DOMContentLoaded", function () {
     setupSettingsMenu();
     setupMusicPlayer();
     setupForSaleDropdown();
+    setupMarketplaceDropdowns();
     setupResponsiveBehavior();
     setupTouchGestures();
     setupScrollingImagesClick();

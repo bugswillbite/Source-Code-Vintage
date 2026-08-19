@@ -34,6 +34,10 @@
     width: 491px;
     display: none;
 }
+.titleImg2 {
+    width: 405px;
+    display: none;
+}
 /* Ensure the Patreon .ok paragraph is visible and readable on small screens */
 @media (max-width: 700px) {
     .ok {
@@ -65,6 +69,10 @@
     }
     .titleImg {
     width: 491px;
+    display: block;
+    }
+    .titleImg2 {
+    width: 405px;
     display: block;
     }
     .POP {
@@ -990,6 +998,64 @@ nav ul { position: relative; }
 
 .product-card button:hover, .product-card1 button:hover {
     background-color: #009900;
+}
+
+/* Marketplace choices for product buy buttons */
+.marketplace-menu {
+    position: relative;
+    width: 100%;
+    margin-top: auto;
+}
+
+.marketplace-toggle {
+    width: 100%;
+}
+
+.marketplace-options {
+    display: none;
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: calc(100% + 6px);
+    padding: 4px;
+    background: rgba(10, 10, 10, 0.98);
+    border: 1px solid #00ff00;
+    border-radius: 4px;
+    box-shadow: 0 0 10px rgba(0, 255, 0, 0.25);
+    z-index: 20;
+}
+
+.marketplace-menu.is-open .marketplace-options {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.marketplace-option {
+    display: block;
+    width: 100%;
+    padding: 8px 10px;
+    color: #0a0a0a;
+    background: #00ff00;
+    border: 0;
+    border-radius: 3px;
+    font: inherit;
+    text-align: center;
+    text-decoration: none;
+    cursor: pointer;
+    box-sizing: border-box;
+}
+
+.marketplace-option:hover,
+.marketplace-option:focus {
+    background: #009900;
+}
+
+.marketplace-option-disabled,
+.marketplace-option-disabled:hover {
+    color: #777;
+    background: #222;
+    cursor: not-allowed;
 }
 
 .P1 {
@@ -3565,13 +3631,17 @@ height: 8em;
 
 /* Final mobile override: ensure index products show as single column and images are visible */
 @media (max-width: 820px) {
-    .product-container {
+    .product-container,
+    .product-container1,
+    .product-container2 {
         display: flex !important;
         flex-direction: column !important;
         gap: 12px !important;
         align-items: stretch !important;
     }
-    .product-card {
+    .product-card,
+    .product-card1,
+    .product-card2 {
         width: min(92%, 420px) !important;
         max-width: 420px !important;
         flex: 0 0 auto !important;

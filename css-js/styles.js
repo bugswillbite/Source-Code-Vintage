@@ -89,7 +89,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
                 e.preventDefault();
                 const sel = this.dataset.target || this.getAttribute('href');
-                if (sel) scrollToSelector(sel);
+                if (sel) scrollToTarget(sel);
             });
         });
     }

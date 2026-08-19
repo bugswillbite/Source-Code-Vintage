@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Events | Source Code Vintage</title>
+	<meta name="description" content="Upcoming and future Source Code Vintage events.">
+	<link rel="canonical" href="https://binaryswag.club/events.html">
+	<link rel="icon" type="image/svg+xml" href="https://binaryswag.club/splash1.svg">
+	<link rel="stylesheet" href="css-js/style.css">
+	<link rel="stylesheet" href="css-js/mediaquerries.css">
+	<script defer src="css-js/styles.js"></script>
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Cutive+Mono&family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&family=Limelight&family=Nabla:EDPT,EHLT@0..200,0..24&family=Savate:ital,wght@0,200..900;1,200..900&family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&family=VT323&display=swap" rel="stylesheet">
+</head>
+<body class="events-page">
+	<div class="vertical-scroll-text">
+		<div class="vertical-scroll-content">01110011 01101111 01110101 01110010 01100011 01100101 00100000 01100011 01101111 01100100 01100101 00100000 01110110 01101001 01101110 01110100 01100001 01100111 01100101</div>
+	</div>
+	<div class="vertical-scroll-text-right">
+		<div class="vertical-scroll-content-right">01110010 01100101 01110100 01110010 01101111 00100000 01110110 01101001 01100010 01100101 01110011 00100000 01101111 01101110 01101100 01111001</div>
+	</div>
+
+	<div class="flying-elements">
+		<img class="flying-star flying-1" src="imgs/gyroid/2CVMFF6KU5UXKX4AX3YBW3KA6JW6NW2W copy.gif" alt="">
+		<img class="flying-comet flying-2" src="imgs/gyroid/443UXZZSZIVGUHAGTEFU7UTQ4AJ4JW55 copy.gif" alt="">
+		<img class="flying-ufo flying-4" src="imgs/gyroid/5FCQZMGVOPBLQVNTIGFKL6VLLQXOMXAT copy.gif" alt="">
+	</div>
+
+	<header>
+		<img class="cheech" src="imgs/pngs-gifs/CHEECHY.PNG" alt="">
+		<img class="title" src="imgs/TITLE.png" alt="Source Code Vintage">
+		<h2 class="subTitle">Join The Binary Swag Club</h2>
+		<img class="cheech2" src="imgs/pngs-gifs/WIZARDPNG.png" alt="">
+		<img class="sword" src="imgs/sord-selected.png" alt="Sword Selected" id="sword1">
+		<img class="sword2" src="imgs/sword.png" alt="Sword" id="sword2">
+		<nav>
+			<ul>
+				<li class="music-menu-item">
+					<button id="musicMenuToggle" class="music-icon-btn" type="button" aria-label="Open music player">
+						<span class="music-icon">♫</span>
+					</button>
+				</li>
+				<li><a href="index.html#home">Home</a></li>
+				<li><a href="index.html#products">For Sale</a></li>
+				<li><a href="index.html#about">About</a></li>
+				<li><a href="index.html#contact">Contact</a></li>
+                <li><a href="#">Events</a></li>
+				<li><a href="archive.html">Archive</a></li>
+				<li class="settings-menu-item">
+					<button id="settingsMenuToggle" class="settings-icon-btn" type="button" aria-label="Open settings">
+						<span class="settings-icon">⚙</span>
+					</button>
+				</li>
+			</ul>
+			<div id="settingsMenu" class="settings-menu">
+				<div class="settings-menu-content">
+					<h4>settings</h4>
+					<div class="setting-item">
+						<label class="setting-label">toggle bg animations:</label>
+						<label class="switch">
+							<input type="checkbox" checked="checked" id="animationToggle">
+							<div class="button"><div class="light"></div><div class="dots"></div><div class="characters"></div><div class="shine"></div><div class="shadow"></div></div>
+						</label>
+					</div>
+				</div>
+			</div>
+		</nav>
+	</header>
+
+	<div id="swordPopup" class="popup-overlay">
+		<div class="popup-content">
+			<button class="popup-close" id="closePopup" type="button">&times;</button>
+			<h3>何でもできる</h3>
+			<p>Everything is possible</p>
+			<p class="popup-quote">"You can do anything"</p>
+		</div>
+	</div>
+
+	<div id="musicPopup" class="music-popup-overlay">
+		<div class="music-popup-content">
+			<button class="popup-close" id="closeMusicPopup" type="button">&times;</button>
+			<div class="music-background">
+				<img src="imgs/pngs-gifs/stars.gif" class="music-bg-image" alt="">
+				<div class="music-controls-overlay">
+					<h3>♫ Music Player ♫</h3>
+					<div class="current-album-display">
+						<img id="currentAlbumCover" src="imgs/5074316349984588943.jpg" alt="Current Album Cover" class="current-album-art">
+					</div>
+					<div class="radio-display">
+						<div class="radio-header">
+							<span class="radio-station">BINARY TUNES</span>
+							<span class="frequency">SRC.CD</span>
+						</div>
+						<div class="now-playing-info">
+							<div class="genre-display"><span class="genre-label">GENRE:</span> <span id="currentGenre">Hip Hop</span></div>
+							<div class="song-display"><span class="song-label">NOW PLAYING:</span> <span id="currentSongTitle">HIP HOP SONG</span></div>
+						</div>
+						<div class="radio-ticker">
+							<div class="ticker-content">
+								<span id="radioDescription">This is Hip Hop radio. All songs produced &amp; composed by The Prophitt.</span>
+								<span id="radioDescriptionDupe">This is Hip Hop radio. All songs produced &amp; composed by The Prophitt.</span>
+							</div>
+						</div>
+					</div>
+					<div class="station-nav">
+						<button id="prevStationBtn" class="station-btn" type="button">⏮ Prev</button>
+						<button id="nextStationBtn" class="station-btn" type="button">Next ⏭</button>
+					</div>
+					<div class="music-controls">
+						<button id="playPauseBtn" class="control-btn" type="button">⏸</button>
+						<button id="volumeBtn" class="control-btn" type="button">🔊</button>
+						<input type="range" id="volumeSlider" min="0" max="100" value="50" class="volume-slider" aria-label="Volume">
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<main class="events-main">
+		<section class="events-hero">
+			<p class="events-kicker">SOURCE CODE VINTAGE / IRL SIGNALS</p>
+			<h1 class="POP">EvEnTs</h1>
+			<p class="events-intro">Find us out in the world. Dates, locations, and what we are bringing will land here first.</p>
+			<div class="events-tabs" aria-label="Event sections">
+				<a href="#upcoming">Upcoming</a>
+				<a href="#past">Past</a>
+			</div>
+		</section>
+
+		<section id="upcoming" class="events-section">
+			<div class="events-section-heading">
+				<p class="events-kicker">CONFIRMED / NEXT TRANSMISSIONS</p>
+				<h2 class="POP">UpCoMiNg</h2>
+			</div>
+			<div class="event-grid">
+				<article class="event-card event-card-with-flyer event-card-future">
+					<img class="event-flyer" src="imgs/posters_events/aug16.jpg" alt="The Lucky Flea event flyer">
+					<div class="event-card-content">
+						<p class="event-status">30 August 2026</p>
+						<h3>The Lucky Flea</h3>
+						<p class="event-location">Rochester, NY</p>
+						<p>Catch us at the Lucky Flea for our first official appearance at the Source Code Booth!</p>
+                        <p>We will be bringing our latest vintage graphic tee grails.</p>
+						<a class="event-link" href="contact.html">Get in touch</a>
+					</div>
+				</article>
+			</div>
+		</section>
+
+		<section id="past" class="events-section">
+			<div class="events-section-heading">
+				<p class="events-kicker">ARCHIVE / MEMORY</p>
+				<h2 class="POP">PaSt</h2>
+			</div>
+			<div class="event-grid">
+				<article class="event-card event-card-with-flyer event-card-future">
+					<img class="event-flyer" src="imgs/posters_events/aug16.jpg" alt="The Lucky Flea event flyer">
+					<div class="event-card-content">
+						<p class="event-status">16 August 2026</p>
+						<h3>The Lucky Flea</h3>
+						<p class="event-location">Rochester, NY</p>
+						<p>Our first time at the Lucky Flea. Shout out 
+                            <a class="link" href="https://www.instagram.com/shop.3c/">Cool, Calm, and Collected</a> for giving us a rack at your booth!
+                        </p>
+						<a class="event-link" href="contact.html">Get in touch</a>
+					</div>
+				</article>
+			</div>
+		</section>
+	</main>
+
+	<footer>
+		<p>Source Code Vintage / Binary Swag Club</p>
+	</footer>
+</body>
+</html>

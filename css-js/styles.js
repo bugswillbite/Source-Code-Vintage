@@ -133,6 +133,120 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     }
 
+    // ENLARGE SHIRT IMAGES
+    function setupShirtLightbox() {
+        const products = document.querySelectorAll('.product-container, .product-container1');
+        const lightbox = document.getElementById('shirtLightbox');
+        const lightboxImage = document.getElementById('shirtLightboxImage');
+        const closeButton = document.getElementById('closeShirtLightbox');
+        const previousButton = document.getElementById('previousShirtImage');
+        const nextButton = document.getElementById('nextShirtImage');
+
+        if (!products.length || !lightbox || !lightboxImage || !closeButton || !previousButton || !nextButton) return;
+
+        let lightboxImages = [];
+        let currentImageIndex = 0;
+        let touchStartX = 0;
+
+        function showLightboxImage() {
+            const image = lightboxImages[currentImageIndex];
+            if (!image) return;
+            lightboxImage.src = image.currentSrc || image.src;
+            lightboxImage.alt = image.alt || 'Enlarged shirt image';
+            previousButton.hidden = lightboxImages.length < 2;
+            nextButton.hidden = lightboxImages.length < 2;
+            previousButton.disabled = false;
+            nextButton.disabled = false;
+            previousButton.setAttribute('aria-label', 'Show previous shirt image');
+            nextButton.setAttribute('aria-label', 'Show next shirt image');
+        }
+
+        function openLightbox(card) {
+            lightboxImages = Array.from(card.querySelectorAll('.card-face img'));
+            if (!lightboxImages.length) {
+                const image = card.querySelector('img');
+                if (image) lightboxImages = [image];
+            }
+            currentImageIndex = 0;
+            showLightboxImage();
+            lightbox.classList.add('is-open');
+            lightbox.setAttribute('aria-hidden', 'false');
+            document.body.style.overflow = 'hidden';
+            closeButton.focus();
+        }
+
+        function closeLightbox() {
+            lightbox.classList.remove('is-open');
+            lightbox.setAttribute('aria-hidden', 'true');
+            lightboxImage.src = '';
+            lightboxImages = [];
+            document.body.style.overflow = '';
+        }
+
+        function showPreviousImage() {
+            if (lightboxImages.length < 2) return;
+            currentImageIndex = (currentImageIndex - 1 + lightboxImages.length) % lightboxImages.length;
+            showLightboxImage();
+        }
+
+        function showNextImage() {
+            if (lightboxImages.length < 2) return;
+            currentImageIndex = (currentImageIndex + 1) % lightboxImages.length;
+            showLightboxImage();
+        }
+
+        products.forEach(productContainer => {
+            productContainer.querySelectorAll('.product-card, .product-card1').forEach(card => {
+                const firstImage = card.querySelector('img');
+                if (!firstImage) return;
+
+                const expandButton = document.createElement('button');
+                expandButton.type = 'button';
+                expandButton.className = 'shirt-expand-button';
+                expandButton.setAttribute('aria-label', `Enlarge ${card.querySelector('h3')?.textContent.trim() || 'item'} image`);
+                expandButton.textContent = '↗';
+                expandButton.addEventListener('click', () => openLightbox(card));
+
+                const imageArea = card.querySelector('.contact-image-spacerT') || firstImage.parentElement;
+                imageArea.appendChild(expandButton);
+            });
+
+            productContainer.addEventListener('click', event => {
+                const image = event.target.closest('img');
+                const card = image ? image.closest('.product-card, .product-card1') : null;
+                if (card && window.matchMedia('(min-width: 821px)').matches) {
+                    openLightbox(card);
+                }
+            });
+        });
+
+        closeButton.addEventListener('click', closeLightbox);
+        previousButton.addEventListener('click', showPreviousImage);
+        nextButton.addEventListener('click', showNextImage);
+        lightbox.addEventListener('click', event => {
+            if (event.target === lightbox) closeLightbox();
+        });
+        lightbox.addEventListener('touchstart', event => {
+            touchStartX = event.changedTouches[0].screenX;
+        }, { passive: true });
+        lightbox.addEventListener('touchend', event => {
+            const touchEndX = event.changedTouches[0].screenX;
+            const swipeDistance = touchEndX - touchStartX;
+            if (Math.abs(swipeDistance) < 50) return;
+            if (swipeDistance < 0) showNextImage();
+            if (swipeDistance > 0) showPreviousImage();
+        }, { passive: true });
+        document.addEventListener('keydown', event => {
+            if (event.key === 'Escape' && lightbox.classList.contains('is-open')) {
+                closeLightbox();
+            } else if (event.key === 'ArrowLeft' && lightbox.classList.contains('is-open')) {
+                showPreviousImage();
+            } else if (event.key === 'ArrowRight' && lightbox.classList.contains('is-open')) {
+                showNextImage();
+            }
+        });
+    }
+
     // PARALLAX SCROLL EFFECTS FOR HEADER
     function setupHeaderParallax() {
         const subtitle = document.querySelector('.subTitle');
@@ -1062,6 +1176,7 @@ document.addEventListener("DOMContentLoaded", function () {
     observeElements();
     setupSmoothScroll();
     setupSwordPopup();
+    setupShirtLightbox();
     setupHeaderParallax();
     // Enable data-target based scrolling and make title images clickable
     function setupDataTargetScroll() {

@@ -202,12 +202,19 @@ document.addEventListener("DOMContentLoaded", function () {
 
                 const expandButton = document.createElement('button');
                 expandButton.type = 'button';
-                expandButton.className = 'shirt-expand-button';
+                expandButton.className = 'scv-item-image-expand';
                 expandButton.setAttribute('aria-label', `Enlarge ${card.querySelector('h3')?.textContent.trim() || 'item'} image`);
                 expandButton.textContent = '↗';
                 expandButton.addEventListener('click', () => openLightbox(card));
 
-                const imageArea = card.querySelector('.contact-image-spacerT') || firstImage.parentElement;
+                let imageArea = card.querySelector('.contact-image-spacerT');
+                if (!imageArea) {
+                    imageArea = document.createElement('div');
+                    imageArea.className = 'shirt-image-area shirt-standalone-image-area';
+                    firstImage.parentNode.insertBefore(imageArea, firstImage);
+                    imageArea.appendChild(firstImage);
+                }
+                imageArea.classList.add('shirt-image-area');
                 imageArea.appendChild(expandButton);
             });
 

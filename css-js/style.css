@@ -72,7 +72,7 @@
     display: block;
     }
     .titleImg2 {
-    width: 405px;
+    width: 390px;
     display: block;
     }
     .POP {
@@ -1353,7 +1353,7 @@ nav ul { position: relative; }
     line-height: 1;
 }
 
-.shirt-expand-button {
+.scv-item-image-expand {
     display: none;
 }
 
@@ -1481,7 +1481,8 @@ img.collection-detail-img {
     }
     h6.description
     {
-        font-size: 20px;
+        font-size: 15px;
+        margin: 20px 20px 0px 20px;
     }
     .container
     {
@@ -1658,6 +1659,14 @@ right: -67px;
         visibility: hidden !important;
     }
 }
+
+/* Mobile description sizing */
+@media (max-width: 820px) {
+    h6.description {
+        font-size: 20px;
+    }
+}
+
 /* Tablets */
 @media (min-width: 651px) and (max-width: 768px) {
     .title {
@@ -3920,12 +3929,13 @@ height: 8em;
         flex-direction: column !important;
         gap: 12px !important;
         align-items: stretch !important;
+        width: min(100%, 300px) !important;
     }
     .product-card,
     .product-card1,
     .product-card2 {
-        width: min(92%, 420px) !important;
-        max-width: 420px !important;
+        width: 92% !important;
+        max-width: 247px !important;
         flex: 0 0 auto !important;
         margin: 0 auto !important;
         box-sizing: border-box !important;
@@ -3956,23 +3966,33 @@ height: 8em;
         object-fit: cover !important;
     }
 
-    .shirt-expand-button {
+    .product-card .scv-item-image-expand,
+    .product-card1 .scv-item-image-expand {
+        position: absolute;
+        top: -77px;
+        right: 2px;
         display: flex;
         align-items: center;
         justify-content: center;
-        width: 36px;
-        height: 36px;
-        margin: 8px 0 0 auto;
-        border: 1px solid #00ff00;
-        border-radius: 3px;
+        width: 28px;
+        height: 28px;
+        margin: 0;
+        /* border: 1px solid #00ff00;
+        border-radius: 3px; */
         color: #00ff00;
         background: #090909;
         cursor: pointer;
-        font-size: 22px;
+        font-size: 17px;
         line-height: 1;
+        max-width: none;
+        padding: 0;
     }
 
-    .shirt-expand-button:focus-visible,
+    .shirt-image-area {
+        position: relative;
+    }
+
+    .scv-item-image-expand:focus-visible,
     .shirt-lightbox-close:focus-visible,
     .shirt-lightbox-nav:focus-visible {
         outline: 2px solid #ffffff;
@@ -3994,18 +4014,6 @@ height: 8em;
     }
 
     .shirt-lightbox-nav {
-        top: auto;
-        bottom: 8px;
-        width: 42px;
-        height: 42px;
-        transform: none;
-    }
-
-    .shirt-lightbox-prev {
-        left: 8px;
-    }
-
-    .shirt-lightbox-next {
-        right: 8px;
+        display: none;
     }
 }

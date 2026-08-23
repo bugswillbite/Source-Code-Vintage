@@ -1482,7 +1482,7 @@ img.collection-detail-img {
     h6.description
     {
         font-size: 15px;
-        margin: 20px 20px 0px 20px;
+        margin: 0px 30px;
     }
     .container
     {
@@ -1536,7 +1536,7 @@ right: -67px;
     
     nav ul {
         flex-direction: row;
-        gap: 5px;
+        gap: 4px;
         padding: 8px 0;
         align-items: center;
         justify-content: center;
@@ -1544,8 +1544,8 @@ right: -67px;
     }
     
     nav ul li a {
-        font-size: 12px;
-        padding: 4px 6px;
+        font-size: 10px;
+        padding: 4px 4px;
         white-space: nowrap;
         letter-spacing: -1px;
     }
